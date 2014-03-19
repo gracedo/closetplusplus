@@ -51,10 +51,19 @@ end
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'factory_girl_rails'
 end
 
+group :test do
+  gem 'faker'
+  gem 'capybara'
+  gem 'guard-rspec'
+  gem 'launchy'
+end
+
+gem 'annotate'
 gem 'bootstrap-sass'
-gem 'jquery-rails'
 gem 'backbone-on-rails'
 gem 'rake', '10.1.1'
 gem 'pry-rails'
+gem 'figaro'
