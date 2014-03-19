@@ -1,6 +1,6 @@
-class CreateClothingItems < ActiveRecord::Migration
+class CreateItems < ActiveRecord::Migration
   def change
-    create_table :clothing_items do |t|
+    create_table :items do |t|
       t.string :name, null: false, unique: true
       t.string :brand, null: false
       t.string :type, null: false
@@ -13,10 +13,10 @@ class CreateClothingItems < ActiveRecord::Migration
 
       t.timestamps
     end
-    
-    add_index :clothing_items, :name, unique: true
-    add_index :clothing_items, :type
-    add_index :clothing_items, :price
-    add_index :clothing_items, :rating
+  
+    add_index :items, :name, unique: true
+    add_index :items, :type
+    add_index :items, :price
+    add_index :items, :rating
   end
 end

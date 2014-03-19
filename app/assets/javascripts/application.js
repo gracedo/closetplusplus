@@ -12,9 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require serializeJSON
 //= require underscore
 //= require backbone
+//= require bootstrap
 //= require closet
 //= require_tree ../templates
 //= require_tree ./models
