@@ -11,8 +11,12 @@ class User < ActiveRecord::Base
   has_many :addresses,
            :primary_key => :id,
            :foreign_key => :user_id, 
-           :class_name => "Address"
-
+           :class_name => "Address",
+           :inverse_of => :user,
+           :dependent => :destroy
+           
+  accepts_nested_attributes_for :addresses, :allow_destroy => true
+           
   def self.generate_session_token
     SecureRandom.urlsafe_base64(16)
   end

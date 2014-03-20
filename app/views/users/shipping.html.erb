@@ -1,0 +1,25 @@
+<h1>Your Shipping Address</h1>
+
+<hr>
+
+<form action="<%= shipping_user_url(@user) %>" method="post" accept-charset="utf-8">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  
+  <!-- <input type="hidden" name="addresses[1][user_id]" value="<%= @user.id %>"> -->
+
+  <input type="text" name="addresses[1][name]" value="<%= @addresses[1].name %>" placeholder="Name">
+  
+  <input type="text" name="addresses[1][line1]" value="<%= @addresses[1].line1 %>" placeholder="Street address">
+  
+  <input type="text" name="addresses[1][line2]" value="<%= @addresses[1].line2 %>" placeholder="Address line 2">
+  
+  <input type="text" name="addresses[1][city]" value="<%= @addresses[1].city %>" placeholder="City">
+  
+  <input type="text" name="addresses[1][state]" value="<%= @addresses[1].state %>" placeholder="State">
+  
+  <input type="text" name="addresses[1][zipcode]" value="<%= @addresses[1].zipcode %>" placeholder="Zip code">
+  
+  <input type="text" name="addresses[1][country]" value="<%= @addresses[1].country %>" placeholder="Country">
+
+  <p><input type="submit" value="Update"></p>
+</form>

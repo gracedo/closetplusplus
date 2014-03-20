@@ -4,5 +4,6 @@ class Address < ActiveRecord::Base
   belongs_to :user,
              :primary_key => :id,
              :foreign_key => :user_id, 
-             :class_name => "User"
+             :class_name => "User",
+             :inverse_of => :addresses
 end
