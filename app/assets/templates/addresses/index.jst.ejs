@@ -1,0 +1,19 @@
+<h3>Your Shipping Information</h3>
+
+<!-- List addresses here -->
+<!-- Perhaps make this into editable form for address? -->
+<div class="addresses">
+  <ul>
+    <% addresses.each(function(address) { %>
+      <li><%= address.escape("name") %></li>
+      <li><%= address.escape("line1") %></li>
+      <% if(address.escape("line2")) { %>
+        <li><%= address.escape("line2") %></li>
+      <% } %>
+      <li><%= address.escape("city") %></li>
+      <li><%= address.escape("state") %></li>
+      <li><%= address.escape("zipcode") %></li>
+      <li><%= address.escape("country") %></li>
+    <% }) %>
+  </ul>
+</div>
