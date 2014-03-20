@@ -20,7 +20,6 @@ class User < ActiveRecord::Base
            :inverse_of => :user,
            :dependent => :destroy
            
-  accepts_nested_attributes_for :addresses, :allow_destroy => true
            
   # def self.generate_session_token
   #   SecureRandom.urlsafe_base64(16)

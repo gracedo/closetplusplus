@@ -4,7 +4,7 @@ Closet::Application.routes.draw do
   devise_for :users
 
   resources :users, only: [:show, :shipping] do
-    get "shipping", on: :member
+    resources :addresses
   end
   
   # resource :session, only: [:new, :create, :destroy]

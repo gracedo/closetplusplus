@@ -49,28 +49,8 @@ class UsersController < ApplicationController
   #   end
   # end
   
-  def shipping
-    @user = User.find(params[:id])
-    # addresses in params not showing up?
-    @user.addresses.new(address_params)
-    
-    if @user.save
-      redirect_to user_url(@user)
-    else
-      flash.now[:errors] = @user.errors.full_messages
-      render :shipping
-    end
-  end
-  
   private
   def user_params
     params.require(:user).permit(:email, :fname, :lname, :password, :session_token)
-  end
-  
-  def address_params
-    params.permit(addresses: [:name, :line1, :line2, :city, :state, :zipcode, :country])
-          .require(:addresses)
-          .values
-          .reject { |data| data.values.all?(&:blank?) }
   end
 end
