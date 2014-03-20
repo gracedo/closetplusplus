@@ -1,11 +1,13 @@
 Closet::Application.routes.draw do
   root to: "static_pages#root"
+  # get "users/:id/shipping", to: "users#shipping"
+  devise_for :users
 
-  resources :users, only: [:new, :create, :destroy, :show, :edit, :update] do
+  resources :users, only: [:show, :shipping] do
     get "shipping", on: :member
   end
   
-  resource :session, only: [:new, :create, :destroy]
+  # resource :session, only: [:new, :create, :destroy]
   
   namespace :api, defaults: { format: :json } do
     resources :items, only: [:create, :index, :show]

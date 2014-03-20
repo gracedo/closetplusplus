@@ -22,7 +22,7 @@
           <button type="submit" class="btn btn-default">Submit</button>
         </form>
         
-        <% if signed_in? %>
+        <% if user_signed_in? %>
           <ul class="nav nav-pills navbar-right">
             <li><a href="#">Link</a></li>
             <li class="dropdown">
@@ -30,19 +30,19 @@
               <ul class="dropdown-menu">
                 <center><li role="presentation" class="dropdown-header"><%= current_user.fname %> <%= current_user.lname %></li></center>
                 <li class="divider" role="presentation"></li>
-                <li><a href="<%= edit_user_url(current_user) %>">Account Information</a></li>
-                <li><a href="<%= shipping_user_url %>">Shipping Info</a></li>
+                <li><a href="<%= user_url(current_user) %>">Account Information</a></li>
+                <li><a href="<%= shipping_user_url(current_user) %>">Shipping Info</a></li>
                 <li><a href="#">Billing Info</a></li>
                 <li><a href="#">Billing History</a></li>
                 <li class="divider"></li>
-                <li><%= link_to "Log Out", session_url, method: :delete %></li>
+                <li><%= link_to "Log Out", destroy_user_session_url, method: :delete %></li>
               </ul>
             </li>
           </ul>
         <% else %>
           <ul class="nav nav-pills navbar-right">
-            <li><a href="<%= new_session_url %>">Log In</a></li>
-            <li><a href="<%= new_user_url %>">Sign Up</a></li>
+            <li><a href="<%= new_user_session_url %>">Log In</a></li>
+            <li><a href="<%= new_user_registration_url %>">Sign Up</a></li>
           </ul>
         <% end %>
         
@@ -58,9 +58,7 @@
       <% end %>
     <% end %>
     <% if flash[:notice] %>
-      <% flash[:notice].each do |error| %>
-      <div class='alert alert-success'><%= error %></div>
-      <% end %>
+      <div class='alert alert-success'><%= flash[:notice] %></div>
     <% end %>
 
 
