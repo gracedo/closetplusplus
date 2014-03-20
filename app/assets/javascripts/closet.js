@@ -6,7 +6,9 @@ window.Closet = {
   initialize: function() {
     Closet.Models.user.fetch({
       success: function() {
-        new Closet.Routers.Router();
+        new Closet.Routers.Router({
+          model: Closet.Models.user
+        });
         Backbone.history.start();
       }
     })

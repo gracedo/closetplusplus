@@ -1,0 +1,28 @@
+<h2>Account Information</h2>
+
+<!-- List user information here -->
+<div class="account-info">
+  <%= user.email %>
+</div>
+
+<!-- List addresses here -->
+<!-- Perhaps make this into editable form for address? -->
+<div class="addresses">
+  <h3>Your Shipping Information</h3>
+  <ul>
+    <% addresses.each(function(address) { %>
+      <li><%= address.get("name") %></li>
+      <li><%= address.get("line1") %></li>
+      <% if(address.get("line2")) { %>
+        <li><%= address.get("line2") %></li>
+      <% } %>
+      <li><%= address.get("city") %></li>
+      <li><%= address.get("state") %></li>
+      <li><%= address.get("zipcode") %></li>
+      <li><%= address.get("country") %></li>
+    <% }) %>
+  </ul>
+</div>
+
+<!-- Link to edit/update user info -->
+<a href="/users/edit"></a>
