@@ -1,0 +1,1 @@
+json.(address, :id, :name, :line1, :line2, :city, :state, :zipcode, :country, :created_at, :updated_at)

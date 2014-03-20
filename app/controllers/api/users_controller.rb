@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class Api::UsersController < ApplicationController
   # before_action :user_is_logged_in, only: [:new, :create]
   before_filter :authenticate_user!
   
@@ -19,10 +19,10 @@ class UsersController < ApplicationController
   #   end
   # end
   # 
-  # def show
-  #   @user = current_user
-  #   render :show
-  # end
+  def show
+    @user = current_user
+    # render json: @user
+  end
   # 
   # def edit
   #   @user = User.find(params[:id])

@@ -1,4 +1,10 @@
-class AddressesController < ApplicationController
+class Api::AddressesController < ApplicationController
+  def index
+    @user = current_user
+    @addresses = @user.addresses
+    render json: @addresses
+  end
+  
   def new
     @user = current_user
   end
@@ -8,16 +14,16 @@ class AddressesController < ApplicationController
     @user.addresses.new(address_params)
     
     if @user.save
-      redirect_to user_url(@user)
+      render json: @user
     else
-      flash.now[:errors] = @user.errors.full_messages
-      render :new
+      render json: { errors: @user.errors.full_messages }, status: 422
     end
   end
   
   def show
     @user = current_user
-    render :show
+    @addresses = @user.addresses
+    render json: @addresses
   end
   
   def edit
@@ -28,10 +34,9 @@ class AddressesController < ApplicationController
     @user = current_user
     
     if @user.update_attributes(address_params)
-      redirect_to user_address_url(@user)
+      render json: @user
     else
-      flash.now[:errors] = @user.errors.full_messages
-      render :edit
+      render json: { errors: @user.errors.full_messages }, status: 422
     end
   end
   
@@ -40,7 +45,7 @@ class AddressesController < ApplicationController
     
     if @user.addresses
       @user.addresses.destroy
-      redirect_to root_url
+      render json: nil
     end
   end
   
