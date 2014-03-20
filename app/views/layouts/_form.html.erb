@@ -1,0 +1,41 @@
+<% if action == :new %>
+	<% action_url = users_url %>
+	<% button_text = "Create an account" %>
+<% elsif action == :update %>
+	<% action_url = user_url(@user) %>
+	<% button_text = "Update information" %>
+<% end %>
+
+<br>
+
+<form action="<%= action_url %>" method="post" accept-charset="utf-8">
+  
+	<% if action == :update %>
+		<input type ="hidden" name="_method" value="put" />
+	<% end %>
+  
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  
+  <div class="form-group">
+    <label for="first_name">First Name</label>
+    <input type="text" name="user[fname]" value="<%= @user.fname %>" id="first_name">
+  </div>
+  
+  <div class="form-group">
+    <label for="last_name">Last Name</label>
+    <input type="text" name="user[lname]" value="<%= @user.lname %>" id="last_name">
+  </div>
+  
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="text" name="user[email]" value="<%= @user.email %>" id="email">
+  </div>
+  
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" name="user[password]" value="" id="password">
+  </div>
+
+  <!-- <p><input type="submit" value="Create an account"></p> -->
+  <p><button type="submit" class="btn btn-default"><%= button_text %></button></p>
+</form>
