@@ -1,7 +1,7 @@
 Closet.Routers.Router = Backbone.Router.extend({
   routes: {
     "": "userShow",
-    // "addresses": "addressesForm"
+    "items": "itemsIndex"
   },
   
   initialize: function(options) {
@@ -17,6 +17,10 @@ Closet.Routers.Router = Backbone.Router.extend({
     Closet.Models.user.fetch();
     this._swapView(userShowView);
   },
+  
+  itemsIndex: function() {
+    
+  }
   
   // addressesForm: function() {
 //     var addressesFormView = new Closet.Views.AddressesForm({
