@@ -3,10 +3,7 @@ Closet::Application.routes.draw do
   devise_for :users
 
   namespace :api, defaults: { format: :json } do
-    resource :user, only: [:show] do
-      resources :addresses
-    end
-    
+    resource :user, only: [:show]
     resources :items, only: [:create, :index, :show]
   end
 end

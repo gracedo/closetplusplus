@@ -7,19 +7,19 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
          
   validates :email, :fname, :lname, presence: true
+  # validates :shipto_name, :line1, :city, :state, :zipcode, :country, presence: true
   validates :email, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
   validates_format_of :email, with: /.+@.+\..+/i
   # before_validation :ensure_session_token
   attr_reader :password
   
-  has_many :addresses,
-           :primary_key => :id,
-           :foreign_key => :user_id, 
-           :class_name => "Address",
-           :inverse_of => :user,
-           :dependent => :destroy
-           
+  # has_many :addresses,
+  #          :primary_key => :id,
+  #          :foreign_key => :user_id, 
+  #          :class_name => "Address",
+  #          :inverse_of => :user,
+  #          :dependent => :destroy
            
   # def self.generate_session_token
   #   SecureRandom.urlsafe_base64(16)
