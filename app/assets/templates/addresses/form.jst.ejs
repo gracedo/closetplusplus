@@ -1,0 +1,48 @@
+<h3>Update Your Shipping Information</h3>
+
+<!-- Perhaps make this into editable form for address? -->
+
+
+<form role="form">
+  <% addresses.each(function(address) { %>
+    <div class="form-group">
+
+      <input type="hidden" name="addresses[0][id]" value="<%= address.id %>"><br>
+      
+      <label for="name">Name</label>
+      <input type="text" name="addresses[0][name]" value="<%= address.escape("name") %>"><br>
+    </div>
+
+  <div class="form-group">
+    <label for="name">Address Line 1</label>
+    <input type="text" name="addresses[0][line1]" value="<%= address.escape("line1") %>"><br>
+    </div>
+
+  <div class="form-group">
+    <label for="name">Address Line 2</label>
+    <input type="text" name="addresses[0][line2]" value="<%= address.escape("line2") %>"><br>
+    </div>
+
+  <div class="form-group">
+    <label for="name">City</label>
+    <input type="text" name="addresses[0][city]" value="<%= address.escape("city") %>"><br>
+    </div>
+
+  <div class="form-group">
+    <label for="name">State</label>
+    <input type="text" name="addresses[0][state]" value="<%= address.escape("state") %>"><br>
+    </div>
+
+  <div class="form-group">
+    <label for="name">Zip Code</label>
+    <input type="text" name="addresses[0][zipcode]" value="<%= address.escape("zipcode") %>"><br>
+    </div>
+
+  <div class="form-group">
+    <label for="name">Country</label>
+    <input type="text" name="addresses[0][country]" value="<%= address.escape("country") %>"><br>
+    </div>
+
+    <button type="submit" class="update-address btn btn-default">Update</button>
+  <% }) %>
+</form>

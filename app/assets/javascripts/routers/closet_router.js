@@ -1,12 +1,12 @@
 Closet.Routers.Router = Backbone.Router.extend({
   routes: {
     "": "userShow",
-    "/addresses": "addressShow",
-    "/addresses/:id/edit": "addressEdit"
+    "addresses": "addressesForm"
   },
   
   initialize: function(options) {
     this.model = options.model;
+    this.addresses = this.model.addresses();
   },
   
   userShow: function() {
@@ -18,12 +18,12 @@ Closet.Routers.Router = Backbone.Router.extend({
     this._swapView(userShowView);
   },
   
-  addressShow: function() {
+  addressesForm: function() {
+    var addressesFormView = new Closet.Views.AddressesForm({
+      model: this.model
+    });
     
-  },
-  
-  addressEdit: function() {
-    
+    this._swapView(addressesFormView)
   },
   
   _swapView: function(view) {
@@ -32,6 +32,6 @@ Closet.Routers.Router = Backbone.Router.extend({
     }
     
     this.currentView = view;
-    $('.container').append(view.render().$el)
+    $('.container').html(view.render().$el)
   }
 });
