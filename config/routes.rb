@@ -4,6 +4,6 @@ Closet::Application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     resource :user, only: [:show]
-    resources :items, only: [:create, :index, :show]
+    resources :items, only: [:create, :index, :show, :edit, :update]
   end
 end

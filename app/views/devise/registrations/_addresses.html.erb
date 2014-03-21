@@ -1,0 +1,33 @@
+<h3>Your Shipping Address</h3>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  
+  <div><%= f.label "Name" %><br />
+  <%= f.text_field :shipto_name %></div>
+  
+  <div><%= f.label "Street Address" %><br />
+  <%= f.text_field :line1 %></div>
+
+  <div><%= f.label "Address Line 2" %><br />
+  <%= f.text_field :line2 %></div>
+  
+  <div><%= f.label "City" %><br />
+  <%= f.text_field :city %></div>
+  
+  <div><%= f.label "State" %><br />
+  <%= f.text_field :state %></div>
+  
+  <div><%= f.label "Zip code" %><br />
+  <%= f.text_field :zipcode %></div>
+  
+  <div><%= f.label "Country" %><br />
+  <%= f.text_field :country %></div>
+  
+  <br>
+
+  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.password_field :current_password, autocomplete: "off" %></div>
+    
+  <br>
+  <div><%= f.submit "Update" %></div>
+<% end %>

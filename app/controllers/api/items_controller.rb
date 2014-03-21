@@ -24,6 +24,20 @@ class Api::ItemsController < ApplicationController
     render json: @item
   end
   
+  def edit
+    @item = Item.find(params[:id])
+    render json: @item
+  end
+  
+  def update
+    @item = Item.find(params[:id])
+    
+    if @item.updateAttributes(item_params)
+      render json: @item
+    else
+      render json: @item.errors, status: 422
+  end
+  
   private
   def item_params
     params.require(:item).permit(:name, :brand, :type, :intro, :details, :wear_it_with, :price, :in_stock, :rating)

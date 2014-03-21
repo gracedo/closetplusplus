@@ -11,6 +11,13 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) << :lname
     devise_parameter_sanitizer.for(:account_update) << :fname
     devise_parameter_sanitizer.for(:account_update) << :lname
+    devise_parameter_sanitizer.for(:account_update) << :shipto_name
+    devise_parameter_sanitizer.for(:account_update) << :line1
+    devise_parameter_sanitizer.for(:account_update) << :line2
+    devise_parameter_sanitizer.for(:account_update) << :city
+    devise_parameter_sanitizer.for(:account_update) << :state
+    devise_parameter_sanitizer.for(:account_update) << :zipcode
+    devise_parameter_sanitizer.for(:account_update) << :country
   end
   
   # helper_method :current_user, :signed_in?

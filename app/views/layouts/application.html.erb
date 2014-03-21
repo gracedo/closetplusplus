@@ -31,7 +31,7 @@
                 <center><li role="presentation" class="dropdown-header"><%= current_user.fname %> <%= current_user.lname %></li></center>
                 <li class="divider" role="presentation"></li>
                 <li><a href="/users/edit">Account Information</a></li>
-                <li><a href="/#/addresses">Shipping Info</a></li>
+                <!-- <li><a href="/#/addresses">Shipping Info</a></li> -->
                 <li><a href="#">Billing Info</a></li>
                 <li><a href="#">Billing History</a></li>
                 <li class="divider"></li>
@@ -50,8 +50,6 @@
     </div>
   </nav>
 
-  <div class='container'>
-
     <% if flash[:errors] %>
       <% flash[:errors].each do |error| %>
       <div class='alert alert-danger'><%= error %></div>
@@ -62,6 +60,7 @@
     <% end %>
 
 
+  <div class='container'>
     <%= yield %>
 
   </div>
