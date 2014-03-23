@@ -1,0 +1,36 @@
+<div class="item-block">
+  <!-- picture left aligned, name on right? -->
+  <h4>
+    <a href="<%# "THIS IS A LINK TO MODAL" %>"><%= item.escape("name") %></a>
+  </h4>
+</div>
+
+
+<!-- MODAL STUFF -->
+<h3><%= item.escape("name") %></h3>
+<hr>
+<ul>
+  <li>User rating: <%= item.escape("rating") %></li>
+</ul>
+
+
+<p>Brand: <%= item.escape("brand") %></p>
+
+<ul>
+  <li><%= item.escape("intro") %></li>
+</ul>
+
+<p>Details</p>
+
+<ul>
+  <li><%= item.escape("details") %></li>
+</ul>
+
+<p>Wear it with...</p>
+<ul>
+  <li><%= item.escape("wear_it_with") %></li>
+</ul>
+
+<% if(!item.escape("in_stock")) { %>
+  <p>Sorry, this item is out of stock.</p>
+<% } %>

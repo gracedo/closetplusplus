@@ -30,6 +30,14 @@ Closet.Routers.Router = Backbone.Router.extend({
     this._swapView(itemsIndexView);
   },
   
+  itemEdit: function() {
+    
+  },
+  
+  itemShow: function() {
+    
+  },
+  
   // addressesForm: function() {
 //     var addressesFormView = new Closet.Views.AddressesForm({
 //       model: this.model
