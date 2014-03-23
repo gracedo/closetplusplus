@@ -1,0 +1,14 @@
+<h1>Clothing Items</h1>
+
+<% items.each(function(item) { %>
+  <a href="<%= "/#/items/" + item.id %>"><%= item.escape(name) %></a>
+  <ul>
+    <li>Rating: <%= item.escape("rating") %></li>
+    <li><%= item.escape("intro") %></li>
+    <li><%= item.escape("details") %></li>
+    <li><%= item.escape("wear_it_with") %></li>
+    <% if(!item.escape("in_stock")) %>
+      <li>:( No longer in stock.</li>
+    <% end %>
+  </ul>
+<% }) %>

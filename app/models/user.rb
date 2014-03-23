@@ -14,6 +14,11 @@ class User < ActiveRecord::Base
   # before_validation :ensure_session_token
   attr_reader :password
   
+  has_many :orders,
+           :primary_key => :id,
+           :foreign_key => :buyer_id,
+           :class_name => "Order"
+           
   # has_many :addresses,
   #          :primary_key => :id,
   #          :foreign_key => :user_id, 

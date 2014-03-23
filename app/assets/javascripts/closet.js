@@ -9,6 +9,7 @@ window.Closet = {
         new Closet.Routers.Router({
           model: Closet.Models.user
         });
+        //fetch Closet.Collections.items?
         Backbone.history.start();
       }
     })
