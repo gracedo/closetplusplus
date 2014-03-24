@@ -12,6 +12,9 @@
 <hr>
 <ul>
   <li>User rating: <%= item.escape("rating") %></li>
+  <% if(item.orders().length > 0) { %>
+    <li>Number of user purchases: <%= iteam.orders().length %></li>
+  <% } %>
 </ul>
 
 
