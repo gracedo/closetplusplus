@@ -13,7 +13,8 @@ Closet.Views.ItemShow = Backbone.View.extend({
   
   render: function() {
     var renderedContent = this.template({
-      item: this.model
+      item: this.model,
+      order: null
     });
     
     this.$el.html(renderedContent);
@@ -22,13 +23,13 @@ Closet.Views.ItemShow = Backbone.View.extend({
   
   addEditForm: function(event) {
     event.preventDefault();
-    $(event.target.parentElement).addClass("hidden");
-    
+    // $(event.target.parentElement).addClass("hidden");
     var itemFormView = new Closet.Views.ItemForm({
-      item: this.model,
+      model: this.model,
       collection: this.items,
       action: "edit"
     });
+    
     $('.edit-item-form#'+this.model.id).html(itemFormView.render().$el);
   }
 });

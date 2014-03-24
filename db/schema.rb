@@ -11,20 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140322182711) do
+ActiveRecord::Schema.define(version: 20140324190625) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "items", force: true do |t|
-    t.string   "name",                        null: false
-    t.string   "brand",                       null: false
-    t.string   "item_type",                   null: false
-    t.text     "intro",                       null: false
-    t.text     "details",                     null: false
+    t.string   "name",                          null: false
+    t.string   "brand",                         null: false
+    t.string   "item_type",                     null: false
+    t.text     "intro",                         null: false
+    t.text     "details",                       null: false
     t.text     "wear_it_with"
-    t.string   "price",                       null: false
-    t.boolean  "in_stock",     default: true, null: false
+    t.string   "price",                         null: false
+    t.string   "in_stock",     default: "true", null: false
     t.float    "rating"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -32,7 +32,7 @@ class Api::ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     
-    if @item.updateAttributes(item_params)
+    if @item.update_attributes(item_params)
       render json: @item
     else
       render json: @item.errors, status: 422

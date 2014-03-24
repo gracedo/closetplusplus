@@ -1,35 +1,46 @@
 <form role="form">
-  <div class="form-group item-form">
+  <h2>Edit Item Details</h2>
+  
+  <div class="item-form form-group">
     
     <!-- Upload photo! -->
   
-    <input type="text" name="item[name]" class="form-control" id="name" value="<%= item.escape("name") %>" placeholder="Name" autofocus="autofocus">
-    <input type="text" name="item[brand]" class="form-control" id="brand" value="<%= item.escape("brand") %>" placeholder="Brand">
+    <label>Name</label>
+    <input type="text" name="item[name]" class="form-control" id="name" value="<%= item.escape("name") %>" placeholder="Name" autofocus="autofocus"><br>
+    
+    <label>Brand</label>
+    <input type="text" name="item[brand]" class="form-control" id="brand" value="<%= item.escape("brand") %>" placeholder="Brand"><br>
     
     <!-- radio selection here -->
-    <div class="form-group">
-      <input type="radio" name="item[item_type]" class="form-control" id="name" value="jeans">Jeans<br>
-      <input type="radio" name="item[item_type]" class="form-control" id="name" value="pants">Pants<br>
-      <input type="radio" name="item[item_type]" class="form-control" id="name" value="shorts">Shorts<br>
-      <input type="radio" name="item[item_type]" class="form-control" id="name" value="long-sleeves">Long-sleeves<br>
-      <input type="radio" name="item[item_type]" class="form-control" id="name" value="polos-tshirts">Polos and t-shirts<br>
-      <input type="radio" name="item[item_type]" class="form-control" id="name" value="short-sleeves">Short-sleeves<br>
-      <input type="radio" name="item[item_type]" class="form-control" id="name" value="sweaters-vests">Sweaters and vests<br>
-      <input type="radio" name="item[item_type]" class="form-control" id="name" value="jackets-blazers">Jackets and blazers<br>
-      <input type="radio" name="item[item_type]" class="form-control" id="name" value="ties-belts">Ties and belts<br>
-  </div>
-
-    <div class="form-group">
-      <input type="text" name="item[intro]" class="form-control" id="intro" value="<%= item.escape("intro") %>" placeholder="Intro">
-      <input type="text" name="item[details]" class="form-control" id="details" value="<%= item.escape("details") %>" placeholder="Details">
-      <input type="text" name="item[wear_it_with]" class="form-control" id="wear_it_with" value="<%= item.escape("wear_it_with") %>" placeholder="Wear it with...">
-      <input type="number" step="0.01" min="0" name="item[price]" class="form-control" id="price" value="<%= item.escape("price") %>" placeholder="Price">
+    <strong>Clothing Type</strong>
+    <div class="radio">
+      <label><input type="radio" name="item[item_type]" id="jeans" value="jeans">Jeans</label><br>
+      <input type="radio" name="item[item_type]" id="pants" value="pants">Pants<br>
+      <input type="radio" name="item[item_type]" id="shorts" value="shorts">Shorts<br>
+      <input type="radio" name="item[item_type]" id="long-sleeves" value="long-sleeves">Long-sleeves<br>
+      <input type="radio" name="item[item_type]" id="polos-tshirts" value="polos-tshirts">Polos and t-shirts<br>
+      <input type="radio" name="item[item_type]" id="short-sleeves" value="short-sleeves">Short-sleeves<br>
+      <input type="radio" name="item[item_type]" id="sweaters-vests" value="sweaters-vests">Sweaters and vests<br>
+      <input type="radio" name="item[item_type]" id="jackets-blazers" value="jackets-blazers">Jackets and blazers<br>
+      <input type="radio" name="item[item_type]" id="ties-belts" value="ties-belts">Ties and belts<br>
     </div>
 
     <div class="form-group">
+      <label for="price">Intro</label>
+      <textarea class="form-control" rows="3" name="item[intro]" class="form-control" id="intro" value="<%= item.escape("intro") %>" placeholder="Intro"><%= item.escape("intro") %></textarea><br>
+      <label for="price">Details</label>
+      <textarea class="form-control" rows="3" name="item[details]" class="form-control" id="details" value="<%= item.escape("details") %>" placeholder="Details"><%= item.escape("details") %></textarea><br>
+      <label for="price">Wear it with...</label>
+      <textarea class="form-control" rows="3" name="item[wear_it_with]" class="form-control" id="wear_it_with" value="<%= item.escape("wear_it_with") %>" placeholder="Wear it with..."><%= item.escape("wear_it_with") %></textarea><br>
+      <label for="price">Price $</label>
+      <input type="number" step="0.01" min="0" name="item[price]" class="form-control" id="price" value="<%= item.escape("price") %>" placeholder="Price">
+    </div>
+
+   <strong>In Stock?</strong>
+    <div class="radio">
       <!-- In stock radio, default to true -->
-      <input type="radio" name="item[in_stock]" class="form-control" id="in_stock" value="<%= true %>" checked>Yes<br>
-      <input type="radio" name="item[in_stock]" class="form-control" id="in_stock" value="<%= false %>">No
+      <label><input type="radio" name="item[in_stock]" id="in_stock" value="true">Yes</label><br>
+      <label><input type="radio" name="item[in_stock]" id="in_stock" value="false">No</label>
     </div>
   
   </div>

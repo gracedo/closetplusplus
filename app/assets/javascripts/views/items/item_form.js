@@ -14,7 +14,8 @@ Closet.Views.ItemForm = Backbone.View.extend({
   
   render: function() {
     var renderedContent = this.template({
-      item: this.model
+      item: this.model,
+      action: this.action
     });
     
     this.$el.html(renderedContent);

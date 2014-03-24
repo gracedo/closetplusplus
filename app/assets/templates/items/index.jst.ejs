@@ -7,9 +7,9 @@
     <li><%= item.escape("intro") %></li>
     <li><%= item.escape("details") %></li>
     <li><%= item.escape("wear_it_with") %></li>
-    <% if(!item.escape("in_stock")) %>
+    <% if(!item.escape("in_stock")) { %>
       <li>:( No longer in stock.</li>
-    <% end %>
+    <% } %>
   </ul>
 <% }) %> -->
 

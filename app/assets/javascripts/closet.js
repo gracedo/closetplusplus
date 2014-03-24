@@ -10,6 +10,7 @@ window.Closet = {
           model: Closet.Models.user
         });
         //fetch Closet.Collections.items?
+        Closet.Collections.items.fetch();
         Backbone.history.start();
       }
     })

@@ -1,5 +1,5 @@
 <div class="item-block">
-  <!-- picture left aligned, name on right? -->
+  <!-- picture bottom aligned, name on top? -->
   <h4>
     <a href="#"><%= item.escape("name") %></a>
     <!-- above is link to modal -->
@@ -11,7 +11,11 @@
 <h3><%= item.escape("name") %></h3>
 <hr>
 <ul>
-  <li>User rating: <%= item.escape("rating") %></li>
+
+  <% if(item.escape("rating")) { %>
+    <li>User rating: <%= item.escape("rating") %></li>
+  <% } %>
+  
   <% if(item.orders().length > 0) { %>
     <li>Number of user purchases: <%= iteam.orders().length %></li>
   <% } %>
@@ -26,19 +30,19 @@
   </ul>
 <% } %>
 
-<p>Brand: <%= item.escape("brand") %></p>
+<p><h3><strong>Brand:</strong> <%= item.escape("brand") %></h3></p>
 
 <ul>
   <li><%= item.escape("intro") %></li>
 </ul>
 
-<p>Details</p>
+<p><h3>Details</h3></p>
 
 <ul>
   <li><%= item.escape("details") %></li>
 </ul>
 
-<p>Wear it with...</p>
+<p><h3>Wear it with...</h3></p>
 <ul>
   <li><%= item.escape("wear_it_with") %></li>
 </ul>

@@ -1,6 +1,4 @@
 Closet.Models.Item = Backbone.Model.extend({
-  // urlRoot: "api/items"
-  
   parse: function(jsonResponse){
     if (jsonResponse.orders){
       this.orders().set(jsonResponse.orders, { parse: true });
