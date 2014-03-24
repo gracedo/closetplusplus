@@ -4,7 +4,8 @@ Closet.Views.ItemsIndex = Backbone.CompositeView.extend({
   initialize: function(options) {
     this.items = options.collection;
     this.listenTo(this.items, "sync", this.render);
-    this.listenTo(this.items, "add", this.addItem)
+    this.listenTo(this.items, "add", this.addItem);
+    this.listenTo(this.items, "remove change sync", this.render)
     
     this.items.each(
       this.addItem.bind(this)

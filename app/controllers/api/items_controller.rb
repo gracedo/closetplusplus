@@ -39,6 +39,12 @@ class Api::ItemsController < ApplicationController
     end
   end
   
+  def destroy
+    @item = Item.find(params[:id])
+    @item.destroy
+    render json: nil
+  end
+  
   private
   def item_params
     params.require(:item).permit(:name, :brand, :type, :intro, :details, :wear_it_with, :price, :in_stock, :rating)

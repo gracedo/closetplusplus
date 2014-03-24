@@ -2,8 +2,7 @@ Closet.Routers.Router = Backbone.Router.extend({
   routes: {
     "": "userShow",
     "items": "itemsIndex",
-    "items/:id/edit": "itemEdit",
-    "items/:id": "itemShow"
+    "items/new": "itemsNew"
   },
   
   initialize: function(options) {
@@ -26,17 +25,27 @@ Closet.Routers.Router = Backbone.Router.extend({
       collection: this.items
     });
     
-    Closet.Collections.items.fetch();
+    // Closet.Collections.items.fetch();
+    this.items.fetch();
     this._swapView(itemsIndexView);
   },
   
-  itemEdit: function() {
+  itemsNew: function() {
+    var itemFormView = new Closet.Views.ItemForm({
+      model: new Closet.Models.Item()
+    })
     
+    this._swapView(itemFormView);
   },
-  
-  itemShow: function() {
-    
-  },
+//   
+//   itemEdit: function(id) {
+//     var itemFormView = new Closet.Views.ItemForm({
+//       model: this.items.get(id)
+//     })
+//     
+//     this.items.fetch();
+//     this._swapView(itemFormView);
+//   },
   
   // addressesForm: function() {
 //     var addressesFormView = new Closet.Views.AddressesForm({

@@ -1,0 +1,25 @@
+<form role="form">
+  <div class="form-group item-form">
+  
+    <input type="text" name="item[name]" class="form-control" id="name" value="<%= item.escape("name") %>" placeholder="Name" autofocus="autofocus">
+    <input type="text" name="item[brand]" class="form-control" id="brand" value="<%= item.escape("brand") %>" placeholder="Brand">
+    
+    <!-- radio selection here -->
+    <input type="text" name="item[name]" class="form-control" id="name" value="<%= item.escape("name") %>" placeholder="Clothing Type">
+    
+    <input type="text" name="item[intro]" class="form-control" id="intro" value="<%= item.escape("intro") %>" placeholder="Intro">
+    <input type="text" name="item[details]" class="form-control" id="details" value="<%= item.escape("details") %>" placeholder="Details">
+    <input type="text" name="item[wear_it_with]" class="form-control" id="wear_it_with" value="<%= item.escape("wear_it_with") %>" placeholder="Wear it with...">
+    <input type="number" step="0.01" min="0" name="item[price]" class="form-control" id="price" value="<%= item.escape("price") %>" placeholder="Price">
+    
+    <!-- In stock radio, default to true -->
+    <input type="text" name="item[brand]" class="form-control" id="brand" value="<%= item.escape("brand") %>" placeholder="Brand">
+  </div>
+
+  <% if(action === "edit") { %>
+    <button type="submit" class="edit-item btn btn-default">Update</button>
+  <% } else { %>
+    <button type="submit" class="new-item btn btn-default">Create</button>
+  <% } %>
+  
+</form>
