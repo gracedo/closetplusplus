@@ -17,6 +17,14 @@
   <% } %>
 </ul>
 
+<% if(order) { %>
+  <p>Your Order Details:</p>
+  <ul>
+    <li>Shipping date: <%= order.escape("ship_date") %></li>
+    <li>Size: <%= order.escape("size") %></li>
+    <li>Order placed: <%= order.escape("created_at") %></li>
+  </ul>
+<% } %>
 
 <p>Brand: <%= item.escape("brand") %></p>
 

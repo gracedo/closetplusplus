@@ -24,7 +24,8 @@ Closet.Views.ItemsIndex = Backbone.CompositeView.extend({
   
   addItem: function(item) {
     var itemShowView = new Closet.Views.ItemShow({
-      model: item
+      model: item,
+      order: null
     })
     
     this.addSubview(".items-container", itemShowView);

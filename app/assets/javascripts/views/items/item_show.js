@@ -3,6 +3,7 @@ Closet.Views.ItemShow = Backbone.View.extend({
   
   initialize: function(options) {
     this.items = options.collection;
+    this.order = options.order
     this.listenTo(this.items, "sync", this.render);
   },
   

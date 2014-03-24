@@ -15,7 +15,8 @@ Closet.Routers.Router = Backbone.Router.extend({
   userShow: function() {
     var userShowView = new Closet.Views.UserShow({
       model: this.model,
-      orders: this.orders
+      orders: this.orders,
+      items: this.items
     });
     
     Closet.Models.user.fetch();
