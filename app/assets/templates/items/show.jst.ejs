@@ -32,9 +32,11 @@
 
 <p><h3><strong>Brand:</strong> <%= item.escape("brand") %></h3></p>
 
-<ul>
-  <li><%= item.escape("intro") %></li>
-</ul>
+<% if(item.escape("intro")) { %>
+  <ul>
+    <li><%= item.escape("intro") %></li>
+  </ul>
+<% } %>
 
 <p><h3>Details</h3></p>
 
@@ -42,13 +44,16 @@
   <li><%= item.escape("details") %></li>
 </ul>
 
-<p><h3>Wear it with...</h3></p>
-<ul>
-  <li><%= item.escape("wear_it_with") %></li>
-</ul>
+<% if(item.escape("wear_it_with")) { %>
+  <p><h3>Wear it with...</h3></p>
+  <ul>
+    <li><%= item.escape("wear_it_with") %></li>
+  </ul>
+<% } %>
 
-<% if(!item.escape("in_stock")) { %>
-  <p>Sorry, this item is out of stock.</p>
+<% if(item.escape("in_stock") === "false") { %>
+  <br>
+  <p><strong>:( Sorry, this item is out of stock.</strong></p>
 <% } %>
 
 <!-- ADMIN EDIT ACCESS ONLY!!!! -->

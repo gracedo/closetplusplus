@@ -35,7 +35,8 @@ Closet.Routers.Router = Backbone.Router.extend({
   
   itemsNew: function() {
     var itemFormView = new Closet.Views.ItemForm({
-      model: new Closet.Models.Item()
+      model: new Closet.Models.Item(),
+      collection: this.items
     })
     
     this._swapView(itemFormView);

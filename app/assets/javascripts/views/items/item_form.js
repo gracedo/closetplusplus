@@ -8,7 +8,7 @@ Closet.Views.ItemForm = Backbone.View.extend({
   },
   
   events: {
-    "click button.create-item": "create",
+    "click button.new-item": "create",
     "click button.edit-item": "edit"
   },
   
@@ -27,14 +27,19 @@ Closet.Views.ItemForm = Backbone.View.extend({
     var $formData = $(event.currentTarget.form).serializeJSON().item;
     var newItem = new Closet.Models.Item($formData);
     
+    
     this.items.create(newItem, {
       success: function() {
         console.log("item successfully created");
-        Closet.Collections.items.add(newItem);
+        Backbone.history.navigate("#/items", { trigger: true })
       },
       error: function() {
+        var errors = arguments[1].responseText;
         console.log("item failed to be created");
-        console.log(arguments[1].responseText);
+        console.log(errors);
+        
+        $(".alert").html(errors);
+        $(".alert").removeClass("hidden");
       }
     })
   },

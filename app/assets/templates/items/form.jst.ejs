@@ -1,5 +1,13 @@
 <form role="form">
-  <h2>Edit Item Details</h2>
+  <% if(action === "edit") { %>
+    <h2>Edit Item Details</h2>
+  <% } else { %>
+    <h2>Create a New Item</h2>
+  <% } %>
+  
+  <div class="alert alert-danger hidden">
+
+  </div>
   
   <div class="item-form form-group">
     
@@ -15,14 +23,30 @@
     <strong>Clothing Type</strong>
     <div class="radio">
       <label><input type="radio" name="item[item_type]" id="jeans" value="jeans">Jeans</label><br>
-      <input type="radio" name="item[item_type]" id="pants" value="pants">Pants<br>
-      <input type="radio" name="item[item_type]" id="shorts" value="shorts">Shorts<br>
-      <input type="radio" name="item[item_type]" id="long-sleeves" value="long-sleeves">Long-sleeves<br>
-      <input type="radio" name="item[item_type]" id="polos-tshirts" value="polos-tshirts">Polos and t-shirts<br>
-      <input type="radio" name="item[item_type]" id="short-sleeves" value="short-sleeves">Short-sleeves<br>
-      <input type="radio" name="item[item_type]" id="sweaters-vests" value="sweaters-vests">Sweaters and vests<br>
-      <input type="radio" name="item[item_type]" id="jackets-blazers" value="jackets-blazers">Jackets and blazers<br>
-      <input type="radio" name="item[item_type]" id="ties-belts" value="ties-belts">Ties and belts<br>
+    </div>
+    <div class="radio">
+      <label><input type="radio" name="item[item_type]" id="pants" value="pants">Pants</label><br>
+    </div>
+    <div class="radio">
+      <label><input type="radio" name="item[item_type]" id="shorts" value="shorts">Shorts</label><br>
+    </div>
+    <div class="radio">
+      <label><input type="radio" name="item[item_type]" id="long-sleeves" value="long-sleeves">Long-sleeves</label><br>
+    </div>
+    <div class="radio">
+      <label><input type="radio" name="item[item_type]" id="polos-tshirts" value="polos-tshirts">Polos and t-shirts</label><br>
+    </div>
+    <div class="radio">
+      <label><input type="radio" name="item[item_type]" id="short-sleeves" value="short-sleeves">Short-sleeves</label><br>
+    </div>
+    <div class="radio">
+      <label><input type="radio" name="item[item_type]" id="sweaters-vests" value="sweaters-vests">Sweaters and vests</label><br>
+    </div>
+    <div class="radio">
+      <label><input type="radio" name="item[item_type]" id="jackets-blazers" value="jackets-blazers">Jackets and blazers</label><br>
+    </div>
+    <div class="radio">
+      <label><input type="radio" name="item[item_type]" id="ties-belts" value="ties-belts">Ties and belts</label><br>
     </div>
 
     <div class="form-group">
