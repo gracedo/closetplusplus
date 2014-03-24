@@ -1,5 +1,5 @@
 Closet.Models.User = Backbone.Model.extend({
-  urlRoot: "api/user",
+  url: "api/user",
   
   parse: function(jsonResponse){
     if (jsonResponse.orders){

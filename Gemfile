@@ -73,3 +73,5 @@ gem 'omniauth-facebook'
 gem 'letter_opener'
 gem 'uuidtools'
 gem 'cancan'
+gem "paperclip"
+gem "aws-sdk"

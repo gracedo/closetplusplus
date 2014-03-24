@@ -1,5 +1,5 @@
 class Item < ActiveRecord::Base
-  validates :name, :brand, :type, :intro, :details, :price, :in_stock, presence: true
+  validates :name, :brand, :item_type, :intro, :details, :price, :in_stock, presence: true
   validates :name, uniqueness: true
   
   has_many :orders,
