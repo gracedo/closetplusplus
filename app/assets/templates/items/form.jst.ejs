@@ -1,4 +1,4 @@
-<form role="form">
+<form role="form" class="item-form" data-id="<%= item.id %>">
   <% if(action === "edit") { %>
     <h3>Edit Item</h3>
   <% } else { %>
@@ -73,7 +73,7 @@
 
   <div align="center">
     <% if(action === "edit") { %>
-      <button type="submit" class="edit-item btn btn-default">Update</button>
+      <button type="submit" class="edit-item btn btn-default">Update</button> <button type="submit" class="cancel-edit-item btn btn-default">Cancel</button>
     <% } else { %>
       <button type="submit" class="new-item btn btn-default">Create</button>
     <% } %>

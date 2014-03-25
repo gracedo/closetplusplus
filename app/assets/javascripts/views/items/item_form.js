@@ -9,7 +9,8 @@ Closet.Views.ItemForm = Backbone.View.extend({
   
   events: {
     "click button.new-item": "create",
-    "click button.edit-item": "edit"
+    "click button.edit-item": "edit",
+    "click button.cancel-edit-item": "removeForm"
   },
   
   render: function() {
@@ -62,5 +63,10 @@ Closet.Views.ItemForm = Backbone.View.extend({
         $(".alert[data-id='"+that.model.id+"']").removeClass("hidden");
       }
     })
+  },
+  
+  removeForm: function(event) {
+    event.preventDefault();
+    $(".item-form[data-id='"+this.model.id+"']").addClass("hidden");
   }
 });
