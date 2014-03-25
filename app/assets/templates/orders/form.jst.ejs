@@ -10,21 +10,22 @@
   
   <div class="item-form form-group">
     <strong>Select a Size:</strong>
-      <select class="form-control">
-        
+    
+      <select name="order[size]" class="form-control">
         <option></option>
+        
     <% if(item.get("item_type") === "jeans" || item.get("item_type") === "pants" || item.get("item_type") === "shorts") { %>
         <% for(i = 28; i < 40; i++) { %>
           <option><%= i %></option>
         <% } %>
       </select>
     <% } else { %>
-        <option name="order[size]" value="xs">Extra-Small</option>
-        <option name="order[size]" value="sm">Small</option>
-        <option name="order[size]" value="md">Medium</option>
-        <option name="order[size]" value="lg">Large</option>
-        <option name="order[size]" value="xl">Extra-Large</option>
-        <option name="order[size]" value="xxl">XX-Large</option>
+        <option value="xs">Extra-Small</option>
+        <option value="sm">Small</option>
+        <option value="md">Medium</option>
+        <option value="lg">Large</option>
+        <option value="xl">Extra-Large</option>
+        <option value="xxl">XX-Large</option>
       </select>
     <% } %>
   </div>

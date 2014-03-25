@@ -9,9 +9,7 @@ Closet.Routers.Router = Backbone.Router.extend({
     this.model = options.model; //user
     this.orders = this.model.orders();
     this.items = Closet.Collections.items;
-    this.$root = options.$rootEl;
     // this.addresses = this.model.addresses();
-
   },
   
   userShow: function() {
@@ -21,7 +19,8 @@ Closet.Routers.Router = Backbone.Router.extend({
       items: this.items
     });
     
-    Closet.Models.user.fetch();
+    this.model.fetch();
+    this.items.fetch();
     this._swapView(userShowView);
   },
   

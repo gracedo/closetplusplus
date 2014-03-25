@@ -40,6 +40,7 @@ Closet.Views.OrderForm = Backbone.View.extend({
     this.orders.create(newOrder, {
       success: function() {
         console.log("Order successfully created!");
+        Backbone.history.navigate('', { trigger: true })
       },
       error: function() {
         console.log("Order was not processed");

@@ -4,10 +4,11 @@ Closet.Views.ItemShow = Backbone.View.extend({
   initialize: function(options) {
     //model is the item
     this.user = options.user;
-    this.items = options.collection;
+    this.items = Closet.Collections.items;
     this.order = options.order;
 
-    // this.listenTo(this.items, "sync", this.render);
+    this.listenTo(this.user, "sync", this.render);
+    this.listenTo(this.items, "sync", this.render);
   },
   
   events: {
@@ -16,12 +17,14 @@ Closet.Views.ItemShow = Backbone.View.extend({
   },
   
   render: function() {
-    var renderedContent = this.template({
-      item: this.model,
-      order: this.order
-    });
+    if(this.model=this.items.get(this.order.get("item_id"))) {
+      var renderedContent = this.template({
+        item: this.model,
+        order: this.order
+      });
     
-    this.$el.html(renderedContent);
+      this.$el.html(renderedContent);
+    }
     return this;
   },
   

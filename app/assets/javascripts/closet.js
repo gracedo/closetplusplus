@@ -4,19 +4,14 @@ window.Closet = {
   Views: {},
   Routers: {},
   initialize: function() {
-    // Closet.Collections.items.fetch({success: function(){
-      var $rootEl = $('.container');
-      Closet.Models.user.fetch({
-        success: function() {
-          new Closet.Routers.Router({
-            model: Closet.Models.user,
-            $rootEl: $rootEl
-          });
-          //fetch Closet.Collections.items?
-          Backbone.history.start();
-        }
-      });
-    // }});
+    Closet.Models.user.fetch({
+      success: function() {
+        new Closet.Routers.Router({
+          model: Closet.Models.user
+        });
+        Backbone.history.start();
+      }
+    });
   }
 };
 
