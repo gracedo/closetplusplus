@@ -51,8 +51,6 @@ Closet.Views.ItemForm = Backbone.View.extend({
   },
   
   edit: function(event) {
-    //Figure out why blank new items rendering?? when errors
-    //Fix errors/alerts persisting from sign-in success...
     var that = this;
     event.preventDefault();
     var $formData = $(event.currentTarget.form).serializeJSON().item;
@@ -80,7 +78,6 @@ Closet.Views.ItemForm = Backbone.View.extend({
   },
   
   renderValStates: function($el) {
-    // debugger
     if($("#name").val().length === 0) {
       $("#name").parent().addClass("has-error has-feedback");
       $("#name").parent().removeClass("has-success has-feedback");

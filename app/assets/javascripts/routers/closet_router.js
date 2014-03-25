@@ -3,12 +3,15 @@ Closet.Routers.Router = Backbone.Router.extend({
     "": "userShow",
     "items": "itemsIndex",
     "items/new": "itemNew",
+    // "/preferences/new": "prefNew",
+    "preferences": "prefShow"
   },
   
   initialize: function(options) {
     this.model = options.model; //user
     this.orders = this.model.orders();
     this.items = Closet.Collections.items;
+    this.preferences = this.model.preferences();
     // this.addresses = this.model.addresses();
   },
   
@@ -41,6 +44,25 @@ Closet.Routers.Router = Backbone.Router.extend({
     })
     
     this._swapView(itemFormView);
+  },
+  
+  // prefNew: function() {
+//     var prefShowView = new Closet.Views.PreferencesShow({
+//       user: this.model,
+//       model: new Closet.Models.Preferences()
+//     })
+//     
+//     this._swapView(prefShowView);
+//   },
+  
+  prefShow: function() {
+    // this.preferences = (this.preferences || new Closet.Models.Preferences())
+    var prefShowView = new Closet.Views.PreferencesShow({
+      user: this.model,
+      model: this.preferences
+    })
+
+    this._swapView(prefShowView);
   },
   
   // addressesForm: function() {

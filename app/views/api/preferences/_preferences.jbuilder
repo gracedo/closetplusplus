@@ -1,0 +1,1 @@
+json.(preferences, :id, :user_id, :subscription, :budget, :pieces_per_ship, :created_at, :updated_at)

@@ -6,6 +6,11 @@ Closet.Models.User = Backbone.Model.extend({
       this.orders().set(jsonResponse.orders, { parse: true });
       delete jsonResponse.orders;
     }
+
+    if (jsonResponse.preferences){
+      this.preferences().set(jsonResponse.preferences, { parse: true });
+      delete jsonResponse.preferences;
+    }
     
     return jsonResponse;
   },
@@ -16,6 +21,14 @@ Closet.Models.User = Backbone.Model.extend({
     }
     
     return this._orders;
+  },
+  
+  preferences: function(){
+    if(!this._preferences){
+      this._preferences = new Closet.Models.Preferences();
+    }
+    
+    return this._preferences;
   }
 });
 

@@ -1,0 +1,43 @@
+<h2>Set Your Preferences</h2>
+
+<div class="preferences" id="<%= user.id %>">
+  <form role="form" class="order-form">
+    <div class="alert alert-danger hidden">
+    </div>
+    
+    <input type="hidden" name="preferences[user_id]" value="<%= user.id %>" id="order[buyer_id]">
+    
+    <div class="form-group">
+      <strong>How often do you want a selection?**</strong>
+      
+      <div class="radio">
+        <label><input type="radio" name="preferences[subscription]" id="subscription" value="monthly" checked>Every month</label><br>
+      </div>
+      <div class="radio">
+        <label><input type="radio" name="preferences[subscription]" id="subscription" value="bimonthly" <%= preferences.get("subscription") === "bimonthly" ? "checked" : "" %>>Every 2 months</label><br>
+      </div>
+      <div class="radio">
+        <label><input type="radio" name="preferences[subscription]" id="subscription" value="trimonthly" <%= preferences.get("subscription") === "trimonthly" ? "checked" : "" %>>Every 3 months</label><br>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label>What is your budget?</label>
+      
+      <select name="preferences[budget]" class="form-control">
+        <option></option>
+        <option value="50-100">$50-$100</option>
+        <option value="100-150">$100-$150</option>
+        <option value="150-200">$150-$200</option>
+        <option value="null">Quality matters to me!</option>
+      </select>
+    </div>
+  
+
+    <% if(action === "create") { %>
+      <button class="btn btn-default create-prefs">Submit</button>
+    <% } else { %>
+      <button class="btn btn-default update-prefs">Update</button>
+    <% } %>
+  </form>
+</div>
