@@ -1,13 +1,15 @@
 <form role="form">
   <% if(action === "edit") { %>
-    <h2>Edit Item Details</h2>
+    <h3>Edit Item</h3>
   <% } else { %>
-    <h2>Create a New Item</h2>
+    <h3>Create a New Item</h3>
+    
+    <div class="alert alert-danger hidden" data-id="<%= item.id %>">
+    </div>
   <% } %>
   
-  <div class="alert alert-danger hidden">
-
-  </div>
+  <!-- <div class="alert alert-danger hidden">
+  </div> -->
   
   <div class="item-form form-group">
     

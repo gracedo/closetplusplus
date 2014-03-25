@@ -35,8 +35,6 @@ Closet.Views.ItemForm = Backbone.View.extend({
       error: function() {
         var errors = arguments[1].responseText;
         console.log("item failed to be created");
-        console.log(errors);
-        
         $(".alert").html(errors);
         $(".alert").removeClass("hidden");
       }
@@ -44,6 +42,9 @@ Closet.Views.ItemForm = Backbone.View.extend({
   },
   
   edit: function(event) {
+    //Figure out why blank new items rendering?? when errors
+    //Fix errors/alerts persisting from sign-in success...
+    var that = this;
     event.preventDefault();
     var $formData = $(event.currentTarget.form).serializeJSON().item;
     
@@ -53,11 +54,12 @@ Closet.Views.ItemForm = Backbone.View.extend({
         console.log("item successfully updated");
       },
       error: function() {
+        var errors = arguments[1].responseText;
         console.log("item failed to be updated");
-        console.log(arguments[1].responseText);
-        
-        $(".alert").html(errors);
-        $(".alert").removeClass("hidden");
+        console.log(errors);
+
+        $(".alert[data-id='"+that.model.id+"']").html(errors);
+        $(".alert[data-id='"+that.model.id+"']").removeClass("hidden");
       }
     })
   }

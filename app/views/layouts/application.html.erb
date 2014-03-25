@@ -51,16 +51,18 @@
       </div>
     </nav>
   
-    <div class="errors">
-      <% if flash[:errors] %>
-        <% flash[:errors].each do |error| %>
-        <div class='alert alert-danger'><%= error %></div>
+    <center>
+      <div class="errors">
+        <% if flash[:errors] %>
+          <% flash[:errors].each do |error| %>
+          <div class='alert alert-danger'><%= error %></div>
+          <% end %>
         <% end %>
-      <% end %>
-      <% if flash[:notice] %>
-        <div class='alert alert-success'><%= flash[:notice] %></div>
-      <% end %>
-    </div>
+        <% if flash[:notice] %>
+          <div class='alert alert-success'><%= flash[:notice] %></div>
+        <% end %>
+      </div>
+    </center>
 
     <div id="root-content" class="container">
       <%= yield %>

@@ -43,7 +43,7 @@ Closet.Views.OrderForm = Backbone.View.extend({
       },
       error: function() {
         console.log("Order was not processed");
-        $('.errors').html(arguments[1].responseText);
+        $('.alert').html(arguments[1].responseText);
         $(".alert").removeClass("hidden");
       }
     })
