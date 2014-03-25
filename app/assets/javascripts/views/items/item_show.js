@@ -17,7 +17,7 @@ Closet.Views.ItemShow = Backbone.View.extend({
   },
   
   render: function() {
-    if(this.model=this.items.get(this.order.get("item_id"))) {
+    if(this.model=(this.model || this.items.get(this.order.get("item_id")))) {
       var renderedContent = this.template({
         item: this.model,
         order: this.order

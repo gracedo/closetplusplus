@@ -28,10 +28,21 @@ Closet.Views.ItemsIndex = Backbone.CompositeView.extend({
       user: this.user,
       model: item,
       collection: this.collection,
-      order: null
+      order: this.setOrder(item)
     })
 
     this.addSubview("#items", itemShowView);
     itemShowView.render();
+  },
+  
+  setOrder: function(currItem) {
+    var order1 = null;
+    this.user.orders().each(function(order) {
+      if(order.get("item_id") === currItem.id) {
+        order1 = order;
+      }
+    })
+    
+    return order1;
   }
 });

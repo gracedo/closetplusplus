@@ -21,15 +21,19 @@
         </ul>
 
         <% if(order) { %>
-          <p><strong>Your Order Details:</strong></p>
-          <ul>
-            <li>Shipping date: <%= order.escape("ship_date") %></li>
-            <li>Size: <%= order.escape("size") %></li>
-            <li>Order placed: <%= order.escape("created_at") %></li>
-          </ul>
+          <center>
+          <div class="alert-info order-details" align="left">
+            <p><h3>Your Order Details:</h3></p>
+            <ul>
+              <li>Shipping date: <%= order.escape("ship_date") %></li>
+              <li>Size: <%= order.escape("size") %></li>
+              <li>Order placed: <%= order.escape("created_at") %></li>
+            </ul>
+          </div>
+        </center>
         <% } %>
 
-        <p><h3><strong>Brand:</strong> <%= item.escape("brand") %></h3></p>
+        <p><h3>Brand: <%= item.escape("brand") %></h3></p>
 
         <% if(item.escape("intro")) { %>
           <ul>
@@ -55,12 +59,14 @@
           <p><strong>:( Sorry, this item is out of stock.</strong></p>
         <% } else { %>
   
+        <% if(!order) { %>
           <center>
             <button class="purchase-item btn btn-info" id="<%= item.id %>">Purchase this item!</button>
             <div class="new-order-form" data-id="<%= item.id %>">
             </div>
           </center><br>
         <% } %>
+      <% } %>
         
       </div>
     </div>
