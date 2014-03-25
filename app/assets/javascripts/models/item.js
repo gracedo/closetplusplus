@@ -1,4 +1,11 @@
 Closet.Models.Item = Backbone.Model.extend({
+  initialize: function() {
+    var error = this.validate(this.attributes);
+    if (error) {
+      this.trigger('error', this, error);
+    }
+  },
+  
   parse: function(jsonResponse){
     if (jsonResponse.orders){
       this.orders().set(jsonResponse.orders, { parse: true });
@@ -14,5 +21,11 @@ Closet.Models.Item = Backbone.Model.extend({
     }
     
     return this._orders;
+  },
+  
+  validate: function(attrs, options) {
+    if(!attrs || !attrs.name || !attrs.brand || !attrs.item_type || !attrs.details || !attrs.price) {
+      return "Invalid attributes!";
+    }
   }
 });

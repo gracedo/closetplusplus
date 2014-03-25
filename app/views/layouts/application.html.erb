@@ -12,7 +12,7 @@
       <div class="navbar-inner">
         <ul class="nav nav-pills">
           <li>
-            <a href="/#/" class="navbar-brand">Closet++</a>
+            <a href="/#/" class="navbar-brand"><span class="glyphicon glyphicon-shopping-cart">Closet++</span></a>
           </li>
         
           <form class="navbar-form navbar-left" role="search">
@@ -55,11 +55,15 @@
       <div class="errors">
         <% if flash[:errors] %>
           <% flash[:errors].each do |error| %>
-          <div class='alert alert-danger'><%= error %></div>
+          <div class='alert alert-danger alert-dismissable'><%= error %>
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          </div>
           <% end %>
         <% end %>
         <% if flash[:notice] %>
-          <div class='alert alert-success'><%= flash[:notice] %></div>
+          <div class='alert alert-success alert-dismissable'><%= flash[:notice] %>
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          </div>
         <% end %>
       </div>
     </center>

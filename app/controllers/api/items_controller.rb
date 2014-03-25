@@ -1,7 +1,7 @@
 class Api::ItemsController < ApplicationController
   def index
     @items = Item.all
-    render json: @items
+    # render json: @items
   end
   
   def new
@@ -21,7 +21,7 @@ class Api::ItemsController < ApplicationController
   
   def show
     @item = Item.find(params[:id])
-    render json: @item
+    # render json: @item
   end
   
   def edit
