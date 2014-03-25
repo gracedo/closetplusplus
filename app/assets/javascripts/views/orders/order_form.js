@@ -4,6 +4,11 @@ Closet.Views.OrderForm = Backbone.View.extend({
   initialize: function(options) {
     //model is item
     this.userID = options.userID;
+    this.orders = this.model.orders();
+  },
+  
+  events: {
+    "click button.add-order": "create"
   },
   
   render: function() {
@@ -24,5 +29,23 @@ Closet.Views.OrderForm = Backbone.View.extend({
     
     this.$el.html(renderedContent);
     return this;
+  },
+  
+  create: function(event) {
+    event.preventDefault();
+    
+    var $formData = $(event.target.form).serializeJSON().order;
+    var newOrder = new Closet.Models.Order($formData);
+    
+    this.orders.create(newOrder, {
+      success: function() {
+        console.log("Order successfully created!");
+      },
+      error: function() {
+        console.log("Order was not processed");
+        $('.errors').html(arguments[1].responseText);
+        $(".alert").removeClass("hidden");
+      }
+    })
   }
 });

@@ -27,7 +27,6 @@ Closet.Views.ItemForm = Backbone.View.extend({
     var $formData = $(event.currentTarget.form).serializeJSON().item;
     var newItem = new Closet.Models.Item($formData);
     
-    
     this.items.create(newItem, {
       success: function() {
         console.log("item successfully created");

@@ -13,7 +13,6 @@ window.Closet = {
             $rootEl: $rootEl
           });
           //fetch Closet.Collections.items?
-          // 
           Backbone.history.start();
         }
       });

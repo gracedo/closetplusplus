@@ -1,74 +1,80 @@
 <div class="item-block">
-
-  <h4>
+  <!-- <h4>
     <a href="#"><%= item.escape("name") %></a>
+  </h4> -->
+  
+  <h4>
+    <a href="" data-toggle="modal" data-target=".item-<%= item.id %>"><%= item.escape("name") %></a>
   </h4>
-    
 
-</div>
+  <div class="modal fade item-<%= item.id %>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        
+        <h3><%= item.escape("name") %></h3>
+        <hr>
 
-
-
-<h3><%= item.escape("name") %></h3>
-<hr>
-<ul>
-
-  <% if(item.escape("rating")) { %>
-    <li>User rating: <%= item.escape("rating") %></li>
-  <% } %>
+        <ul>
+          <% if(item.escape("rating")) { %>
+            <li>User rating: <%= item.escape("rating") %></li>
+          <% } %>
   
-  <% if(item.orders().length > 0) { %>
-    <li>Number of user purchases: <%= iteam.orders().length %></li>
-  <% } %>
-</ul>
+          <% if(item.orders().length > 0) { %>
+            <li>Number of user purchases: <%= iteam.orders().length %></li>
+          <% } %>
+        </ul>
 
-<% if(order) { %>
-  <p>Your Order Details:</p>
-  <ul>
-    <li>Shipping date: <%= order.escape("ship_date") %></li>
-    <li>Size: <%= order.escape("size") %></li>
-    <li>Order placed: <%= order.escape("created_at") %></li>
-  </ul>
-<% } %>
+        <% if(order) { %>
+          <p>Your Order Details:</p>
+          <ul>
+            <li>Shipping date: <%= order.escape("ship_date") %></li>
+            <li>Size: <%= order.escape("size") %></li>
+            <li>Order placed: <%= order.escape("created_at") %></li>
+          </ul>
+        <% } %>
 
-<p><h3><strong>Brand:</strong> <%= item.escape("brand") %></h3></p>
+        <p><h3><strong>Brand:</strong> <%= item.escape("brand") %></h3></p>
 
-<% if(item.escape("intro")) { %>
-  <ul>
-    <li><%= item.escape("intro") %></li>
-  </ul>
-<% } %>
+        <% if(item.escape("intro")) { %>
+          <ul>
+            <li><%= item.escape("intro") %></li>
+          </ul>
+        <% } %>
 
-<p><h3>Details</h3></p>
+        <p><h3>Details</h3></p>
 
-<ul>
-  <li><%= item.escape("details") %></li>
-</ul>
+        <ul>
+          <li><%= item.escape("details") %></li>
+        </ul>
 
-<% if(item.escape("wear_it_with")) { %>
-  <p><h3>Wear it with...</h3></p>
-  <ul>
-    <li><%= item.escape("wear_it_with") %></li>
-  </ul>
-<% } %>
+        <% if(item.escape("wear_it_with")) { %>
+          <p><h3>Wear it with...</h3></p>
+          <ul>
+            <li><%= item.escape("wear_it_with") %></li>
+          </ul>
+        <% } %>
 
-<% if(item.escape("in_stock") === "false") { %>
-  <br>
-  <p><strong>:( Sorry, this item is out of stock.</strong></p>
-<% } else { %>
+        <% if(item.escape("in_stock") === "false") { %>
+          <br>
+          <p><strong>:( Sorry, this item is out of stock.</strong></p>
+        <% } else { %>
   
-  <center>
-    <button class="purchase-item btn btn-info" id="<%= item.id %>">Purchase this item!</button>
-    <div class="new-order-form" data-id="<%= item.id %>">
-    </div>
-  </center>
-
-<% } %>
-
-
- <div class="edit-item-container">
-    <div class="edit-item-link-container" data-item-id="<%= item.id %>"><a href="#" class="edit-item-link">Edit</a></div>
-    <div class="edit-item-form" data-id="<%= item.id %>">
+          <center>
+            <button class="purchase-item btn btn-info" id="<%= item.id %>">Purchase this item!</button>
+            <div class="new-order-form" data-id="<%= item.id %>">
+            </div>
+          </center><br>
+        <% } %>
+        
+      </div>
     </div>
   </div>
+  
+   <div class="edit-item-container">
+      <div class="edit-item-link-container" data-item-id="<%= item.id %>"><a href="#" class="edit-item-link">Edit</a></div>
+      <div class="edit-item-form" data-id="<%= item.id %>">
+      </div>
+    </div>
+  </div>
+  
 </div>
