@@ -67,6 +67,6 @@ Closet.Views.ItemForm = Backbone.View.extend({
   
   removeForm: function(event) {
     event.preventDefault();
-    $(".item-form[data-id='"+this.model.id+"']").addClass("hidden");
+    $(".item-form[data-id='"+this.model.id+"']").empty();
   }
 });

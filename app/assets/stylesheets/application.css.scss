@@ -14,7 +14,12 @@
 
 @import "bootstrap";
 
+body {
+  padding-top: 60px;
+}
+
 .item-block {
+  border-radius: 8px;
   float: left;
   width: 400px;
   border: 1px black solid;
@@ -25,7 +30,7 @@
 }
 
 .order-form {
-  width: 20%;
+  width: 30%;
 }
 
 .modal-content {

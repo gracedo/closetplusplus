@@ -17,7 +17,7 @@ Closet.Views.ItemsIndex = Backbone.CompositeView.extend({
     var renderedContent = this.template({
       items: this.collection
     });
-    
+
     this.$el.html(renderedContent);
     this.renderSubviews();
     return this;
