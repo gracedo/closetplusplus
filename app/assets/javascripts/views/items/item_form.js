@@ -98,15 +98,15 @@ Closet.Views.ItemForm = Backbone.View.extend({
       $("#brand").parent().addClass("has-success has-feedback");
       $("#brand").parent().removeClass("has-error has-feedback");
     }
-    
-    if(!$("#item_type").val()) {
-      $("#item_type").parent().addClass("has-error has-feedback");
-      $("#item_type").parent().removeClass("has-success has-feedback");
-      $el.append("An item type has to be chosen. ");
-    } else {
-      $("#item_type").parent().addClass("has-success has-feedback");
-      $("#item_type").parent().removeClass("has-error has-feedback");
-    }
+
+    // if(!$("#item_type").val()) {
+    //   $("#item_type").parent().addClass("has-error has-feedback");
+    //   $("#item_type").parent().removeClass("has-success has-feedback");
+    //   $el.append("An item type has to be chosen. ");
+    // } else {
+    //   $("#item_type").parent().addClass("has-success has-feedback");
+    //   $("#item_type").parent().removeClass("has-error has-feedback");
+    // }
     
     if($("#details").val().length === 0) {
       $("#details").parent().addClass("has-error has-feedback");
