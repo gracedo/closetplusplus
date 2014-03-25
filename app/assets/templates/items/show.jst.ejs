@@ -2,6 +2,19 @@
   <h4>
     <a href="" data-toggle="modal" data-target=".item-<%= item.id %>"><%= item.escape("name") %></a>
   </h4>
+  
+  <% if(order) { %>
+    <center>
+    <div class="order-details-small" align="left">
+      <p><h4>Your Order Details:</h4></p>
+      <ul>
+        <li>Shipping date: <%= order.escape("ship_date") %></li>
+        <li>Size: <%= order.escape("size") %></li>
+        <li>Order placed: <%= order.escape("created_at") %></li>
+      </ul>
+    </div>
+  </center>
+  <% } %>
 
   <div class="modal fade item-<%= item.id %>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -16,7 +29,7 @@
           <% } %>
   
           <% if(item.orders().length > 0) { %>
-            <li>Number of user purchases: <%= iteam.orders().length %></li>
+            <li>Number of user purchases: <%= item.orders().length %></li>
           <% } %>
         </ul>
 

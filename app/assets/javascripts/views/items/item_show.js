@@ -31,7 +31,7 @@ Closet.Views.ItemShow = Backbone.View.extend({
   addEditForm: function(event) {
     event.preventDefault();
     console.log("Edit")
-    // $(event.target.parentElement).addClass("hidden");
+
     var itemFormView = new Closet.Views.ItemForm({
       model: this.model,
       collection: this.items,
