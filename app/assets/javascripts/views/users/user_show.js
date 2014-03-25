@@ -16,6 +16,8 @@ Closet.Views.UserShow = Backbone.CompositeView.extend({
   },
   
   render: function() {
+    window.setTimeout(function() { $(".errors").alert('close'); }, 4000);
+    
     var renderedContent = this.template({
       user: this.model,
       // addresses: this.addresses

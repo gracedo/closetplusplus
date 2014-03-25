@@ -5,6 +5,7 @@
     <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
     <%= javascript_include_tag "application", "data-turbolinks-track" => false %>
     <%= csrf_meta_tags %>
+    <!-- <link rel="stylesheet" href="animate.min.css"> -->
   </head>
 
   <body>
@@ -52,7 +53,7 @@
     </nav>
   
     <center>
-      <div class="errors">
+      <div class="errors animated bounceInRight">
         <% if flash[:errors] %>
           <% flash[:errors].each do |error| %>
           <div class='alert alert-danger alert-dismissable'><%= error %>
@@ -67,6 +68,10 @@
         <% end %>
       </div>
     </center>
+    
+    <script type="text/javascript" charset="utf-8">
+      window.setTimeout(function() { $(".errors").alert('close'); }, 4000);
+    </script>
 
     <div id="root-content" class="container">
       <%= yield %>
