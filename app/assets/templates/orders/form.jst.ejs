@@ -1,0 +1,33 @@
+THIS IS THE PURCHASING ORDER FORM!
+
+<form role="form">
+  <div class="alert alert-danger hidden">
+  </div>
+  
+  <input type="hidden" name="order[buyer_id]" value="<%= userID %>" id="order[buyer_id]">
+  <input type="hidden" name="order[item_id]" value="<%= item.id %>" id="order[item_id]">
+  <input type="hidden" name="order[ship_date]" value="<%= date %>" id="order[ship_date]">
+  
+  <div class="item-form form-group">
+    <strong>Size</strong>
+    <% if(item.get("item_type") === "jeans" || item.get("item_type") === "pants" || item.get("item_type") === "shorts") { %>
+      <select class="form-control">
+        <% for(i = 28; i < 40; i++) { %>
+          <option><%= i %></option>
+        <% } %>
+      </select>
+      <!-- OR just else... -->
+    <% } else if(item.get("item_type") === "long-sleeves" || item.get("item_type") === "polos-tshirts" || item.get("item_type") === "short-sleeves" || item.get("item_type") === "sweaters-vests" || item.get("item_type") === "jackets-blazers") { %>
+      <select class="form-control">
+        <option name="order[size]" value="xs">Extra-Small</option>
+        <option name="order[size]" value="sm">Small</option>
+        <option name="order[size]" value="md">Medium</option>
+        <option name="order[size]" value="lg">Large</option>
+        <option name="order[size]" value="xl">Extra-Large</option>
+        <option name="order[size]" value="xxl">XX-Large</option>
+      </select>
+    <% } %>
+  </div>
+  
+  <button type="submit" class="add-order btn btn-default">Purchase!</button>
+</form>

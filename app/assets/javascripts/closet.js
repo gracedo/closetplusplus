@@ -4,16 +4,20 @@ window.Closet = {
   Views: {},
   Routers: {},
   initialize: function() {
-    Closet.Models.user.fetch({
-      success: function() {
-        new Closet.Routers.Router({
-          model: Closet.Models.user
-        });
-        //fetch Closet.Collections.items?
-        Closet.Collections.items.fetch();
-        Backbone.history.start();
-      }
-    })
+    // Closet.Collections.items.fetch({success: function(){
+      var $rootEl = $('.container');
+      Closet.Models.user.fetch({
+        success: function() {
+          new Closet.Routers.Router({
+            model: Closet.Models.user,
+            $rootEl: $rootEl
+          });
+          //fetch Closet.Collections.items?
+          // 
+          Backbone.history.start();
+        }
+      });
+    // }});
   }
 };
 
@@ -57,6 +61,7 @@ Backbone.CompositeView = Backbone.View.extend({
   },
   
   renderSubviews: function() {
+    console.log(this.subviews());
     var view = this;
 
     _(this.subviews()).each(function(selectorSubviews, selector) {

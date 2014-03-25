@@ -56,6 +56,9 @@ Closet.Views.ItemForm = Backbone.View.extend({
       error: function() {
         console.log("item failed to be updated");
         console.log(arguments[1].responseText);
+        
+        $(".alert").html(errors);
+        $(".alert").removeClass("hidden");
       }
     })
   }

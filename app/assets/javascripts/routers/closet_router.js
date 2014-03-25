@@ -2,13 +2,14 @@ Closet.Routers.Router = Backbone.Router.extend({
   routes: {
     "": "userShow",
     "items": "itemsIndex",
-    "items/new": "itemsNew"
+    "items/new": "itemNew",
   },
   
   initialize: function(options) {
-    this.model = options.model;
+    this.model = options.model; //user
     this.orders = this.model.orders();
-    this.items = Closet.Collections.items
+    this.items = Closet.Collections.items;
+    this.$root = options.$rootEl;
     // this.addresses = this.model.addresses();
 
   },
@@ -26,14 +27,15 @@ Closet.Routers.Router = Backbone.Router.extend({
   
   itemsIndex: function() {
     var itemsIndexView = new Closet.Views.ItemsIndex({
-      collection: Closet.Collections.items
+      collection: this.items,
+      user: this.model
     });
     
-    Closet.Collections.items.fetch();
+    this.items.fetch();
     this._swapView(itemsIndexView);
   },
   
-  itemsNew: function() {
+  itemNew: function() {
     var itemFormView = new Closet.Views.ItemForm({
       model: new Closet.Models.Item(),
       collection: this.items
@@ -65,6 +67,6 @@ Closet.Routers.Router = Backbone.Router.extend({
     }
     
     this.currentView = view;
-    $('.container').html(view.render().$el)
+    $('#root-content').html(view.render().$el)
   }
 });

@@ -1,13 +1,14 @@
 <div class="item-block">
-  <!-- picture bottom aligned, name on top? -->
+
   <h4>
     <a href="#"><%= item.escape("name") %></a>
-    <!-- above is link to modal -->
   </h4>
+    
+
 </div>
 
 
-<!-- MODAL STUFF -->
+
 <h3><%= item.escape("name") %></h3>
 <hr>
 <ul>
@@ -54,12 +55,20 @@
 <% if(item.escape("in_stock") === "false") { %>
   <br>
   <p><strong>:( Sorry, this item is out of stock.</strong></p>
+<% } else { %>
+  
+  <center>
+    <button class="purchase-item btn btn-info" id="<%= item.id %>">Purchase this item!</button>
+    <div class="new-order-form" data-id="<%= item.id %>">
+    </div>
+  </center>
+
 <% } %>
 
-<!-- ADMIN EDIT ACCESS ONLY!!!! -->
+
  <div class="edit-item-container">
     <div class="edit-item-link-container" data-item-id="<%= item.id %>"><a href="#" class="edit-item-link">Edit</a></div>
-    <div class="edit-item-form" id="<%= item.id %>">
+    <div class="edit-item-form" data-id="<%= item.id %>">
     </div>
   </div>
 </div>

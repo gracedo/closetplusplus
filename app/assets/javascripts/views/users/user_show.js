@@ -3,6 +3,7 @@ Closet.Views.UserShow = Backbone.CompositeView.extend({
   
   initialize: function(options) {
     // this.addresses = this.model.addresses();
+    //model is USER!!
     this.orders = options.orders;
     this.items = options.items;
     this.listenTo(this.orders, "sync", this.render);
@@ -27,10 +28,11 @@ Closet.Views.UserShow = Backbone.CompositeView.extend({
   
   addOrder: function(order) {
     var itemShowView = new Closet.Views.ItemShow({
+      user: this.model,
       model: this.items.get(order.id),
       order: order
     });
-    
+
     this.addSubview(".orders-container", itemShowView);
     itemShowView.render();
   }
