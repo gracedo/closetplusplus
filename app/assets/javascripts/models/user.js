@@ -11,6 +11,11 @@ Closet.Models.User = Backbone.Model.extend({
       this.preferences().set(jsonResponse.preferences, { parse: true });
       delete jsonResponse.preferences;
     }
+
+    if (jsonResponse.measurements){
+      this.measurements().set(jsonResponse.measurements, { parse: true });
+      delete jsonResponse.measurements;
+    }
     
     return jsonResponse;
   },

@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
   validates_format_of :email, with: /.+@.+\..+/i
-  # before_validation :ensure_session_token
+  before_validation :ensure_measurements
   attr_reader :password
   
   has_many :orders,
@@ -62,7 +62,10 @@ class User < ActiveRecord::Base
   #   nil
   # end
   # 
-  # private
+  private
+  def ensure_measurements
+    self.measurements ||= Measurement.new
+  end
   # def ensure_session_token
   #   self.session_token ||= User.generate_session_token
   # end

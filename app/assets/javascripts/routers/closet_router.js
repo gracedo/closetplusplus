@@ -20,7 +20,8 @@ Closet.Routers.Router = Backbone.Router.extend({
     var userShowView = new Closet.Views.UserShow({
       model: this.model,
       orders: this.orders,
-      items: this.items
+      items: this.items,
+      measurements: this.measurements
     });
     
     this.model.fetch();
@@ -59,8 +60,7 @@ Closet.Routers.Router = Backbone.Router.extend({
   
   measurementsShow: function() {
     var measureShowView = new Closet.Views.MeasurementsShow({
-      user: this.model,
-      model: this.measurements
+      user: this.model
     });
     
     this._swapView(measureShowView);

@@ -15,19 +15,19 @@ class Api::MeasurementsController < ApplicationController
   end
   
   def show
-    @measurements = Measurement.find(params[:id])
-    # render json: @measurements
+    @measurements = current_user.measurements
+    render json: @measurements
   end
   
   def edit
-    @measurements = Measurement.find(params[:id])
+    @measurements = current_user.measurements
     render json: @measurements
   end
   
   def update
-    @measurements = Measurement.find(params[:id])
+    @measurements = current_user.measurements
     
-    if @measurements.update_attributes(pref_params)
+    if @measurements.update_attributes(measure_params)
       render json: @measurements
     else
       render json: @measurements.errors, status: 422
