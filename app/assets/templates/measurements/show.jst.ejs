@@ -1,0 +1,68 @@
+<center>
+  <div class="measurements" id="<%= user.id %>">
+    <form role="form" class="measurements-form" align="left">
+    
+      <h2>Your Measurements</h2>
+
+      <div class="alert alert-danger hidden">
+        Invalid Attributes! 
+      </div>
+    
+      <input type="hidden" name="measurements[user_id]" value="<%= user.id %>">
+    
+      <div class="form-group">
+        <strong>How often do you want a selection?**</strong>
+      
+        <div class="radio">
+          <label><input type="radio" name="measurements[subscription]" id="subscription" value="monthly" checked>Every month</label><br>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="measurements[subscription]" id="subscription" value="bimonthly" <%= measurements.get("subscription") === "bimonthly" ? "checked" : "" %>>Every 2 months</label><br>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="measurements[subscription]" id="subscription" value="trimonthly" <%= measurements.get("subscription") === "trimonthly" ? "checked" : "" %>>Every 3 months</label><br>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="measurements[subscription]" id="subscription" value="paused" <%= measurements.get("subscription") === "paused" ? "checked" : "" %>>I'd like to pause my subscription</label><br>
+        </div>
+      </div>
+    
+      <div class="form-group">
+        <label>What is your budget?**</label>
+      
+        <select name="measurements[budget]" class="form-control">
+          <option></option>
+          <option value="50-100" <%= measurements.get("budget") === "50-100" ? "selected" : "" %>>$50-$100</option>
+          <option value="100-150" <%= measurements.get("budget") === "100-150" ? "selected" : "" %>>$100-$150</option>
+          <option value="150-200" <%= measurements.get("budget") === "150-200" ? "selected" : "" %>>$150-$200</option>
+          <option value="none" <%= measurements.get("budget") === "none" ? "selected" : "" %>>Quality matters to me!</option>
+        </select>
+      </div>
+    
+      <div class="form-group">
+        <strong>How many pieces of clothing per shipment?**</strong>
+      
+        <div class="radio">
+          <label><input type="radio" name="measurements[pieces_per_ship]" id="pieces_per_ship" value="1" checked>1 item</label><br>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="measurements[pieces_per_ship]" id="pieces_per_ship" value="2" <%= measurements.get("pieces_per_ship") === "bimonthly" ? "checked" : "" %>>2 items</label><br>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="measurements[pieces_per_ship]" id="pieces_per_ship" value="3" <%= measurements.get("pieces_per_ship") === "trimonthly" ? "checked" : "" %>>3 items</label><br>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="measurements[pieces_per_ship]" id="pieces_per_ship" value="4" <%= measurements.get("pieces_per_ship") === "trimonthly" ? "checked" : "" %>>4 items</label><br>
+        </div>
+      </div>
+  
+      <div align="center">  
+        <% if(action === "create") { %>
+          <button class="btn btn-default create-prefs">Submit</button>
+        <% } else { %>
+          <button class="btn btn-default update-prefs">Update</button>
+        <% } %>
+      </div>
+    </form>
+  </div>
+</center>

@@ -29,6 +29,14 @@ Closet.Models.User = Backbone.Model.extend({
     }
     
     return this._preferences;
+  },
+  
+  measurements: function(){
+    if(!this._measurements){
+      this._measurements = new Closet.Models.Measurements();
+    }
+    
+    return this._measurements;
   }
 });
 

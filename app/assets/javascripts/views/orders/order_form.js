@@ -19,7 +19,7 @@ Closet.Views.OrderForm = Backbone.View.extend({
     if(dd<10) { dd='0'+dd };
     if(mm<10) { mm='0'+mm };
     
-    var today = dd+'/'+mm+'/'+yyyy;
+    var today = mm+'/'+dd+'/'+yyyy;
     
     var renderedContent = this.template({
       item: this.model,

@@ -3,7 +3,7 @@ Closet.Views.PreferencesShow = Backbone.View.extend({
   
   initialize: function(options) {
     //model = preferences
-    this.user = options.user
+    this.user = options.user;
   },
   
   events: {
@@ -15,7 +15,7 @@ Closet.Views.PreferencesShow = Backbone.View.extend({
     if(this.model.attributes.length) {
       var action = "update";
     } else {
-      var action = "create"
+      var action = "create";
     }
     
     this.model = (this.model || new Closet.Models.Preferences());
@@ -40,9 +40,7 @@ Closet.Views.PreferencesShow = Backbone.View.extend({
       $(".alert").append("Please select your budget.");
       $(".alert").removeClass("hidden");
     } else {
-      // this.model.set($formData);
       this.model.save($formData, {
-        // patch: true,
         success: function() {
           console.log("preferences successfully created");
           Backbone.history.navigate("", { trigger: true })
@@ -67,7 +65,6 @@ Closet.Views.PreferencesShow = Backbone.View.extend({
       $(".alert").append("Please select your budget.");
       $(".alert").removeClass("hidden");
     } else {
-      // this.model.set($formData);
       this.model.save($formData, {
         patch: true,
         success: function() {
@@ -75,7 +72,6 @@ Closet.Views.PreferencesShow = Backbone.View.extend({
           Backbone.history.navigate("", { trigger: true })
         },
         error: function() {
-          debugger
           var errors = arguments[1].responseText;
           console.log("preferences failed to update");
           console.log(errors);

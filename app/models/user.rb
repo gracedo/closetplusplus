@@ -17,11 +17,15 @@ class User < ActiveRecord::Base
            :foreign_key => :buyer_id,
            :class_name => "Order"
   
-  
   has_one :preferences,
           :primary_key => :id, 
           :foreign_key => :user_id, 
           :class_name => "Preference"
+  
+  has_one :measurements,
+          :primary_key => :id, 
+          :foreign_key => :user_id, 
+          :class_name => "Measurement"
           
   # has_many :addresses,
   #          :primary_key => :id,

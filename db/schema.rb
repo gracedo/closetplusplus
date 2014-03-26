@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140325234533) do
+ActiveRecord::Schema.define(version: 20140326031009) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,28 @@ ActiveRecord::Schema.define(version: 20140325234533) do
   add_index "items", ["name"], name: "index_items_on_name", unique: true, using: :btree
   add_index "items", ["price"], name: "index_items_on_price", using: :btree
   add_index "items", ["rating"], name: "index_items_on_rating", using: :btree
+
+  create_table "measurements", force: true do |t|
+    t.integer  "user_id",    default: 0
+    t.string   "height",     default: ""
+    t.string   "weight",     default: ""
+    t.string   "shoe_size",  default: ""
+    t.string   "chest",      default: ""
+    t.string   "belly",      default: ""
+    t.string   "neck",       default: ""
+    t.string   "shoulder",   default: ""
+    t.string   "torso",      default: ""
+    t.string   "arm",        default: ""
+    t.string   "sleeve",     default: ""
+    t.string   "waist",      default: ""
+    t.string   "inseam",     default: ""
+    t.string   "thigh",      default: ""
+    t.string   "hip",        default: ""
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "measurements", ["user_id"], name: "index_measurements_on_user_id", unique: true, using: :btree
 
   create_table "orders", force: true do |t|
     t.integer  "buyer_id",   null: false
