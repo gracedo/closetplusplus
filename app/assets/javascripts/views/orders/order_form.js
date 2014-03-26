@@ -33,19 +33,22 @@ Closet.Views.OrderForm = Backbone.View.extend({
   
   create: function(event) {
     event.preventDefault();
-    
+    var that = this;
     var $formData = $(event.target.form).serializeJSON().order;
     var newOrder = new Closet.Models.Order($formData);
     
     this.orders.create(newOrder, {
       success: function() {
+        $(".item-modal[data-target='.item-"+that.model.id+"']").modal('hide');
+        $('body').removeClass('modal-open');
+        $('.modal-backdrop').remove();
         console.log("Order successfully created!");
         Backbone.history.navigate('', { trigger: true })
       },
       error: function() {
         console.log("Order was not processed");
-        $('.alert').html(arguments[1].responseText);
-        $(".alert").removeClass("hidden");
+        $(".alert[item-id='"+that.model.id+"']").html(arguments[1].responseText);
+        $(".alert[item-id='"+that.model.id+"']").removeClass("hidden");
       }
     })
   }

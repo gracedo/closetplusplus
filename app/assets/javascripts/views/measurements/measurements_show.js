@@ -15,18 +15,10 @@ Closet.Views.MeasurementsShow = Backbone.View.extend({
   
   render: function() {
     this.model = this.user.measurements();
-    
-    // if(this.model.attributes.length) {
- //      var action = "update";
- //    } else {
- //      var action = "create";
- //    }
-    // this.model = (this.model || new Closet.Models.Measurements());
 
     var renderedContent = this.template({
       user: this.user,
       measurements: this.model,
-      // action: action,
       pos: "left",
       WEIGHT: ["weight"],
       UPPER_BODY: ["chest", "belly", "neck", "shoulder", "torso", "arm", "sleeve"],
@@ -42,11 +34,8 @@ Closet.Views.MeasurementsShow = Backbone.View.extend({
   create: function(event) {
     event.preventDefault();
     var $formData = $(event.currentTarget.form).serializeJSON().measurements;
-    // var newMeasures = new Closet.Models.Preferences($formData);
-//     if(!newMeasures.attributes.user_id) {
-//       newMeasures.attributes.user_id = this.user.id;
-//     }
-
+    // $formData.user_id = this.user.id;
+    
     this.model.save($formData, {
       patch: true,
       success: function() {
