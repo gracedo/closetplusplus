@@ -34,7 +34,7 @@ item3 = Item.create!({
   item_type: "jeans",
   intro: "Based out of Los Angeles, Gramercy prides itself on creating high quality denim jeans cut & sewn in the USA. Its denim achieves a clean, minimalist design by doing away with unnecessary embellishments and trim.",
   details: "High-quality denim needs to be broken in! Jeans will feel stiff at first but will mold specifically to your body as they're worn in. Dark rinse gives the option to dress up or down. Slim cut.",
-  wear_it_with: "A collared shirt to dress it up. A tshirt to go more casual. "Fitted", thinner shoes like loafers or Converse All Stars.",
+  wear_it_with: "A collared shirt to dress it up. A tshirt to go more casual. 'Fitted', thinner shoes like loafers or Converse All Stars.",
   price: "69",
   in_stock: "true"
 })
@@ -66,7 +66,7 @@ item6 = Item.create!({
   brand: "Nick",
   item_type: "pants",
   intro: "",
-  details: "The Rolls Royce of men's denim, these jeans look fantastic and feel amazing. Made with patented XFIT technology fabric that adapts to your unique body shape to give custom fit and for 360 degree comfort. The 4-way stretch jeans wil not sag, bag, or lose shape. Sleek dark wash makes these super versatile and easy to dress up or down. "Classic Slim" cut for a relaxed, straight cut with a modern twist.",
+  details: "The Rolls Royce of men's denim, these jeans look fantastic and feel amazing. Made with patented XFIT technology fabric that adapts to your unique body shape to give custom fit and for 360 degree comfort. The 4-way stretch jeans wil not sag, bag, or lose shape. Sleek dark wash makes these super versatile and easy to dress up or down. 'Classic Slim' cut for a relaxed, straight cut with a modern twist.",
   wear_it_with: "Dress them up with a button-down and a blazer for a sexy date night or a night out with friends. Keep it classy casual with a v-neck and a cardigan for a comfy but refined weekend look. Kick around town in all-day comfort and pair with a henley and peacoat.",
   price: "69",
   in_stock: "true"
