@@ -3,12 +3,75 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+.measurements-form {
+  border-radius: 8px;
+  width: 90%;
+  padding: 40px;
+  padding-top: 8px;
+  padding-bottom: 20px;
+  border: 0px black solid;
+}
+
+body {
+  font-family: "Lato",sans-serif !important;
+  line-height: 20px;
+}
+
+.meas-row .meas-elem {
+  margin-right: 6%;
+  margin-bottom: 30px;
+}
+
 .min-label {
   float: left;
-  left: -50px;
+  margin-left: -5px;
 }
 
 .max-label {
   float: right;
-  right: -50px;
+  margin-right: -5px;
+}
+
+.meas-block-left {
+  float: left;
+  width: 45%;
+  margin: 10px;
+  display: inline-block;
+}
+
+.meas-block-right {
+  float: right;
+  width: 45%;
+  margin: 10px;
+  display: inline-block;
+}
+
+.slider-text {
+  font-family: "Lato", sans-serif;
+  text-align: center;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+body .indexes {
+  height: 6px;
+  margin: 10px 0px;
+  background: url("//doplb1ll3c6nn.cloudfront.net/assets/common/indexes.png") top left repeat-x;
+}
+
+body form legend {
+  font-family: "Lato", sans-serif;
+  font-size: 24px;
+  font-weight: 300;
+  text-transform: uppercase;
+  border-bottom-width: 0px;
+  margin-bottom: 0px;
+}
+
+body form fieldset label {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 24px;
+  text-transform: uppercase;
 }

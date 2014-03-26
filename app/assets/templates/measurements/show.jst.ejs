@@ -2,7 +2,9 @@
   <div class="measurements" id="<%= user.id %>">
     <form role="form" class="measurements-form" align="left">
     
-      <h2>Your Measurements</h2>
+      <h2 align="center">Your Measurements</h2>
+      
+      <hr>
 
       <div class="alert alert-danger hidden">
         Invalid Attributes! 
@@ -10,118 +12,105 @@
     
       <input type="hidden" name="measurements[user_id]" value="<%= user.id %>">
       
-      <script>
-      function toInches(n) {
-          return Math.floor(n / 12) + "'" + (n % 12) + '"';
-      }
-
-      $(function() {
-          $( "#slider" ).slider({
-            min: 60,
-            max: 84,
-            slide: function( event, ui ) {
-              $( "#height" ).val(toInches(ui.value));
-            }
-          });
-          $( "#height" ).val( $( ".height#slider" ).slider( "value" ) );
-        });
-      </script>
-      
-      <div class="form-group">
-        <p>
-          <label for="height">Height</label><br>
-          <div class="slider-amount" id="height_amt" style="border:0; color:#f6931f; font-weight:bold; font-size:24px;"></div>
-        </p>
-      
-      <div class="slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" id="height-slider" name="height-s" data-target="height" aria-disabled="false"><a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 45.83333333333333%;"></a></div><br><br>
-      
-      <div class="slider-scale">
-        <div class="indexes"></div>
-        <div class="slider-labels">
-          <span class="slider-label min-label">5 FEET</span>
-          <span class="slider-label max-label">7 FEET</span>
-        </div>
-      </div>
-
-    </div>
-          
-          <script>
-            function toFeet(n) {
-                return Math.floor(n / 12) + "'" + (n % 12) + '"';
-            }
-
-            $("#height-slider").slider({
-              min: 60,
-              max: 84,
-              step: 1,
-              value: 60,
-              slide: function( event, ui ) {
-                var sval = ui.value;
-                $("#height_amt").html(toFeet(sval));
-              },
-              change: function( event, ui) {
-                var sval = ui.value
-                $("#height").val(sval);
-                $("#height_amt").html(toFeet(sval));
-              }
-            });
-            $("#height_amt").html(toFeet(60));
-          </script>
+      <fieldset>
+        <div class="meas-row row-fluid">
+          <legend>General Body</legend>
         
+          <div class="meas-block-left">
+            <h3><label for="height">Height</label></h3>
+            <div class="slider-text" id="height_amt"></div>
       
-      <br><br>
+            <div class="slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" id="height-slider" name="measurements[height]" data-target="height" aria-disabled="false">
+              <a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 45.83333333333333%;"></a>
+            </div>
+        
+            <br>
       
-      <div class="form-group">
-        <strong>How often do you want a selection?**</strong>
+            <div class="slider-scale">
+              <div class="indexes"></div>
+              <div class="slider-labels">
+                <span class="slider-label min-label">5 FEET</span>
+                <span class="slider-label max-label">7 FEET</span>
+              </div>
+            </div>
+
+            <script type="text/javascript" charset="utf-8">
+              function toFeet(n) {
+                  return Math.floor(n / 12) + "'" + (n % 12) + '"';
+              }
+
+              $("#height-slider").slider({
+                min: 60,
+                max: 84,
+                step: 1,
+                // value: 60, taken from data
+                slide: function( event, ui ) {
+                  var uiVal = ui.value;
+                  $("#height_amt").html(toFeet(uiVal));
+                },
+                change: function( event, ui) {
+                  var uiVal = ui.value
+                  $("#height").val(uiVal);
+                  $("#height_amt").html(toFeet(uiVal));
+                }
+              });
+              $("#height_amt").html(toFeet(60));
+            </script>
+          </div>
+          
+          <div class="meas-block-right">
+            <h3><label for="height">Weight</label></h3>
+            <div class="slider-text" id="weight_amt"></div>
       
-        <div class="radio">
-          <label><input type="radio" name="measurements[subscription]" id="subscription" value="monthly" checked>Every month</label><br>
-        </div>
-        <div class="radio">
-          <label><input type="radio" name="measurements[subscription]" id="subscription" value="bimonthly" <%= measurements.get("subscription") === "bimonthly" ? "checked" : "" %>>Every 2 months</label><br>
-        </div>
-        <div class="radio">
-          <label><input type="radio" name="measurements[subscription]" id="subscription" value="trimonthly" <%= measurements.get("subscription") === "trimonthly" ? "checked" : "" %>>Every 3 months</label><br>
-        </div>
-        <div class="radio">
-          <label><input type="radio" name="measurements[subscription]" id="subscription" value="paused" <%= measurements.get("subscription") === "paused" ? "checked" : "" %>>I'd like to pause my subscription</label><br>
-        </div>
-      </div>
-    
-      <div class="form-group">
-        <label>What is your budget?**</label>
+            <div class="slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" id="weight-slider" name="measurements[weight]" data-target="weight" aria-disabled="false">
+              <a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 45.83333333333333%;"></a>
+            </div>
+        
+            <br>
       
-        <select name="measurements[budget]" class="form-control">
-          <option></option>
-          <option value="50-100" <%= measurements.get("budget") === "50-100" ? "selected" : "" %>>$50-$100</option>
-          <option value="100-150" <%= measurements.get("budget") === "100-150" ? "selected" : "" %>>$100-$150</option>
-          <option value="150-200" <%= measurements.get("budget") === "150-200" ? "selected" : "" %>>$150-$200</option>
-          <option value="none" <%= measurements.get("budget") === "none" ? "selected" : "" %>>Quality matters to me!</option>
-        </select>
-      </div>
-    
-      <div class="form-group">
-        <strong>How many pieces of clothing per shipment?**</strong>
+            <div class="slider-scale">
+              <div class="indexes"></div>
+              <div class="slider-labels">
+                <span class="slider-label min-label">100 LBS</span>
+                <span class="slider-label max-label">300 LBS</span>
+              </div>
+            </div>
+
+            <script type="text/javascript" charset="utf-8">
+              function toFeet(n) {
+                  return Math.floor(n / 12) + "'" + (n % 12) + '"';
+              }
+
+              $("#weight-slider").slider({
+                min: 100,
+                max: 350,
+                step: 5,
+                // value: 60, this should be remembered and taken from data
+                slide: function( event, ui ) {
+                  var uiVal = ui.value;
+                  $("#weight_amt").html(uiVal + " lbs");
+                },
+                change: function( event, ui) {
+                  var uiVal = ui.value
+                  $("#weight").val(uiVal + " lbs");
+                  $("#weight_amt").html(uiVal + " lbs");
+                }
+              });
+              $("#weight_amt").html("100 lbs");
+            </script>
+          </div>
+          
+          <div style="clear:both;"></div>
       
-        <div class="radio">
-          <label><input type="radio" name="measurements[pieces_per_ship]" id="pieces_per_ship" value="1" checked>1 item</label><br>
         </div>
-        <div class="radio">
-          <label><input type="radio" name="measurements[pieces_per_ship]" id="pieces_per_ship" value="2" <%= measurements.get("pieces_per_ship") === "bimonthly" ? "checked" : "" %>>2 items</label><br>
-        </div>
-        <div class="radio">
-          <label><input type="radio" name="measurements[pieces_per_ship]" id="pieces_per_ship" value="3" <%= measurements.get("pieces_per_ship") === "trimonthly" ? "checked" : "" %>>3 items</label><br>
-        </div>
-        <div class="radio">
-          <label><input type="radio" name="measurements[pieces_per_ship]" id="pieces_per_ship" value="4" <%= measurements.get("pieces_per_ship") === "trimonthly" ? "checked" : "" %>>4 items</label><br>
-        </div>
-      </div>
-  
+      
+      </fieldset>
+      
       <div align="center">  
         <% if(action === "create") { %>
-          <button class="btn btn-default create-measures">Submit</button>
+          <button class="btn btn-default meas create-measures">Submit</button>
         <% } else { %>
-          <button class="btn btn-default update-measures">Update</button>
+          <button class="btn btn-default meas update-measures">Update</button>
         <% } %>
       </div>
     </form>

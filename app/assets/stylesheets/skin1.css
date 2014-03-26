@@ -1,18 +1,21 @@
 
 /* slider root element */
 .slider {
-    background:#3C72E6 url(/media/img/gradient/h30.png) repeat-x 0 0;
-    height:9px;
+    background:#eeeeee;
+    height:0.8em;
     position:relative;
     cursor:pointer;
-    border:1px solid #333;
-    width:675px;
+    border:0px solid #333;
+    width:100%;
     float:left;
     clear:right;
     margin-top:10px;
     -moz-border-radius:5px;
     -webkit-border-radius:5px;
-    -moz-box-shadow:inset 0 0 8px #000;
+/*    -moz-box-shadow:inset 0 0 8px #000;*/
+    -webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+    -moz-box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
 }
 
 /* progress bar (enabled with progress: true) */
@@ -25,7 +28,8 @@
 
 /* drag handle */
 .handle {
-    background:#fff url(/media/img/gradient/h30.png) repeat-x 0 0;
+    background:#fcfcfc;
+    border-color: #999;
     height:28px;
     width:28px;
     top:-12px;

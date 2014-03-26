@@ -18,17 +18,19 @@
 
 body {
   padding-top: 60px;
+  font-family: "Lato", sans-serif;
 }
 
 .item-block {
   border-radius: 8px;
   float: left;
   width: 400px;
-  border: 1px black solid;
+  border: 0px black solid;
   padding: 10px;
   margin: 10px;
   background-color: #F0F0F0;
   color: #000000;
+  box-shadow: 3px 3px 3px rgba(0,0,0,0.2);
 }
 
 .order-form {
