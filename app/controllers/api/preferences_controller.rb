@@ -36,6 +36,6 @@ class Api::PreferencesController < ApplicationController
   
   private
   def pref_params
-    params.require(:preferences).permit(:user_id, :subscription, :budget, :pieces_per_ship)
+    params.require(:preference).permit(:user_id, :subscription, :budget, :pieces_per_ship)
   end
 end

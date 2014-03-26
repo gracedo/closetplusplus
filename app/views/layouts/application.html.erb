@@ -34,8 +34,8 @@
                   <center><li role="presentation" class="dropdown-header"><%= current_user.fname %> <%= current_user.lname %></li></center>
                   <li class="divider" role="presentation"></li>
                   <li><a href="/users/edit">Account Information</a></li>
+                  <li><a href="/#/preferences">Subscription Preferences</a></li>
                   <li><a href="#">Billing Info</a></li>
-                  <li><a href="#">Billing History</a></li>
                   <li class="divider"></li>
                   <li><%= link_to "Log Out", destroy_user_session_url, method: :delete %></li>
                 </ul>

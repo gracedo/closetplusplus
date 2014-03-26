@@ -12,7 +12,7 @@ Closet.Views.PreferencesShow = Backbone.View.extend({
   },
 
   render: function() {
-    if(this.model) {
+    if(this.model.attributes.length) {
       var action = "update";
     } else {
       var action = "create"
@@ -28,5 +28,39 @@ Closet.Views.PreferencesShow = Backbone.View.extend({
     
     this.$el.html(renderedContent);
     return this;
+  },
+  
+  create: function(event) {
+    event.preventDefault();
+    var $formData = $(event.currentTarget.form).serializeJSON().preferences;
+    var newPrefs = new Closet.Models.Preferences($formData);
+
+    if(!newPrefs.isValid()) {
+      console.log("preferences failed to be created");
+      $(".alert").append("Please select your budget.");
+      $(".alert").removeClass("hidden");
+    } else {
+      // this.model.set($formData);
+      this.model.save($formData, {
+        // patch: true,
+        success: function() {
+          console.log("preferences successfully created");
+          Backbone.history.navigate("", { trigger: true })
+        },
+        error: function() {
+          debugger
+          var errors = arguments[1].responseText;
+          console.log("preferences failed to be created");
+          console.log(errors);
+          $(".alert").removeClass("hidden");
+        }
+      })
+    }
+  },
+  
+  update: function(event) {
+    event.preventDefault();
+    var $formData = $(event.currentTarget.form).serializeJSON().preferences;
+    
   }
 });

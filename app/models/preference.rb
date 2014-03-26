@@ -1,5 +1,5 @@
 class Preference < ActiveRecord::Base
-  validates :user_id, :subscription, :pieces_per_ship, presence: true
+  validates :user_id, :subscription, :budget, :pieces_per_ship, presence: true
   validates :user_id, uniqueness: true
   
   belongs_to :user,
