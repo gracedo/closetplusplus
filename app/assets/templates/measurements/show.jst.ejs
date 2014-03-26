@@ -18,9 +18,11 @@
         
           <div class="meas-block-left">
             <h3><label for="height">Height</label></h3>
+            
+            <input type="hidden" name="measurements[height]"/>
             <div class="slider-text" id="height_amt"></div>
       
-            <div class="slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" id="height-slider" name="measurements[height]" data-target="height" aria-disabled="false">
+            <div class="slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" id="height-slider" data-target="height" aria-disabled="false">
               <a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 45.83333333333333%;"></a>
             </div>
         
@@ -34,35 +36,15 @@
               </div>
             </div>
 
-            <script type="text/javascript" charset="utf-8">
-              function toFeet(n) {
-                  return Math.floor(n / 12) + "'" + (n % 12) + '"';
-              }
-
-              $("#height-slider").slider({
-                min: 60,
-                max: 84,
-                step: 1,
-                // value: 60, taken from data
-                slide: function( event, ui ) {
-                  var uiVal = ui.value;
-                  $("#height_amt").html(toFeet(uiVal));
-                },
-                change: function( event, ui) {
-                  var uiVal = ui.value
-                  $("#height").val(uiVal);
-                  $("#height_amt").html(toFeet(uiVal));
-                }
-              });
-              $("#height_amt").html(toFeet(60));
-            </script>
           </div>
           
           <div class="meas-block-right">
             <h3><label for="height">Weight</label></h3>
+            
+            <input type="hidden" name="measurements[weight]"/>
             <div class="slider-text" id="weight_amt"></div>
       
-            <div class="slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" id="weight-slider" name="measurements[weight]" data-target="weight" aria-disabled="false">
+            <div class="slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" id="weight-slider" data-target="weight" aria-disabled="false">
               <a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 45.83333333333333%;"></a>
             </div>
         
@@ -76,30 +58,7 @@
               </div>
             </div>
 
-            <script type="text/javascript" charset="utf-8">
-              function toFeet(n) {
-                  return Math.floor(n / 12) + "'" + (n % 12) + '"';
-              }
-
-              $("#weight-slider").slider({
-                min: 100,
-                max: 350,
-                step: 5,
-                // value: 60, this should be remembered and taken from data
-                slide: function( event, ui ) {
-                  var uiVal = ui.value;
-                  $("#weight_amt").html(uiVal + " lbs");
-                },
-                change: function( event, ui) {
-                  var uiVal = ui.value
-                  $("#weight").val(uiVal + " lbs");
-                  $("#weight_amt").html(uiVal + " lbs");
-                }
-              });
-              $("#weight_amt").html("100 lbs");
-            </script>
-          </div>
-          
+            
           <div style="clear:both;"></div>
       
         </div>

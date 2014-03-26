@@ -26,6 +26,7 @@ Closet.Views.MeasurementsShow = Backbone.View.extend({
     });
     
     this.$el.html(renderedContent);
+    this.initSliders();
     return this;
   },
   
@@ -33,10 +34,10 @@ Closet.Views.MeasurementsShow = Backbone.View.extend({
     event.preventDefault();
     var $formData = $(event.currentTarget.form).serializeJSON().measurements;
     var newMeasures = new Closet.Models.Preferences($formData);
-
+    debugger
     if(!newMeasures.isValid()) {
       console.log("measurements failed to be created");
-      $(".alert").append("Please select your budget.");
+      $(".alert").append("Please do not leave any fields blank.");
       $(".alert").removeClass("hidden");
     } else {
       this.model.save($formData, {
@@ -77,5 +78,61 @@ Closet.Views.MeasurementsShow = Backbone.View.extend({
         }
       })
     }
+  },
+  
+  initSliders: function() {
+    this.heightSlider();
+    this.generateSlider("weight", 100, 300, 5, "100 LBS");
+  },
+  
+  generateSlider: function(type, min, max, step, defaultVal) {
+    var that = this;
+    var savedVal = this.model.get("height") || 60;
+
+    this.$("#"+type+"-slider").slider({
+      min: min,
+      max: max,
+      step: step,
+      value: savedVal,
+      slide: function( event, ui ) {
+        var uiVal = ui.value;
+        that.$("#"+type+"_amt").html(uiVal);
+      },
+      change: function( event, ui) {
+        var uiVal = ui.value
+        that.$("form input[name='measurements["+type+"]']").val(uiVal);
+        that.$("#"+type+"_amt").html(uiVal);
+      }
+    });
+    
+    this.$("#"+type+"_amt").html(defaultVal);
+  },
+  
+  heightSlider: function() {
+    var that = this;
+    
+    function toFeet(n) {
+        return Math.floor(n / 12) + "'" + (n % 12) + '"';
+    };
+
+    var savedHeight = this.model.get("height") || 60;
+
+    this.$("#height-slider").slider({
+      min: 60,
+      max: 84,
+      step: 1,
+      value: savedHeight,
+      slide: function( event, ui ) {
+        var uiVal = ui.value;
+        that.$("#height_amt").html(toFeet(uiVal));
+      },
+      change: function( event, ui) {
+        var uiVal = ui.value
+        that.$("form input[name='measurements[height]']").val(uiVal);
+        that.$("#height_amt").html(toFeet(uiVal));
+      }
+    });
+    
+    this.$("#height_amt").html(toFeet(60));
   }
 });
