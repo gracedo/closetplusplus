@@ -5,7 +5,7 @@
 
 .measurements-form {
   border-radius: 8px;
-  width: 90%;
+  width: 80%;
   padding: 40px;
   padding-top: 8px;
   padding-bottom: 20px;
@@ -13,23 +13,35 @@
 }
 
 body {
-  font-family: "Lato",sans-serif !important;
+  font-family: "Lato",sans-serif ;
   line-height: 20px;
 }
 
-.meas-row .meas-elem {
-  margin-right: 6%;
-  margin-bottom: 30px;
+.meas-row {
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 40px;
 }
 
 .min-label {
   float: left;
-  margin-left: -5px;
+  margin-left: -10px;
 }
 
 .max-label {
   float: right;
-  margin-right: -5px;
+  margin-right: -25px;
+}
+
+.slider-label {
+//  width: 100px;
+  display: block;
+  font-size: 12px;
+//  text-align: center;
+  position: relative;
+  text-transform: uppercase;
+  color: #777;
+  font-weight: 300;
 }
 
 .meas-block-left {
@@ -67,6 +79,7 @@ body form legend {
   text-transform: uppercase;
   border-bottom-width: 0px;
   margin-bottom: 0px;
+  margin-top: 10px;
 }
 
 body form fieldset label {

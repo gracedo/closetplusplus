@@ -6,14 +6,12 @@
       
       <hr>
 
-      <div class="alert alert-danger hidden">
-        Invalid Attributes! 
-      </div>
+      <div class="alert alert-danger hidden"></div>
     
       <input type="hidden" name="measurements[user_id]" value="<%= user.id %>">
       
       <fieldset>
-        <div class="meas-row row-fluid">
+        <div class="meas-row row-fluid clearfix">
           <legend>General Body</legend>
         
           <div class="meas-block-left">
@@ -35,7 +33,6 @@
                 <span class="slider-label max-label">7 FEET</span>
               </div>
             </div>
-
           </div>
           
           <div class="meas-block-right">
@@ -53,25 +50,55 @@
             <div class="slider-scale">
               <div class="indexes"></div>
               <div class="slider-labels">
-                <span class="slider-label min-label">100 LBS</span>
-                <span class="slider-label max-label">300 LBS</span>
+                <span class="slider-label min-label" id="weight_min"> LBS</span>
+                <span class="slider-label max-label" id="weight_max"> LBS</span>
               </div>
             </div>
-
             
-          <div style="clear:both;"></div>
-      
+            <div style="clear:both;"></div>
+          </div>
         </div>
+        
+        <div class="meas-row row-fluid clearfix">
+          <legend>Upper Body</legend>
+          
+          <% UPPER_BODY.map(function(type) { %>
+            <div class="meas-block-<%= pos %>">
+              <h3><label for="<%= type %>"><%= type %></label></h3>
+            
+              <input type="hidden" name="measurements[<%= type %>]"/>
+              <div class="slider-text" id="<%= type %>_amt"></div>
+      
+              <div class="slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" id="<%= type %>-slider" data-target="<%= type %>" aria-disabled="false">
+                <a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 45.83333333333333%;"></a>
+              </div>
+        
+              <br>
+      
+              <div class="slider-scale">
+                <div class="indexes"></div>
+                <div class="slider-labels">
+                  <span class="slider-label min-label" id="<%= type %>_min"> INCHES</span>
+                  <span class="slider-label max-label" id="<%= type %>_max"> INCHES</span>
+                </div>
+              </div>
+            
+              <div style="clear:both;"></div>
+            </div>
+          
+          <% if(pos === "right") { pos = "left" } else { pos = "right" } %>
+        <% }) %>
+      </div>
       
       </fieldset>
       
       <div align="center">  
         <% if(action === "create") { %>
           <button class="btn btn-default meas create-measures">Submit</button>
-        <% } else { %>
-          <button class="btn btn-default meas update-measures">Update</button>
-        <% } %>
+          <% } else { %>
+            <button class="btn btn-default meas update-measures">Update</button>
+            <% } %>
+          </div>
+        </form>
       </div>
-    </form>
-  </div>
-</center>
+    </center>
