@@ -75,3 +75,4 @@ gem 'uuidtools'
 gem 'cancan'
 gem "paperclip"
 gem "aws-sdk"
+gem 'jquery-ui-rails'

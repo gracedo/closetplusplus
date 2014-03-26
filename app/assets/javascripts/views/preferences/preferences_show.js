@@ -46,7 +46,6 @@ Closet.Views.PreferencesShow = Backbone.View.extend({
           Backbone.history.navigate("", { trigger: true })
         },
         error: function() {
-          debugger
           var errors = arguments[1].responseText;
           console.log("preferences failed to be created");
           console.log(errors);

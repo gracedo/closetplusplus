@@ -1,3 +1,14 @@
 // Place all the styles related to the measurements controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.min-label {
+  float: left;
+  left: -50px;
+}
+
+.max-label {
+  float: right;
+  right: -50px;
+}

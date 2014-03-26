@@ -58,8 +58,7 @@ Closet.Routers.Router = Backbone.Router.extend({
   },
   
   measurementsShow: function() {
-    debugger
-    var measureShowView = Closet.Views.MeasurementsShow({
+    var measureShowView = new Closet.Views.MeasurementsShow({
       user: this.model,
       model: this.measurements
     });
