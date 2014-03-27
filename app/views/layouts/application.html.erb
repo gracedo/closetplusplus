@@ -62,13 +62,15 @@
   
   <center>
     <div class="subscription-warning">
-      <% if current_user.preferences %>
-        <% if current_user.preferences.subscription == "paused" %>
-          <div class='alert alert-warning'>Your subscription status is currently paused. <a href="/#/preferences">Click here</a> to change your subscription preferences or check out the <a href="/#/items">inventory</a>!
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-          </div>
+      <% if current_user %>
+        <% if current_user.preferences %>
+          <% if current_user.preferences.subscription == "paused" %>
+            <div class='alert alert-warning'>Your subscription status is currently paused. <a href="/#/preferences">Click here</a> to change your subscription preferences or check out the <a href="/#/items">inventory</a>!
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            </div>
+          <% end %>
         <% end %>
-      <% end %>
+      <% end%>
     </div>
     
     <div class="errors animated bounceInRight">
