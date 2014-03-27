@@ -39,14 +39,16 @@ Closet.Views.MeasurementsShow = Backbone.View.extend({
       success: function() {
         console.log("measurements successfully created");
         // Backbone.history.navigate("#/measurements", { trigger: true });
+        $(".alert-success").prepend("Measurements successfully saved!");
+        $(".alert-success").removeClass("hidden");
         window.scrollTo(0,0);
       },
       error: function() {
         var errors = arguments[1].responseText;
         console.log("measurements failed to be created");
         console.log(errors);
-        $(".alert").html("Invalid Attributes!");
-        $(".alert").removeClass("hidden");
+        $(".alert-danger").html("Invalid Attributes!");
+        $(".alert-danger").removeClass("hidden");
         window.scrollTo(0,0);
       }
     })
