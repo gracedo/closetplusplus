@@ -5,7 +5,7 @@ class Api::StylesController < ApplicationController
   end
   
   def create
-    @style = Style.new(styles_params)
+    @style = Style.new(style_params)
     
     if @style.save
       render json: @style
@@ -36,6 +36,6 @@ class Api::StylesController < ApplicationController
   
   private
   def style_params
-    params.require(:style).permit(:user_id, :body_shape, :skin_tone, :shirt_size, :pants_size, :style_type, :never_wear, :fit_preferences, :fit_issues, :color_preferences, :colors_hate, :comments)
+    params.require(:style).permit(:user_id, :body_shape, :skin_tone, :shirt_size, :pants_inseam, :pants_waist, :style_type, :never_wear, :fit_preference, :fit_issues, :color_preferences, :colors_hate, :comments)
   end
 end

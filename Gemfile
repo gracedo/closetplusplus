@@ -63,6 +63,7 @@ end
 
 gem 'annotate'
 gem 'bootstrap-sass'
+gem 'font-awesome-sass'
 gem 'backbone-on-rails'
 gem 'rake', '10.1.1'
 gem 'pry-rails'

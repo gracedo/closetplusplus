@@ -47,6 +47,7 @@ Closet.Views.MeasurementsShow = Backbone.View.extend({
         console.log(errors);
         $(".alert").html("Invalid Attributes!");
         $(".alert").removeClass("hidden");
+        window.scrollTo(0,0);
       }
     })
   },

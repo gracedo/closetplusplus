@@ -71,7 +71,7 @@
                 <option value="none" <%= style.get("pants_waist") === "none" ? "selected" : "" %>>Don't Know</option>
     
                 <% for(i = 28; i < 40; i++) { %>
-                  <option <%= style.get("pants_waist") === i.toString() ? "selected" : "" %>><%= i %></option>
+                  <option value="<%= i %>" <%= style.get("pants_waist") === i.toString() ? "selected" : "" %>><%= i %></option>
                 <% } %>
               </select>
             </div>
@@ -80,8 +80,10 @@
               <div class="slider-labels">Inseam</div>
               <select name="style[pants_inseam]" class="form-control">
                 <option></option>
+                <option value="none" <%= style.get("pants_inseam") === "none" ? "selected" : "" %>>Don't Know</option>
+                
                 <% for(i = 28; i < 38; i=i+2) { %>
-                  <option <%= style.get("pants_inseam") === i.toString() ? "selected" : "" %>><%= i %></option>
+                  <option value="<%= i %>" <%= style.get("pants_inseam") === i.toString() ? "selected" : "" %>><%= i %></option>
                 <% } %>
               </select>
             </div>
@@ -94,9 +96,7 @@
             <h3><label>What's your style?</label></h3>
           
             <div class="col-md-8">
-              <textarea class="form-control" rows="3" name="style[style_type]" id="style_type" value="<%= style.escape("style_type") %>" placeholder="E.g. preppy, classic, casual, hipster...">
-                <%= style.escape("style_type") %>
-              </textarea>
+              <textarea class="form-control" rows="4" name="style[style_type]" id="style_type" value="<%= style.escape("style_type") %>" placeholder="E.g. preppy, classic, casual, hipster..."><%= style.escape("style_type") %></textarea>
             </div>
             
           </div>
@@ -105,9 +105,7 @@
             <h3><label>What would you never wear?</label></h3>
           
             <div class="col-md-8">
-              <textarea class="form-control" rows="3" name="style[never_wear]" id="never_wear" value="<%= style.escape("never_wear") %>" placeholder="E.g. plaid, stripes, pink, skinny jeans, graphics...">
-                <%= style.escape("never_wear") %>
-              </textarea>
+              <textarea class="form-control" rows="4" name="style[never_wear]" id="never_wear" value="<%= style.escape("never_wear") %>" placeholder="E.g. plaid, stripes, pink, skinny jeans, graphics..."><%= style.escape("never_wear") %></textarea>
             </div>
           </div>
           
@@ -127,9 +125,7 @@
             <h3><label>What fit issues do you have?</label></h3>
           
             <div class="col-md-8">
-              <textarea class="form-control" rows="3" name="style[fit_issues]" id="fit_issues" value="<%= style.escape("fit_issues") %>" placeholder="E.g. long arms, short arms, thick arms, broad shoulders, big belly, bit butt, thunder thighs, thick neck. short torso, broad chest, very skinny, skinny legs...">
-                <%= style.escape("fit_issues") %>
-              </textarea>
+              <textarea class="form-control" rows="4" name="style[fit_issues]" id="fit_issues" value="<%= style.escape("fit_issues") %>" placeholder="E.g. long arms, short arms, thick arms, broad shoulders, big belly, bit butt, thunder thighs, thick neck. short torso, broad chest, very skinny, skinny legs..."><%= style.escape("fit_issues") %></textarea>
             </div>
           </div>
             
@@ -139,9 +135,7 @@
               <h3><label>What colors do you love?</label></h3>
           
               <div class="col-md-8">
-                <textarea class="form-control" rows="3" name="style[color_preferences]" id="color_preferences" value="<%= style.escape("color_preferences") %>" placeholder="Colors that you love...">
-                  <%= style.escape("color_preferences") %>
-                </textarea>
+                <textarea class="form-control" rows="4" name="style[color_preferences]" id="color_preferences" value="<%= style.escape("color_preferences") %>" placeholder="Colors that you love..."><%= style.escape("color_preferences") %></textarea>
               </div>
             </div>
         
@@ -149,9 +143,7 @@
               <h3><label>What colors do you hate?</label></h3>
           
               <div class="col-md-8">
-                <textarea class="form-control" rows="3" name="style[colors_hate]" id="colors_hate" value="<%= style.escape("colors_hate") %>" placeholder="Colors that you hate...">
-                  <%= style.escape("colors_hate") %>
-                </textarea>
+                <textarea class="form-control" rows="4" name="style[colors_hate]" id="colors_hate" value="<%= style.escape("colors_hate") %>" placeholder="Colors that you hate..."><%= style.escape("colors_hate") %></textarea>
               </div>
             </div>
             
@@ -159,15 +151,12 @@
               <h3><label>Anything else you'd like to tell us?</label></h3>
           
               <div class="col-md-8">
-                <textarea class="form-control" rows="3" name="style[comments]" id="comments" value="<%= style.escape("comments") %>" placeholder="">
-                  <%= style.escape("comments") %>
-                </textarea>
+                <textarea class="form-control" rows="4" name="style[comments]" id="comments" value="<%= style.escape("comments") %>" placeholder=""><%= style.escape("comments") %></textarea>
               </div>
             </div>
             
             <div style="clear:both;"></div>
         </div>
-        
         
       </fieldset>
       

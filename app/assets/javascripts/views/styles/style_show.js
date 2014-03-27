@@ -27,6 +27,7 @@ Closet.Views.StyleShow = Backbone.View.extend({
     event.preventDefault();
     var $formData = $(event.currentTarget.form).serializeJSON().style;
     // $formData.user_id = this.user.id;
+    debugger
     
     this.model.save($formData, {
       patch: true,
@@ -40,6 +41,7 @@ Closet.Views.StyleShow = Backbone.View.extend({
         console.log(errors);
         $(".alert").html("Invalid Attributes!");
         $(".alert").removeClass("hidden");
+        window.scrollTo(0,0);
       }
     })
   }
