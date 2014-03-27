@@ -50,14 +50,11 @@
               <li><%= link_to "Log Out", destroy_user_session_url, method: :delete %></li>
             </ul>
           </li>
+          <% else %>
+            <li><a href="<%= new_user_session_url %>">Log In</a></li>
+            <li><a href="<%= new_user_registration_url %>">Sign Up</a></li>
+          <% end %>
         </ul>
-        <% else %>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="<%= new_user_session_url %>">Log In</a></li>
-          <li><a href="<%= new_user_registration_url %>">Sign Up</a></li>
-        </ul>
-        <% end %>
-        
       </div>
     </div>
   </nav>
@@ -65,16 +62,16 @@
   <center>
     <div class="errors animated bounceInRight">
       <% if flash[:errors] %>
-      <% flash[:errors].each do |error| %>
-      <div class='alert alert-danger alert-dismissable'><%= error %>
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      </div>
-      <% end %>
+        <% flash[:errors].each do |error| %>
+          <div class='alert alert-danger alert-dismissable'><%= error %>
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          </div>
+        <% end %>
       <% end %>
       <% if flash[:notice] %>
-      <div class='alert alert-success alert-dismissable'><%= flash[:notice] %>
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      </div>
+        <div class='alert alert-success alert-dismissable'><%= flash[:notice] %>
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        </div>
       <% end %>
     </div>
   </center>

@@ -14,24 +14,9 @@
  */
 
 
-
 body {
   padding-top: 60px;
   font-family: "Lato", sans-serif;
-}
-
-.item-block {
-  border-radius: 8px;
-  float: left;
-  width: 400px;
-  border: 0px black solid;
-  padding: 20px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  margin: 10px;
-  background-color: #F0F0F0;
-  color: #000000;
-  box-shadow: 3px 3px 3px rgba(0,0,0,0.2);
 }
 
 .order-form {
@@ -45,16 +30,6 @@ body {
   padding-top: 8px;
   padding-bottom: 20px;
   border: 1px black solid;
-}
-
-.new-item-form {
-  border-radius: 8px;
-  width: 50%;
-  padding: 40px;
-  padding-top: 8px;
-  padding-bottom: 20px;
-  border: 1px black solid;
-//  background-color: #AEB7E8;
 }
 
 .order-details {
@@ -88,8 +63,6 @@ body {
 }
 
 $navbar-height: 40px;
-$nav-pills-active-link-hover-bg: grey;
-$nav-pills-active-link-hover-color: black;
-
+$navbar-default-bg: #F0F0F0;
 
 @import "bootstrap";
