@@ -1,97 +1,99 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Closet++</title>
-    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => false %>
-    <%= javascript_include_tag "application", "data-turbolinks-track" => false %>
-    <%= csrf_meta_tags %>
-  </head>
+<head>
+  <title>Closet++</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => false %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => false %>
+  <%= csrf_meta_tags %>
+</head>
 
-  <body>
-    <nav class="navbar nav-default navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="navbar-inner">
-        <ul class="nav nav-pills">
-          <li>
-            <a href="/#/" class="navbar-brand"><span class="glyphicon glyphicon-shopping-cart">Closet++</span></a>
-          </li>
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a href="/#/" class="navbar-brand"><span class="glyphicon glyphicon-shopping-cart">Closet++</span></a>
+      </div>
         
-          <form class="navbar-form navbar-left" role="search">
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search">
-            </div>
-            <button type="submit" class="btn btn-default">Submit</button>
-          </form>
+      <div class="collapse navbar-collapse">
+        <form class="navbar-form navbar-left" role="search">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
         
+        <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
-            <ul class="nav nav-pills navbar-right">
-              <!-- ADD NEW ITEMS LINK ONLY FOR ADMINS! -->
-              <li><a href="/#/items/new">Add New Items</a></li>
-              <li><a href="/#/items">Clothes</a></li>
+            
+          <!-- ADD NEW ITEMS LINK ONLY FOR ADMINS! -->
+          <li><a href="/#/items/new">Add New Items</a></li>
+          <li><a href="/#/items">Clothes</a></li>
 
-              <li class="dropdown">  
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">About You <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><a href="/#/measurements">Measurements</a></li>
-                  <li><a href="/#/style">Style</a></li>
-                  <li><a href="/#/photo">Photo</a></li>
-                </ul>
-              </li>
+          <li class="dropdown">  
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">About You <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="/#/measurements">Measurements</a></li>
+              <li><a href="/#/style">Style</a></li>
+              <li><a href="/#/photo">Photo</a></li>
+            </ul>
+          </li>
 
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <center><li role="presentation" class="dropdown-header"><%= current_user.fname %> <%= current_user.lname %></li></center>
-                  <li class="divider" role="presentation"></li>
-                  <li><a href="/users/edit">Account Information</a></li>
-                  <li><a href="/#/preferences">Subscription Preferences</a></li>
-                  <li><a href="#">Billing Info</a></li>
-                  <li class="divider"></li>
-                  <li><%= link_to "Log Out", destroy_user_session_url, method: :delete %></li>
-                </ul>
-              </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <center><li role="presentation" class="dropdown-header"><%= current_user.fname %> <%= current_user.lname %></li></center>
+              <li class="divider" role="presentation"></li>
+              <li><a href="/users/edit">Account Information</a></li>
+              <li><a href="/#/preferences">Subscription Preferences</a></li>
+              <li><a href="#">Billing Info</a></li>
+              <li class="divider"></li>
+              <li><%= link_to "Log Out", destroy_user_session_url, method: :delete %></li>
             </ul>
-          <% else %>
-            <ul class="nav nav-pills navbar-right">
-              <li><a href="<%= new_user_session_url %>">Log In</a></li>
-              <li><a href="<%= new_user_registration_url %>">Sign Up</a></li>
-            </ul>
-          <% end %>
-        
+          </li>
         </ul>
-      </div>
-    </nav>
-  
-    <center>
-      <div class="errors animated bounceInRight">
-        <% if flash[:errors] %>
-          <% flash[:errors].each do |error| %>
-          <div class='alert alert-danger alert-dismissable'><%= error %>
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-          </div>
-          <% end %>
+        <% else %>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="<%= new_user_session_url %>">Log In</a></li>
+          <li><a href="<%= new_user_registration_url %>">Sign Up</a></li>
+        </ul>
         <% end %>
-        <% if flash[:notice] %>
-          <div class='alert alert-success alert-dismissable'><%= flash[:notice] %>
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-          </div>
-        <% end %>
+        
       </div>
-    </center>
-    
-    <script type="text/javascript" charset="utf-8">
-      window.setTimeout(function() { $(".errors").alert('close'); }, 4000);
-    </script>
-
-    <div id="root-content" class="container">
-      <%= yield %>
     </div>
+  </nav>
+  
+  <center>
+    <div class="errors animated bounceInRight">
+      <% if flash[:errors] %>
+      <% flash[:errors].each do |error| %>
+      <div class='alert alert-danger alert-dismissable'><%= error %>
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      </div>
+      <% end %>
+      <% end %>
+      <% if flash[:notice] %>
+      <div class='alert alert-success alert-dismissable'><%= flash[:notice] %>
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      </div>
+      <% end %>
+    </div>
+  </center>
+    
+  <script type="text/javascript" charset="utf-8">
+  window.setTimeout(function() { $(".errors").alert('close'); }, 4000);
+  </script>
 
-  </body>
+  <div id="root-content" class="container">
+    <%= yield %>
+  </div>
 
-  <footer>
-    <center>
-      <hr>
-      <strong>Closet++</strong> | Grace Do, 2014.
-    </center>  
-  </footer>
+</body>
+
+<footer>
+<center>
+  <hr>
+  <strong>Closet++</strong> | Grace Do, 2014.
+</center>  
+</footer>
+
 </html>

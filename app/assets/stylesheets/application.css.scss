@@ -13,7 +13,6 @@
  *= require_tree .
  */
 
-@import "bootstrap";
 
 
 body {
@@ -87,3 +86,10 @@ body {
 .btn-color {
   background-image: none;
 }
+
+$navbar-height: 40px;
+$nav-pills-active-link-hover-bg: grey;
+$nav-pills-active-link-hover-color: black;
+
+
+@import "bootstrap";
