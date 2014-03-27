@@ -1,4 +1,18 @@
-<h1>Your Orders</h1>
+<center>
+  <% if(orders.length > 0) { %>
+    <h1>Your Orders</h1>
+    <hr>
+  <% } else { %>
+    <div class="row">
+      <div class="jumbotron" align="left">
+        <h1>You have no orders!</h1>
+        <br>
+        <h4>Visit the <a href="/#/items">clothing inventory</a> to browse through the available items, or update your <a href="/#/measurements">measurements</a> and <a href="/#/preferences">shipping preferences</a> so that our stylist can pick out some fashionable items to send to you!</h4>
+    </div>
+  </div>
+    <% } %>
 
-<div class="orders-container">
-</div>
+  <div class="orders-container" class="clearfix" align="left">
+  </div>
+  
+</center>

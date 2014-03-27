@@ -19,6 +19,14 @@ body {
   font-family: "Lato", sans-serif;
 }
 
+footer {
+  padding-top: -5px;
+  padding-bottom: 10px;
+  background-color: #F0F0F0;
+  border-color: #ddd;
+  box-shadow: 0px 500px 0px 500px #F0F0F0;
+}
+
 .modal-content {
   padding: 25px;
   padding-top: 15px;
@@ -33,7 +41,13 @@ body {
   background-image: none;
 }
 
+.jumbotron {
+  width: 65%;
+  padding-top: 0px;
+}
+
 $navbar-height: 40px;
 $navbar-default-bg: #F0F0F0;
+$navbar-default-link-hover-bg: #ddd;
 
 @import "bootstrap";
