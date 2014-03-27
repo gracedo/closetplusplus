@@ -76,3 +76,7 @@ gem 'cancan'
 gem "paperclip"
 gem "aws-sdk"
 gem 'jquery-ui-rails'
+
+group :production do
+  gem 'rails_12factor'
+end
