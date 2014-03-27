@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140326031009) do
+ActiveRecord::Schema.define(version: 20140327185616) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,6 +79,25 @@ ActiveRecord::Schema.define(version: 20140326031009) do
   end
 
   add_index "preferences", ["user_id"], name: "index_preferences_on_user_id", unique: true, using: :btree
+
+  create_table "styles", force: true do |t|
+    t.integer  "user_id",           default: 0
+    t.string   "body_shape",        default: ""
+    t.string   "skin_tone",         default: ""
+    t.string   "shirt_size",        default: ""
+    t.string   "pants_size",        default: ""
+    t.string   "style_type",        default: ""
+    t.text     "never_wear",        default: ""
+    t.string   "fit_preference",    default: ""
+    t.text     "fit_issues",        default: ""
+    t.text     "color_preferences", default: ""
+    t.text     "colors_hate",       default: ""
+    t.text     "comments",          default: ""
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "styles", ["user_id"], name: "index_styles_on_user_id", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.string   "fname",                               null: false
