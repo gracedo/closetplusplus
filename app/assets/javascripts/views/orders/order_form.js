@@ -47,7 +47,8 @@ Closet.Views.OrderForm = Backbone.View.extend({
       },
       error: function() {
         console.log("Order was not processed");
-        $(".alert[item-id='"+that.model.id+"']").html(arguments[1].responseText);
+        console.log(arguments[1].responseText)
+        $(".alert[item-id='"+that.model.id+"']").html("Please pick a size!");
         $(".alert[item-id='"+that.model.id+"']").removeClass("hidden");
       }
     })
