@@ -16,11 +16,11 @@
 
 body {
   padding-top: 60px;
-  font-family: "Lato", sans-serif;
+  font-family: "Lato", sans-serif !important;
+  background-color: #F9F9FB !important;
 }
 
 footer {
-  padding-top: -5px;
   padding-bottom: 10px;
   background-color: #F0F0F0;
   border-color: #ddd;
@@ -43,8 +43,8 @@ footer {
 
 .jumbotron {
   width: 65%;
-  padding-top: 0px;
 }
+
 
 $navbar-height: 40px;
 $navbar-default-bg: #F0F0F0;

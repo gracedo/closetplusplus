@@ -1,33 +1,41 @@
-<h3>Your Shipping Address</h3>
+<h3 align="center">Your Shipping Address</h2>
+<br>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<div class="col-md-offset-1">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "form-horizontal", role: "form"}) do |f| %>
   
-  <div><%= f.label "Name" %><br />
-  <%= f.text_field :shipto_name %></div>
+    <div class="form-group">
+      <div><%= f.label "Name" %><br />
+      <%= f.text_field :shipto_name %></div>
+    </div>
   
-  <div><%= f.label "Street Address" %><br />
-  <%= f.text_field :line1 %></div>
+    <!-- <div class="form-group"> -->
+      <div class="form-group"><%= f.label "Street Address" %><br />
+      <%= f.text_field :line1 %></div>
 
-  <div><%= f.label "Address Line 2" %><br />
-  <%= f.text_field :line2 %></div>
+      <div class="form-group"><%= f.label "Address Line 2" %><br />
+      <%= f.text_field :line2 %></div>
   
-  <div><%= f.label "City" %><br />
-  <%= f.text_field :city %></div>
+      <div class="form-group"><%= f.label "City" %><br />
+      <%= f.text_field :city %></div>
   
-  <div><%= f.label "State" %><br />
-  <%= f.text_field :state %></div>
+      <div class="form-group"><%= f.label "State" %><br />
+      <%= f.text_field :state %></div>
   
-  <div><%= f.label "Zip code" %><br />
-  <%= f.text_field :zipcode %></div>
+      <div class="form-group"><%= f.label "Zip code" %><br />
+      <%= f.text_field :zipcode %></div>
   
-  <div><%= f.label "Country" %><br />
-  <%= f.text_field :country %></div>
+      <div class="form-group"><%= f.label "Country" %><br />
+      <%= f.text_field :country %></div>
+    <!-- </div> -->
   
-  <br>
+    <br>
 
-  <div>***<%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %></div>
+    <div class="form-group">
+      ***<%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+      <%= f.password_field :current_password, autocomplete: "off" %>
+    </div>
     
-  <br>
-  <div><%= f.submit "Update" %></div>
-<% end %>
+    <div align="center"><%= f.submit "Update your shipping information", class: "btn btn-default" %></div>
+  <% end %>
+</div>

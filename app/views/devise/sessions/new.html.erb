@@ -1,17 +1,23 @@
-<h2>Sign in</h2>
+<center>
+  <div class="preferences-form" align="left">
+    <h2 align="center">Sign in</h2>
+    <br>
 
-<%= form_for(resource, as: resource_name, url: new_user_session_path) do |f| %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
+  <%= form_for(resource, as: resource_name, html: { class: "form-horizontal", role: "form" }, url: new_user_session_path) do |f| %>
+  
+    <div><%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true %></div>
 
-  <div><%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
+    <div><%= f.label :password %><br />
+      <%= f.password_field :password, autocomplete: "off" %></div>
 
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%>
+    <% if devise_mapping.rememberable? -%>
+      <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+    <% end -%>
 
-  <div><%= f.submit "Sign in" %></div>
-<% end %>
+    <div><%= f.submit "Sign in" %></div>
+  <% end %>
 
-<%= render "devise/shared/links" %>
+  <%= render "devise/shared/links" %>
+  </div>
+</center>
