@@ -1,28 +1,40 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-  
-  <div><%= f.label "First Name" %><br />
-  <%= f.text_field :fname, autofocus: true %></div>
-  
-  <div><%= f.label "Last Name" %><br />
-  <%= f.text_field :lname %></div>
-
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
-
-  <div><%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
-
-  <div><%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+<center>
+  <div class="preferences-form" align="left">
+    <h2 align="center">Sign up</h2>
     
-  <br>
+    <br>
 
-  <div><%= f.submit "Sign up" %></div>
-<% end %>
+    <div class="col-md-offset-1">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
+  
+        <div class="form-group"><%= f.label "First Name" %><br />
+        <%= f.text_field :fname, autofocus: true %></div>
+  
+        <div class="form-group"><%= f.label "Last Name" %><br />
+        <%= f.text_field :lname %></div>
 
-<br>
+        <div class="form-group"><%= f.label :email %><br />
+        <%= f.email_field :email %></div>
 
-<%= render "devise/shared/links" %>
+        <div class="form-group"><%= f.label :password %><br />
+          <%= f.password_field :password, autocomplete: "off" %></div>
+
+        <div class="form-group"><%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+    
+        <br>
+
+        <div class="form-group">
+          <%= f.submit "Sign up", class: "btn btn-default" %>
+        </div>
+      <% end %>
+
+      <br>
+
+      <div class="form-group">
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
+  </div>
+</center>
