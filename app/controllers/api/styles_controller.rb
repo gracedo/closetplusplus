@@ -1,41 +1,41 @@
 class Api::StylesController < ApplicationController
   def new
-    @styles = Style.new
-    render json: @styles
+    @style = Style.new
+    render json: @style
   end
   
   def create
-    @styles = Style.new(styles_params)
+    @style = Style.new(styles_params)
     
-    if @styles.save
-      render json: @styles
+    if @style.save
+      render json: @style
     else
-      render json: @styles.errors, status: 422
+      render json: @style.errors, status: 422
     end
   end
   
   def show
-    @styles = current_user.styles
-    render json: @styles
+    @style = current_user.style
+    render json: @style
   end
   
   def edit
-    @styles = current_user.styles
-    render json: @styles
+    @style = current_user.style
+    render json: @style
   end
   
   def update
-    @styles = current_user.styles
+    @style = current_user.style
     
-    if @styles.update_attributes(styles_params)
-      render json: @styles
+    if @style.update_attributes(style_params)
+      render json: @style
     else
-      render json: @styles.errors, status: 422
+      render json: @style.errors, status: 422
     end
   end
   
   private
-  def styles_params
+  def style_params
     params.require(:style).permit(:user_id, :body_shape, :skin_tone, :shirt_size, :pants_size, :style_type, :never_wear, :fit_preferences, :fit_issues, :color_preferences, :colors_hate, :comments)
   end
 end

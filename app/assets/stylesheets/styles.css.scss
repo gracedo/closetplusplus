@@ -1,3 +1,27 @@
 // Place all the styles related to the styles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.meas-block-left-style {
+  float: left;
+  width: 45%;
+  margin: 10px;
+  display: inline-block;
+}
+
+.meas-block-right-style {
+  float: right;
+  width: 45%;
+  margin: 10px;
+  display: inline-block;
+}
+
+.style-textarea {
+  border-radius: 2px;
+  border: 1px #ddd solid;
+//  background-color: #F0F0F0;
+  color: #000000;
+  box-shadow: 3px 3px 3px rgba(0,0,0,0.2);
+}

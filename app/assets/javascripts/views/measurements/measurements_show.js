@@ -5,12 +5,10 @@ Closet.Views.MeasurementsShow = Backbone.View.extend({
     this.user = options.user;
     this.listenTo(this.user.measurements(), "change", this.render);
     this.listenTo(this.user, "sync", this.render);
-    
   },
   
   events: {
-    "click button.create-measures": "create",
-    "click button.update-measures": "update"
+    "click button.save-measures": "save"
   },
   
   render: function() {
@@ -31,7 +29,7 @@ Closet.Views.MeasurementsShow = Backbone.View.extend({
     return this;
   },
   
-  create: function(event) {
+  save: function(event) {
     event.preventDefault();
     var $formData = $(event.currentTarget.form).serializeJSON().measurements;
     // $formData.user_id = this.user.id;
@@ -40,33 +38,14 @@ Closet.Views.MeasurementsShow = Backbone.View.extend({
       patch: true,
       success: function() {
         console.log("measurements successfully created");
-        Backbone.history.navigate("", { trigger: true })
+        // Backbone.history.navigate("#/measurements", { trigger: true });
+        window.scrollTo(0,0);
       },
       error: function() {
         var errors = arguments[1].responseText;
         console.log("measurements failed to be created");
         console.log(errors);
         $(".alert").html("Invalid Attributes!");
-        $(".alert").removeClass("hidden");
-      }
-    })
-  },
-  
-  update: function(event) {
-    event.preventDefault();
-    var $formData = $(event.currentTarget.form).serializeJSON().measurements;
-    var newMeasures = new Closet.Models.Preferences($formData);
-    
-    this.model.save($formData, {
-      patch: true,
-      success: function() {
-        console.log("measurements successfully updated");
-        Backbone.history.navigate("", { trigger: true })
-      },
-      error: function() {
-        var errors = arguments[1].responseText;
-        console.log("measurements failed to update");
-        console.log(errors);
         $(".alert").removeClass("hidden");
       }
     })
@@ -115,7 +94,7 @@ Closet.Views.MeasurementsShow = Backbone.View.extend({
     this.$("#"+type+"_min").prepend(min);
     this.$("#"+type+"_max").prepend(max);
     this.$("#"+type+"_amt").html(savedVal+suffix);
-    this.$("form input[name='measurements["+type+"]']").val(min);
+    this.$("form input[name='measurements["+type+"]']").val(savedVal);
   },
   
   heightSlider: function() {
@@ -143,6 +122,6 @@ Closet.Views.MeasurementsShow = Backbone.View.extend({
     });
     
     this.$("#height_amt").html(toFeet(savedHeight));
-    this.$("form input[name='measurements[height]']").val(60);
+    this.$("form input[name='measurements[height]']").val(savedHeight);
   }
 });

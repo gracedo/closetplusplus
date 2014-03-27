@@ -13,8 +13,8 @@ if @user.measurements
   end
 end
 
-if @user.styles
-  json.styles do 
-    json.(@user.styles, :id, :user_id, :body_shape, :skin_tone, :shirt_size, :pants_size, :style_type, :never_wear, :fit_preferences, :fit_issues, :color_preferences, :colors_hate, :comments, :created_at, :updated_at)
+if @user.style
+  json.style do 
+    json.(@user.style, :id, :user_id, :body_shape, :skin_tone, :shirt_size, :pants_size, :style_type, :never_wear, :fit_preferences, :fit_issues, :color_preferences, :colors_hate, :comments, :created_at, :updated_at)
   end
 end

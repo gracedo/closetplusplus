@@ -1,0 +1,179 @@
+<center>
+  <div class="style" id="<%= user.id %>">
+    <form role="form" class="style-form" align="left">
+    
+      <h2 align="center">Your Style</h2>
+      
+      <hr>
+
+      <div class="alert alert-danger hidden"></div>
+    
+      <!-- <input type="hidden" name="style[user_id]" value="<%= user.id %>"> -->
+      
+      <fieldset>
+        <div class="meas-row row-fluid clearfix" align="center">
+          <!-- <legend>General Body</legend> -->
+        
+          <div class="meas-block-left-style">
+            <h3><label>What shape is your body?</label></h3>
+            
+            <div class="col-md-5">
+              <select name="style[body_shape]" class="form-control">
+                <option></option>
+                <option value="oval" <%= style.get("body_shape") === "oval" ? "selected" : "" %>>Oval</option>
+                <option value="rectangle" <%= style.get("body_shape") === "rectangle" ? "selected" : "" %>>Rectangle</option>
+                <option value="trapezoid" <%= style.get("body_shape") === "trapezoid" ? "selected" : "" %>>Trapezoid</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="meas-block-right-style">
+            <h3><label>What is your skin tone?</label></h3>
+            
+            <div class="col-md-5">
+              <select name="style[skin_tone]" class="form-control">
+                <option></option>
+                <option value="light" <%= style.get("skin_tone") === "light" ? "selected" : "" %>>Light</option>
+                <option value="medium" <%= style.get("skin_tone") === "medium" ? "selected" : "" %>>Medium</option>
+                <option value="tan" <%= style.get("skin_tone") === "tan" ? "selected" : "" %>>Tan</option>
+                <option value="dark" <%= style.get("skin_tone") === "dark" ? "selected" : "" %>>Dark</option>
+              </select>
+            </div>
+            
+            <div style="clear:both;"></div>
+          </div>
+          
+          <div class="meas-block-left-style">
+            <h3><label>What's your shirt size?</label></h3>
+          
+            <div class="col-md-5">
+              <select name="style[shirt_size]" class="form-control">
+                <option></option>
+                <option value="none" <%= style.get("shirt_size") === "none" ? "selected" : "" %>>Don't Know</option>
+                <option value="xs" <%= style.get("shirt_size") === "xs" ? "selected" : "" %>>Extra-Small</option>
+                <option value="sm" <%= style.get("shirt_size") === "xm" ? "selected" : "" %>>Small</option>
+                <option value="md" <%= style.get("shirt_size") === "md" ? "selected" : "" %>>Medium</option>
+                <option value="lg" <%= style.get("shirt_size") === "lg" ? "selected" : "" %>>Large</option>
+                <option value="xl" <%= style.get("shirt_size") === "xl" ? "selected" : "" %>>Extra-Large</option>
+                <option value="xxl" <%= style.get("shirt_size") === "xxl" ? "selected" : "" %>>XX-Large</option>
+              </select>
+            </div>
+            
+          </div>
+        
+          <div class="meas-block-right-style">
+            <h3><label>What's your pants size?</label></h3>
+          
+            <div class="col-md-6">
+              <div class="slider-labels">Waist</div>
+              <select name="style[pants_waist]" class="form-control">
+                <option></option>
+                <option value="none" <%= style.get("pants_waist") === "none" ? "selected" : "" %>>Don't Know</option>
+    
+                <% for(i = 28; i < 40; i++) { %>
+                  <option <%= style.get("pants_waist") === i.toString() ? "selected" : "" %>><%= i %></option>
+                <% } %>
+              </select>
+            </div>
+            
+            <div class="col-md-6">
+              <div class="slider-labels">Inseam</div>
+              <select name="style[pants_inseam]" class="form-control">
+                <option></option>
+                <% for(i = 28; i < 38; i=i+2) { %>
+                  <option <%= style.get("pants_inseam") === i.toString() ? "selected" : "" %>><%= i %></option>
+                <% } %>
+              </select>
+            </div>
+          </div>
+          
+          
+          <div style="clear:both;"></div>
+          
+          <div class="meas-block-left-style">
+            <h3><label>What's your style?</label></h3>
+          
+            <div class="col-md-8">
+              <textarea class="form-control" rows="3" name="style[style_type]" id="style_type" value="<%= style.escape("style_type") %>" placeholder="E.g. preppy, classic, casual, hipster...">
+                <%= style.escape("style_type") %>
+              </textarea>
+            </div>
+            
+          </div>
+        
+          <div class="meas-block-right-style">
+            <h3><label>What would you never wear?</label></h3>
+          
+            <div class="col-md-8">
+              <textarea class="form-control" rows="3" name="style[never_wear]" id="never_wear" value="<%= style.escape("never_wear") %>" placeholder="E.g. plaid, stripes, pink, skinny jeans, graphics...">
+                <%= style.escape("never_wear") %>
+              </textarea>
+            </div>
+          </div>
+          
+          <div class="meas-block-left-style">
+            <h3><label>How do you like your fit?</label></h3>
+          
+            <div class="col-md-5">
+              <select name="style[fit_preference]" class="form-control">
+                <option></option>
+                <option value="trim" <%= style.get("fit_preference") === "trim" ? "selected" : "" %>>Trim</option>
+                <option value="relaxed" <%= style.get("fit_preference") === "relaxes" ? "selected" : "" %>>Relaxed</option>
+              </select>
+            </div>
+          </div>
+        
+          <div class="meas-block-right-style">
+            <h3><label>What fit issues do you have?</label></h3>
+          
+            <div class="col-md-8">
+              <textarea class="form-control" rows="3" name="style[fit_issues]" id="fit_issues" value="<%= style.escape("fit_issues") %>" placeholder="E.g. long arms, short arms, thick arms, broad shoulders, big belly, bit butt, thunder thighs, thick neck. short torso, broad chest, very skinny, skinny legs...">
+                <%= style.escape("fit_issues") %>
+              </textarea>
+            </div>
+          </div>
+            
+            <div style="clear:both;"></div>
+            
+            <div class="meas-block-left-style">
+              <h3><label>What colors do you love?</label></h3>
+          
+              <div class="col-md-8">
+                <textarea class="form-control" rows="3" name="style[color_preferences]" id="color_preferences" value="<%= style.escape("color_preferences") %>" placeholder="Colors that you love...">
+                  <%= style.escape("color_preferences") %>
+                </textarea>
+              </div>
+            </div>
+        
+            <div class="meas-block-right-style">
+              <h3><label>What colors do you hate?</label></h3>
+          
+              <div class="col-md-8">
+                <textarea class="form-control" rows="3" name="style[colors_hate]" id="colors_hate" value="<%= style.escape("colors_hate") %>" placeholder="Colors that you hate...">
+                  <%= style.escape("colors_hate") %>
+                </textarea>
+              </div>
+            </div>
+            
+            <div class="meas-block-left-style">
+              <h3><label>Anything else you'd like to tell us?</label></h3>
+          
+              <div class="col-md-8">
+                <textarea class="form-control" rows="3" name="style[comments]" id="comments" value="<%= style.escape("comments") %>" placeholder="">
+                  <%= style.escape("comments") %>
+                </textarea>
+              </div>
+            </div>
+            
+            <div style="clear:both;"></div>
+        </div>
+        
+        
+      </fieldset>
+      
+      <div align="center">  
+        <button class="btn btn-default meas save-style">Save</button>
+      </div>
+    </form>
+  </div>
+</center>

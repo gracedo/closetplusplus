@@ -7,6 +7,7 @@ Closet::Application.routes.draw do
       resources :orders
       resource :preferences, except: [:index, :destroy]
       resource :measurements, except: [:index, :destroy]
+      resource :style, except: [:index, :destroy]
     end
     resources :items
   end

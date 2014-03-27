@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
           :foreign_key => :user_id, 
           :class_name => "Measurement"
           
-  has_one :styles,
+  has_one :style,
           :primary_key => :id, 
           :foreign_key => :user_id, 
           :class_name => "Style"

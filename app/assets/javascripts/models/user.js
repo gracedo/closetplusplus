@@ -16,6 +16,11 @@ Closet.Models.User = Backbone.Model.extend({
       this.measurements().set(jsonResponse.measurements, { parse: true });
       delete jsonResponse.measurements;
     }
+
+    if (jsonResponse.style){
+      this.style().set(jsonResponse.style, { parse: true });
+      delete jsonResponse.style;
+    }
     
     return jsonResponse;
   },
@@ -42,6 +47,14 @@ Closet.Models.User = Backbone.Model.extend({
     }
     
     return this._measurements;
+  },
+  
+  style: function(){
+    if(!this._style){
+      this._style = new Closet.Models.Style();
+    }
+    
+    return this._style;
   }
 });
 
