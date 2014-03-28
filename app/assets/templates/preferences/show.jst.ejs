@@ -2,7 +2,7 @@
   <div class="preferences" id="<%= user.id %>">
     <form role="form" class="preferences-form" align="left">
     
-      <h2>Your Subscription Preferences</h2>
+      <h2 align="center">Your Subscription Preferences</h2>
       <br>
 
       <div class="alert alert-danger hidden"></div>
@@ -25,18 +25,23 @@
           <label><input type="radio" name="preferences[subscription]" id="subscription" value="paused" <%= preferences.get("subscription") === "paused" ? "checked" : "" %>>I'd like to pause my subscription</label><br>
         </div>
       </div>
-    
-      <div class="form-group">
-        <label>What is your budget?**</label>
-      
-        <select name="preferences[budget]" class="form-control">
-          <option></option>
-          <option value="50-100" <%= preferences.get("budget") === "50-100" ? "selected" : "" %>>$50-$100</option>
-          <option value="100-150" <%= preferences.get("budget") === "100-150" ? "selected" : "" %>>$100-$150</option>
-          <option value="150-200" <%= preferences.get("budget") === "150-200" ? "selected" : "" %>>$150-$200</option>
-          <option value="none" <%= preferences.get("budget") === "none" ? "selected" : "" %>>Quality matters to me!</option>
-        </select>
+  
+      <div class="form-group row">
+        <div class="col-md-5">
+          <label>What is your budget?**</label>
+  
+          <select name="preferences[budget]" class="form-control">
+            <option></option>
+            <option value="50-100" <%= preferences.get("budget") === "50-100" ? "selected" : "" %>>$50-$100</option>
+            <option value="100-150" <%= preferences.get("budget") === "100-150" ? "selected" : "" %>>$100-$150</option>
+            <option value="150-200" <%= preferences.get("budget") === "150-200" ? "selected" : "" %>>$150-$200</option>
+            <option value="none" <%= preferences.get("budget") === "none" ? "selected" : "" %>>Quality matters to me!</option>
+          </select>
+        </div>
       </div>
+      
+      
+      <div style="clear:both;"></div>
     
       <div class="form-group">
         <strong>How many pieces of clothing per shipment?**</strong>
