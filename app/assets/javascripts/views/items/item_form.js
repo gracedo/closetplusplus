@@ -34,6 +34,7 @@ Closet.Views.ItemForm = Backbone.View.extend({
       // $(".alert").html(newItem.validationError);
       $(".create-errors").removeClass("hidden");
       this.renderValStates($(".create-errors"));
+      window.scrollTo(0,0);
     } else {
       this.items.create(newItem, {
         success: function() {
