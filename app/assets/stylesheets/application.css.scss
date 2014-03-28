@@ -26,7 +26,17 @@ div.container-fluid#root {
   background-size: 100%;
 	background-position: 0px 0px;
   background-repeat: no-repeat;
-  margin: 0px -200px;
+  margin: -19px -150px;
+  margin-bottom: -40px;
+//  min-height: 680px;
+//  min-width: 100%;
+//  min-height: 100%;
+//  height: 100%;
+//  width: 100%;
+
+
+	overflow: hidden;
+
 
 	animation: animatedBackground 40s linear infinite;
   -webkit-animation: animatedBackground 40s linear infinite; /* Safari and Chrome */
@@ -36,6 +46,7 @@ div.container-fluid#root {
   .jumbotron {
     background-color: rgba(255, 255, 255, 0.8);
     max-width: 55%;
+    margin-top: 10px;
   }
 }
 
@@ -52,10 +63,12 @@ div.container#root-content {
 }
 
 footer {
-  padding-bottom: 10px;
-  background-color: #F0F0F0;
+  margin: 40px;
+  padding: 10px;
+//  background-color: #F0F0F0;
+  background-color: rgba(255, 255, 255, 0.6);
   border-color: #ddd;
-  box-shadow: 0px 500px 0px 500px #F0F0F0;
+//  box-shadow: 0px 500px 0px 500px #F0F0F0;
 }
 
 .dropdown-header {

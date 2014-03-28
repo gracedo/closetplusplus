@@ -32,8 +32,8 @@ Closet.Views.ItemForm = Backbone.View.extend({
       console.log("item failed to be created");
       // console.log(newItem.validationError);
       // $(".alert").html(newItem.validationError);
-      $(".alert").removeClass("hidden");
-      this.renderValStates($(".alert"));
+      $(".create-errors").removeClass("hidden");
+      this.renderValStates($(".create-errors"));
     } else {
       this.items.create(newItem, {
         success: function() {
@@ -43,8 +43,8 @@ Closet.Views.ItemForm = Backbone.View.extend({
         error: function() {
           var errors = arguments[1].responseText;
           console.log("item failed to be created");
-          $(".alert").html(errors);
-          $(".alert").removeClass("hidden");
+          $(".create-errors").html(errors);
+          $(".create-errors").removeClass("hidden");
           window.scrollTo(0,0);
         }
       })
@@ -61,17 +61,24 @@ Closet.Views.ItemForm = Backbone.View.extend({
       success: function() {
         console.log("item successfully updated");
       },
-      error: function() { //WHY NOT GETTING TO THIS ERROR WHEN VALIDATION IS RETURNING FALSE
-        var errors = arguments[1].responseText;
-        console.log("item failed to be updated");
-        console.log(errors);
-
-        this.renderValStates($(".alert[data-id='"+that.model.id+"']"));
-        $(".alert[data-id='"+that.model.id+"']").html(errors);
-        $(".alert[data-id='"+that.model.id+"']").removeClass("hidden");
-        window.scrollTo(0,0);
+      error: function() {
+        that.errorCallback(arguments[1].responseText);
       }
     })
+    
+    if(this.model.validationError) {
+      that.errorCallback(this.model.validationError);
+    }
+  },
+  
+  errorCallback: function(errors) {
+    console.log("item failed to be updated");
+    console.log(errors);
+
+    this.renderValStates($(".edit-errors[data-id='"+this.model.id+"']"));
+    $(".edit-errors[data-id='"+this.model.id+"']").prepend(errors + " ");
+    $(".edit-errors[data-id='"+this.model.id+"']").removeClass("hidden");
+    window.scrollTo(0,0);
   },
   
   removeForm: function(event) {
@@ -80,6 +87,8 @@ Closet.Views.ItemForm = Backbone.View.extend({
   },
   
   renderValStates: function($el) {
+    $el.empty();
+    
     if($("#name").val().length === 0) {
       $("#name").parent().addClass("has-error has-feedback");
       $("#name").parent().removeClass("has-success has-feedback");
