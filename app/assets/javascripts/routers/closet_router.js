@@ -85,6 +85,8 @@ Closet.Routers.Router = Backbone.Router.extend({
 //   },
   
   _swapView: function(view) {
+    $(window).off("resize");
+    
     if(this.currentView) {
       this.currentView.remove();
     }

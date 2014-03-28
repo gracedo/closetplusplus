@@ -1,5 +1,6 @@
 Closet.Views.UserShow = Backbone.CompositeView.extend({
   template: JST['users/show'],
+  className: "content-pages",
   
   initialize: function(options) {
     // this.addresses = this.model.addresses();

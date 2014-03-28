@@ -1,18 +1,20 @@
-<center>
-  <% if(orders.length > 0) { %>
-    <h1 align="center"><legend class="lg">Your Order History</legend></h1>
-    <hr>
-  <% } else { %>
-    <div class="row">
-      <div class="jumbotron" id="order" align="left">
-        <h1>You have no orders!</h1>
-        <br>
-        <p class="lead">Visit the <a href="/#/items">clothing inventory</a> to browse through the available items, or update your <a href="/#/measurements">measurements</a> and <a href="/#/preferences">shipping preferences</a> so that our stylist can pick out some fashionable items to send to you!</p>
+<div class="clearfix">
+  <center>
+    <% if(orders.length > 0) { %>
+      <h1 align="center"><legend class="lg">Your Order History</legend></h1>
+      <hr>
+    <% } else { %>
+      <div class="row">
+        <div class="jumbotron" id="order" align="left">
+          <h1>You have no orders!</h1>
+          <br>
+          <p class="lead">Visit the <a href="/#/items">clothing inventory</a> to browse through the available items, or update your <a href="/#/measurements">measurements</a> and <a href="/#/preferences">shipping preferences</a> so that our stylist can pick out some fashionable items to send to you!</p>
+      </div>
     </div>
-  </div>
-    <% } %>
+      <% } %>
 
-  <div class="orders-container" class="clearfix" align="left">
-  </div>
+    <div class="orders-container" class="clearfix" align="left">
+    </div>
   
-</center>
+  </center>
+</div>

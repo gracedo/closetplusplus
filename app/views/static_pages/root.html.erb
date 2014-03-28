@@ -1,31 +1,40 @@
 <div id="root" class="container-fluid">
-  <br>
-<center>
-  <div class="row">
-    <div class="jumbotron" align="left">
-      <h1>Clothing, solved.</h1>
-      <br>
-      <p class="lead">Closet++ is a monthly clothing subscription designed entirely for guys. Join now to get clothes picked just for you by a stylist, so you can spend your time doing awesome guy stuff.</p>
-      <br>
+
+  <center>
+    <div class="row">
+      <div class="jumbotron" align="left">
+        <h1>Clothing, solved.</h1>
+        <br>
+        <p class="lead">Closet++ is a monthly clothing subscription designed entirely for guys. Join now to get clothes picked just for you by a stylist, so you can spend your time doing awesome guy stuff.</p>
+        <br>
       
-      <form action="<%= new_user_session_url %>" method="post" accept-charset="utf-8">
-        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <form action="<%= new_user_session_url %>" method="post" accept-charset="utf-8">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
         
-        <input type="hidden" name="user[email]" value="test@test.com" id="email">
-        <input type="hidden" name="user[password]" value="testing123" id="password">
+          <input type="hidden" name="user[email]" value="test@test.com" id="email">
+          <input type="hidden" name="user[password]" value="testing123" id="password">
 
-      <p align="center"><button type="submit" class="btn btn-info btn-lg btn-block" role="button">Sign in as guest user</button></p>
-      </form>
+        <p align="center"><button type="submit" class="btn btn-info btn-lg btn-block" role="button">Sign in as guest user</button></p>
+        </form>
       
-      <br>
-      <p><a href="users/sign_up" class="btn btn-success btn-lg" role="button">Get Started</a> <a href="" class="btn btn-primary btn-lg" role="button">Learn More</a></p>
+        <br>
+        <p><a href="users/sign_up" class="btn btn-success btn-lg" role="button">Get Started</a> <a href="" class="btn btn-primary btn-lg" role="button">Learn More</a></p>
+      </div>
     </div>
-  </div>
-</center>
+  </center>
 
-<script type="text/javascript" charset="utf-8">
-  $(document).ready(function(){
-    Closet.initialize();
-  });
-</script>
+  <script type="text/javascript" charset="utf-8">
+    $(document).ready(function() {
+      Closet.initialize();
+    });
+    
+    if($("div.container-fluid#root").length > 0) {
+      $(window).on("resize", function() {
+          $("div.container-fluid#root").height($(window).height());
+          console.log("resizing")
+      });
+
+      $(window).trigger('resize');
+    }
+  </script>
 </div>
