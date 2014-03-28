@@ -4,11 +4,11 @@
       <h1 align="center"><legend>Edit Item</legend></h1>
     <% } else { %>
       <h1 align="center"><legend class="lg">Create A New Item</legend></h1>
-    
-      <div class="alert alert-danger hidden" data-id="<%= item.id %>">
-        Invalid Attributes!
-      </div>
     <% } %>
+    
+    <div class="alert alert-danger hidden" data-id="<%= item.id %>">
+      Invalid Attributes!
+    </div>
   
     <div class="item-form form-group">
     

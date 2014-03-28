@@ -50,6 +50,7 @@ Closet.Views.PreferencesShow = Backbone.View.extend({
           console.log("preferences failed to be created");
           console.log(errors);
           $(".alert").removeClass("hidden");
+          window.scrollTo(0,0);
         }
       })
     }

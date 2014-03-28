@@ -24,7 +24,6 @@ Closet.Views.AddressesForm = Backbone.View.extend({
     Closet.Collections.addresses.fetch();
     
     var formData = $(event.target.form).serializeJSON();
-    debugger
     // var currAddresses = Closet.Collections.addresses.find(formData.addresses.get("id)"))
     
     this.model.save(formData, {

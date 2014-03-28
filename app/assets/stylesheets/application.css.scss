@@ -21,20 +21,21 @@ $navbar-default-link-hover-bg: #ddd;
 @import "bootstrap";
 
 
-div.container#root {
+div.container-fluid#root {
   background-image: url('male_reference_5_by_bugidifino-d3herls.jpg');
   background-size: 100%;
 	background-position: 0px 0px;
   background-repeat: no-repeat;
-  margin: 0;
+  margin: 0px -200px;
 
 	animation: animatedBackground 40s linear infinite;
   -webkit-animation: animatedBackground 40s linear infinite; /* Safari and Chrome */
 }
 
-div.container#root {
+div.container-fluid#root {
   .jumbotron {
     background-color: rgba(255, 255, 255, 0.8);
+    max-width: 55%;
   }
 }
 
@@ -63,12 +64,18 @@ footer {
   font-weight: 300;
 }
 
+.alert {
+  text-align: center;
+}
+
 .errors {
+  text-align: center;
   width: 70%;
 }
 
 .subscription-warning {
- width: 70%; 
+ width: 70%;
+ text-align: center;
 }
 
 .btn-color {

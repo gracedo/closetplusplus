@@ -45,6 +45,7 @@ Closet.Views.ItemForm = Backbone.View.extend({
           console.log("item failed to be created");
           $(".alert").html(errors);
           $(".alert").removeClass("hidden");
+          window.scrollTo(0,0);
         }
       })
     }
@@ -54,13 +55,13 @@ Closet.Views.ItemForm = Backbone.View.extend({
     var that = this;
     event.preventDefault();
     var $formData = $(event.currentTarget.form).serializeJSON().item;
-    
+
     this.model.save($formData, {
       patch: true,
       success: function() {
         console.log("item successfully updated");
       },
-      error: function() {
+      error: function() { //WHY NOT GETTING TO THIS ERROR WHEN VALIDATION IS RETURNING FALSE
         var errors = arguments[1].responseText;
         console.log("item failed to be updated");
         console.log(errors);
@@ -68,6 +69,7 @@ Closet.Views.ItemForm = Backbone.View.extend({
         this.renderValStates($(".alert[data-id='"+that.model.id+"']"));
         $(".alert[data-id='"+that.model.id+"']").html(errors);
         $(".alert[data-id='"+that.model.id+"']").removeClass("hidden");
+        window.scrollTo(0,0);
       }
     })
   },
