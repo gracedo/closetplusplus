@@ -8,12 +8,17 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
-
+ *= require font-awesome
  *= require jquery.ui.all
  *= require_self
  *= require_tree .
  */
 
+$navbar-height: 40px;
+$navbar-default-bg: #F0F0F0;
+$navbar-default-link-hover-bg: #ddd;
+
+@import "bootstrap";
 
 body {
   padding-top: 60px;
@@ -50,9 +55,33 @@ footer {
   width: 65%;
 }
 
+#error_explanation {
+    padding: $alert-padding;
+    padding-top: 5px;
+    margin-bottom: $line-height-computed;
+    border: 1px solid transparent;
+    border-radius: $alert-border-radius;
 
-$navbar-height: 40px;
-$navbar-default-bg: #F0F0F0;
-$navbar-default-link-hover-bg: #ddd;
+    h2 {
+      font-size: 18px;
+    }
+    
+    h4 {
+      margin-top: 0;
+      color: inherit;
+    }
 
-@import "bootstrap";
+    .alert-link {
+      font-weight: $alert-link-font-weight;
+    }
+
+    > p,
+    > ul {
+      margin-bottom: 0;
+    }
+    > p + p {
+      margin-top: 5px;
+    }
+  
+  @include alert-variant($alert-danger-bg, $alert-danger-border, $alert-danger-text);
+}

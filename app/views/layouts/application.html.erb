@@ -61,7 +61,7 @@
   </nav>
   
   <center>
-    <div class="subscription-warning">
+    <div class="subscription-warning animated fadeIn">
       <% if current_user %>
         <% if current_user.preferences %>
           <% if current_user.preferences.subscription == "paused" %>
@@ -76,27 +76,26 @@
     <div class="errors animated bounceInRight">
       <% if flash[:errors] %>
         <% flash[:errors].each do |error| %>
-          <div class='alert alert-danger alert-dismissable'><%= error %>
+          <div class='temp-alert alert alert-danger alert-dismissable'><%= error %>
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
           </div>
         <% end %>
       <% end %>
       <% if flash[:notice] %>
-        <div class='alert alert-success alert-dismissable'><%= flash[:notice] %>
+        <div class='temp-alert alert alert-success alert-dismissable'><%= flash[:notice] %>
           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         </div>
       <% end %>
     </div>
   </center>
-    
-  
+
 
   <div id="root-content" class="container">
     <%= yield %>
   </div>
 
   <script type="text/javascript" charset="utf-8">
-    window.setTimeout(function() { $(".errors").alert('close'); }, 4000);
+    window.setTimeout(function() { $(".temp-alert").alert('close'); }, 4000);
   </script>
 </body>
 

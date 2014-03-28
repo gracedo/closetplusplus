@@ -70,7 +70,7 @@ class User < ActiveRecord::Base
   private
   def ensure_measurements_and_styles
     self.measurements ||= Measurement.new
-    self.styles ||= Style.new
+    self.style ||= Style.new
   end
   # def ensure_session_token
   #   self.session_token ||= User.generate_session_token

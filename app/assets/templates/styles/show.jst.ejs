@@ -5,7 +5,11 @@
       <h2 align="center">Your Style</h2>
       
       <hr>
-
+      
+      <div class="alert alert-success hidden animated bounceInRight alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      </div>
+      
       <div class="alert alert-danger hidden"></div>
     
       <!-- <input type="hidden" name="style[user_id]" value="<%= user.id %>"> -->
@@ -17,20 +21,17 @@
           <div class="meas-block-left-style">
             <h3><label>What shape is your body?</label></h3>
             
-            <div class="col-md-5">
-              <select name="style[body_shape]" class="form-control">
-                <option></option>
-                <option value="oval" <%= style.get("body_shape") === "oval" ? "selected" : "" %>>Oval</option>
-                <option value="rectangle" <%= style.get("body_shape") === "rectangle" ? "selected" : "" %>>Rectangle</option>
-                <option value="trapezoid" <%= style.get("body_shape") === "trapezoid" ? "selected" : "" %>>Trapezoid</option>
-              </select>
-            </div>
+            <select name="style[body_shape]" class="form-control">
+              <option></option>
+              <option value="oval" <%= style.get("body_shape") === "oval" ? "selected" : "" %>>Oval</option>
+              <option value="rectangle" <%= style.get("body_shape") === "rectangle" ? "selected" : "" %>>Rectangle</option>
+              <option value="trapezoid" <%= style.get("body_shape") === "trapezoid" ? "selected" : "" %>>Trapezoid</option>
+            </select>
           </div>
           
           <div class="meas-block-right-style">
             <h3><label>What is your skin tone?</label></h3>
             
-            <div class="col-md-5">
               <select name="style[skin_tone]" class="form-control">
                 <option></option>
                 <option value="light" <%= style.get("skin_tone") === "light" ? "selected" : "" %>>Light</option>
@@ -38,7 +39,6 @@
                 <option value="tan" <%= style.get("skin_tone") === "tan" ? "selected" : "" %>>Tan</option>
                 <option value="dark" <%= style.get("skin_tone") === "dark" ? "selected" : "" %>>Dark</option>
               </select>
-            </div>
             
             <div style="clear:both;"></div>
           </div>
@@ -46,7 +46,6 @@
           <div class="meas-block-left-style">
             <h3><label>What's your shirt size?</label></h3>
           
-            <div class="col-md-5">
               <select name="style[shirt_size]" class="form-control">
                 <option></option>
                 <option value="none" <%= style.get("shirt_size") === "none" ? "selected" : "" %>>Don't Know</option>
@@ -57,8 +56,6 @@
                 <option value="xl" <%= style.get("shirt_size") === "xl" ? "selected" : "" %>>Extra-Large</option>
                 <option value="xxl" <%= style.get("shirt_size") === "xxl" ? "selected" : "" %>>XX-Large</option>
               </select>
-            </div>
-            
           </div>
         
           <div class="meas-block-right-style">
@@ -76,7 +73,6 @@
               </select>
             </div>
             
-            <div class="col-md-6">
               <div class="slider-labels">Inseam</div>
               <select name="style[pants_inseam]" class="form-control">
                 <option></option>
@@ -87,7 +83,6 @@
                 <% } %>
               </select>
             </div>
-          </div>
           
           
           <div style="clear:both;"></div>
@@ -95,65 +90,50 @@
           <div class="meas-block-left-style">
             <h3><label>What's your style?</label></h3>
           
-            <div class="col-md-8">
               <textarea class="form-control" rows="4" name="style[style_type]" id="style_type" value="<%= style.escape("style_type") %>" placeholder="E.g. preppy, classic, casual, hipster..."><%= style.escape("style_type") %></textarea>
             </div>
             
-          </div>
         
           <div class="meas-block-right-style">
             <h3><label>What would you never wear?</label></h3>
           
-            <div class="col-md-8">
               <textarea class="form-control" rows="4" name="style[never_wear]" id="never_wear" value="<%= style.escape("never_wear") %>" placeholder="E.g. plaid, stripes, pink, skinny jeans, graphics..."><%= style.escape("never_wear") %></textarea>
             </div>
-          </div>
           
           <div class="meas-block-left-style">
             <h3><label>How do you like your fit?</label></h3>
           
-            <div class="col-md-5">
               <select name="style[fit_preference]" class="form-control">
                 <option></option>
                 <option value="trim" <%= style.get("fit_preference") === "trim" ? "selected" : "" %>>Trim</option>
                 <option value="relaxed" <%= style.get("fit_preference") === "relaxes" ? "selected" : "" %>>Relaxed</option>
               </select>
             </div>
-          </div>
         
           <div class="meas-block-right-style">
             <h3><label>What fit issues do you have?</label></h3>
           
-            <div class="col-md-8">
               <textarea class="form-control" rows="4" name="style[fit_issues]" id="fit_issues" value="<%= style.escape("fit_issues") %>" placeholder="E.g. long arms, short arms, thick arms, broad shoulders, big belly, bit butt, thunder thighs, thick neck. short torso, broad chest, very skinny, skinny legs..."><%= style.escape("fit_issues") %></textarea>
             </div>
-          </div>
             
             <div style="clear:both;"></div>
             
             <div class="meas-block-left-style">
               <h3><label>What colors do you love?</label></h3>
           
-              <div class="col-md-8">
                 <textarea class="form-control" rows="4" name="style[color_preferences]" id="color_preferences" value="<%= style.escape("color_preferences") %>" placeholder="Colors that you love..."><%= style.escape("color_preferences") %></textarea>
               </div>
-            </div>
         
             <div class="meas-block-right-style">
               <h3><label>What colors do you hate?</label></h3>
           
-              <div class="col-md-8">
                 <textarea class="form-control" rows="4" name="style[colors_hate]" id="colors_hate" value="<%= style.escape("colors_hate") %>" placeholder="Colors that you hate..."><%= style.escape("colors_hate") %></textarea>
               </div>
-            </div>
             
             <div class="meas-block-left-style">
-              <h3><label>Anything else you'd like to tell us?</label></h3>
-          
-              <div class="col-md-8">
+              <h3><label>Anything else you want to tell me?</label></h3>
                 <textarea class="form-control" rows="4" name="style[comments]" id="comments" value="<%= style.escape("comments") %>" placeholder=""><%= style.escape("comments") %></textarea>
               </div>
-            </div>
             
             <div style="clear:both;"></div>
         </div>
