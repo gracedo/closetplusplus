@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$footer-height: 40px;
 
 .preferences-form {
   border-radius: 8px;
@@ -13,4 +14,5 @@
   background-color: #F0F0F0;
   color: #000000;
   box-shadow: 3px 3px 3px rgba(0,0,0,0.2);
+  margin-top: $footer-height;
 }
