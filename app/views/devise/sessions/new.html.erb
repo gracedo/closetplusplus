@@ -4,6 +4,7 @@
     <br>
 
     <%= form_for(resource, as: resource_name, html: { class: "form-horizontal", role: "form" }, url: new_user_session_path) do |f| %>
+      <%= devise_error_messages! %>
 
       <div class="form-group">
         <%= f.label :email, class: "col-sm-4 control-label" %>
