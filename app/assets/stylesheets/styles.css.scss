@@ -18,24 +18,20 @@
   display: inline-block;
 }
 
-.style-textarea {
-  border-radius: 2px;
-  border: 1px #ddd solid;
-//  background-color: #F0F0F0;
-  color: #000000;
-  box-shadow: 3px 3px 3px rgba(0,0,0,0.2);
-}
-
 .meas-block-left-style, .meas-block-right-style {
   select, textarea {
     width: 180px;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    background-color: orange;
   }
   textarea {
-    width: 300px;
+    width: 350px;
+    border-radius: 2px;
+    border: 1px #ddd solid;
+  //  background-color: #F0F0F0;
+    color: #000000;
+    box-shadow: 3px 3px 3px rgba(0,0,0,0.2);
   }
 }
 

@@ -3,29 +3,35 @@
     <h2 align="center">Sign in</h2>
     <br>
 
-    <div class="col-md-offset-1">
-      <%= form_for(resource, as: resource_name, html: { class: "form-horizontal", role: "form" }, url: new_user_session_path) do |f| %>
-  
-        <div class="form-group"><%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true %></div>
+    <%= form_for(resource, as: resource_name, html: { class: "form-horizontal", role: "form" }, url: new_user_session_path) do |f| %>
 
-        <div class="form-group"><%= f.label :password %><br />
-          <%= f.password_field :password, autocomplete: "off" %></div>
-      
-          <% if devise_mapping.rememberable? -%>
-            <div class="form-group">
-              <%= f.check_box :remember_me %> <%= f.label :remember_me %>
-            </div>
-          <% end -%>
-      
-          <div class="form-group">
-            <%= f.submit "Sign in", class: "btn btn-default" %>
+      <div class="form-group">
+        <%= f.label :email, class: "col-sm-4 control-label" %>
+        <div class="col-sm-5">
+          <%= f.email_field :email, autofocus: true, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password, class: "col-sm-4 control-label" %>
+        <div class="col-sm-5">
+          <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+        </div>
+      </div>
+    
+        <% if devise_mapping.rememberable? -%>
+          <div class="form-group" align="center">
+            <%= f.check_box :remember_me %> <%= f.label :remember_me %>
           </div>
+        <% end -%>
+
+        <div class="form-group" align="center">
+          <%= f.submit "Sign in", class: "btn btn-default" %>
+        </div>
       <% end %>
 
       <div class="form-group">
         <%= render "devise/shared/links" %>
       </div>
-    </div>
   </div>
 </center>
