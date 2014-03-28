@@ -7,7 +7,7 @@
   border-radius: 8px;
 //  float: left;
   width: 90%;
-  min-height: 228px;
+  min-height: 238px;
   max-width: 450px;
   border: 0px black solid;
   padding: 20px;
@@ -34,4 +34,20 @@
 .edit-item-link {
   position: absolute; 
   bottom: 20px;
+}
+
+.modal-content {
+  padding: 25px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.modal-title {
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+#modal-link {
+  font-weight: 400;
+  text-transform: uppercase;
 }

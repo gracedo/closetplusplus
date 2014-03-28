@@ -1,5 +1,18 @@
 <center>
+  
   <div class="preferences-form" align="left">
+    <br>
+    <form action="<%= new_user_session_url %>" method="post" accept-charset="utf-8">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    
+      <input type="hidden" name="user[email]" value="test@test.com" id="email">
+      <input type="hidden" name="user[password]" value="testing123" id="password">
+
+    <p align="center"><button type="submit" class="btn btn-info btn-lg btn-block" role="button">Click to sign in as guest user</button></p>
+    </form>
+    
+    <br>
+    
     <h2 align="center">Sign up</h2>
     
     <br>

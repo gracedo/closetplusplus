@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 
-<body>
+<body class="app">
   <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -89,10 +89,11 @@
     </div>
   </center>
 
-
-  <div id="root-content" class="container">
-    <%= yield %>
-  </div>
+  <center>
+    <div id="root-content" class="container" align="left">
+      <%= yield %>
+    </div>
+  </center>
 
   <script type="text/javascript" charset="utf-8">
     window.setTimeout(function() { $(".temp-alert").alert('close'); }, 4000);

@@ -8,6 +8,7 @@
   float: left;
   width: 45%;
   margin: 10px;
+  margin-bottom:20px;
   display: inline-block;
 }
 
@@ -15,6 +16,7 @@
   float: right;
   width: 45%;
   margin: 10px;
+  margin-bottom:20px;
   display: inline-block;
 }
 
@@ -35,3 +37,12 @@
   }
 }
 
+body form legend {
+  font-family: "Lato", sans-serif;
+  font-size: 24px;
+  font-weight: 300;
+  text-transform: uppercase;
+  border-bottom-width: 0px;
+  margin-bottom: 0px;
+  margin-top: 5px;
+}

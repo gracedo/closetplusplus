@@ -1,9 +1,9 @@
 <center>
   <form role="form" align="left" class="item-form <%= action === "edit" ? "" : "new-item-form" %>" data-id="<%= item.id %>">
     <% if(action === "edit") { %>
-      <h3>Edit Item</h3>
+      <h1 align="center"><legend>Edit Item</legend></h1>
     <% } else { %>
-      <h3>Create a New Item</h3>
+      <h1 align="center"><legend class="lg">Create A New Item</legend></h1>
     
       <div class="alert alert-danger hidden" data-id="<%= item.id %>">
         Invalid Attributes!
@@ -79,10 +79,10 @@
         <div class="form-group">
          <strong>In Stock?</strong>
           <div class="radio">
-            <label><input type="radio" name="item[in_stock]" id="in_stock" value="true">Yes</label>
+            <label><input type="radio" name="item[in_stock]" id="in_stock" value="true"<%= item.get("in_stock") === "true" ? "checked" : "" %>>Yes</label>
           </div>
           <div class="radio">
-            <label><input type="radio" name="item[in_stock]" id="in_stock" value="false">No</label>
+            <label><input type="radio" name="item[in_stock]" id="in_stock" value="false"<%= item.get("in_stock") === "false" ? "checked" : "" %>>No</label>
           </div>
         </div>
       <% } %>

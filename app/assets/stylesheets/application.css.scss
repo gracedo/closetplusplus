@@ -20,11 +20,19 @@ $navbar-default-link-hover-bg: #ddd;
 
 @import "bootstrap";
 
-body.root {
+
+div.container#root {
   background-image: url('male_reference_5_by_bugidifino-d3herls.jpg');
   background-size: 100%;
+	background-position: 0px 0px;
+  background-repeat: no-repeat;
+  margin: 0;
+
+	animation: animatedBackground 40s linear infinite;
+  -webkit-animation: animatedBackground 40s linear infinite; /* Safari and Chrome */
 }
-body.root {
+
+div.container#root {
   .jumbotron {
     background-color: rgba(255, 255, 255, 0.8);
   }
@@ -35,6 +43,11 @@ body {
   font-family: "Lato", sans-serif !important;
   background-color: #F9F9FB !important;
   font-weight: 100;
+}
+
+div.container#root-content {
+  margin: 0;
+
 }
 
 footer {
@@ -48,12 +61,6 @@ footer {
   font-size: 16px;
   text-transform: uppercase;
   font-weight: 300;
-}
-
-.modal-content {
-  padding: 25px;
-  padding-top: 15px;
-  padding-bottom: 15px;
 }
 
 .errors {
@@ -70,6 +77,12 @@ footer {
 
 .jumbotron {
   width: 65%;
+    
+  h1 {
+    font-size: 54px;
+    font-weight: 300;
+    text-transform: uppercase;
+  }
 }
 
 #error_explanation {

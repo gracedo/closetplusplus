@@ -11,9 +11,10 @@
   padding: 20px;
   padding-top: 0px;
   padding-bottom: 0px;
-  width: 60%;
-  border: 1px black solid;
-  border-radius: 8px;
+  width: 100%;
+  border: 1px #ddd solid;
+//  border-radius: 8px;
+  box-shadow: 3px 3px 3px rgba(0,0,0,0.2);
 }
 
 .order-details-small {

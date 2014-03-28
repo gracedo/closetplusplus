@@ -1,20 +1,25 @@
 <div class="col-md-6">
 <div class="item-block">
-  <h4>
+  <h3 id="modal-link">
     <a href="" data-toggle="modal" class="item-modal" data-target=".item-<%= item.id %>"><%= item.escape("name") %></a>
-  </h4>
+  </h3>
   
   <% if(order) { %>
     <center>
-    <div class="order-details-small" align="left">
-      <p><h4>Your Order Details:</h4></p>
-      <ul>
-        <li>Shipping date: <%= order.escape("ship_date") %></li>
-        <li>Size: <%= order.escape("size") %></li>
-        <li>Order placed: <%= order.escape("created_at") %></li>
-      </ul>
-    </div>
-  </center>
+      <div class="order-details-small" align="left">
+        <h4 style="margin-top:0;">Hooray! Find this item in your closet!</h4>
+        <ul>
+          <li>Shipping date: <%= order.escape("ship_date") %></li>
+          <li>Size: <%= order.escape("size") %></li>
+          <li>Order placed: <%= order.escape("created_at") %></li>
+        </ul>
+      </div>
+    </center>
+  <% } else { %>
+    <% if(item.escape("in_stock") === "false") { %>
+      <br>
+      <p style="padding-left:20px;font-weight:400;">Sorry, I'm out of stock :(</p>
+    <% } %>
   <% } %>
 
   <div class="modal fade item-<%= item.id %>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -23,7 +28,7 @@
         
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h3 class="modal-title"><%= item.escape("name") %></h3>
+          <h1 class="modal-title"><%= item.escape("name") %></h1>
         </div>
         
         <div class="model-body">
