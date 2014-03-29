@@ -6,6 +6,8 @@ Closet++ is a clothing subscription web app exclusively for guys. Merely submit 
 
 An extra feature: a clothing inventory that allows you to purchase items we currently have in our inventory, if you see something you'd like!
 
-(Note: Closet++ is a mockup, not an actual subscription service)
+*(Note: Closet++ is a mockup, not an actual subscription service)*
 
 Log in as a demo user to check it out! Admins can add and edit new items; consumers only have access to view and purchase items.
+
+**Check the app out <a href="http://cpp.gracedo.com" target="new">here</a>!**
