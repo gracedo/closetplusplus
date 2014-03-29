@@ -8,7 +8,7 @@ Closet.Views.ItemShow = Backbone.View.extend({
     this.order = options.order;
 
     this.listenTo(this.user, "sync", this.render);
-    this.listenTo(this.items, "sync change", this.render);
+    this.listenTo(this.items, "sync change add", this.render);
   },
   
   events: {

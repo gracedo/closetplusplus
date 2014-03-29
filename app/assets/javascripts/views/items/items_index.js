@@ -2,7 +2,6 @@ Closet.Views.ItemsIndex = Backbone.CompositeView.extend({
   template: JST['items/index'],
   
   initialize: function(options) {
-    window.badView = this;
     // this.items = options.collection;
     this.user = options.user;
     // this.listenTo(this.collection, "all", this.render);
