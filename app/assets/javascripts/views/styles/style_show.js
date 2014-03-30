@@ -33,7 +33,7 @@ Closet.Views.StyleShow = Backbone.View.extend({
       success: function() {
         console.log("styles successfully created");
         window.scrollTo(0,0);
-        $(".alert-success").prepend("Style preferences successfully saved!");
+        $(".alert-success").html("Style preferences successfully saved!");
         $(".alert-success").removeClass("hidden");
       },
       error: function() {
@@ -42,8 +42,9 @@ Closet.Views.StyleShow = Backbone.View.extend({
         console.log(errors);
         $(".alert").html("Invalid Attributes!");
         $(".alert").removeClass("hidden");
-        window.scrollTo(0,0);
       }
-    })
+    });
+    
+    $('body, html').animate({scrollTop: 0}, 500);
   }
 });

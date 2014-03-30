@@ -31,6 +31,7 @@ Closet.Views.MeasurementsShow = Backbone.View.extend({
   
   save: function(event) {
     event.preventDefault();
+
     var $formData = $(event.currentTarget.form).serializeJSON().measurements;
     // $formData.user_id = this.user.id;
     
@@ -41,7 +42,6 @@ Closet.Views.MeasurementsShow = Backbone.View.extend({
         // Backbone.history.navigate("#/measurements", { trigger: true });
         $(".alert-success").prepend("Measurements successfully saved!");
         $(".alert-success").removeClass("hidden");
-        window.scrollTo(0,0);
       },
       error: function() {
         var errors = arguments[1].responseText;
@@ -49,9 +49,11 @@ Closet.Views.MeasurementsShow = Backbone.View.extend({
         console.log(errors);
         $(".alert-danger").html("Invalid Attributes!");
         $(".alert-danger").removeClass("hidden");
-        window.scrollTo(0,0);
+        // window.scrollTo(0,0);
       }
-    })
+    });
+  
+    $('body, html').animate({scrollTop: 0}, 500);
   },
   
   initSliders: function() {
