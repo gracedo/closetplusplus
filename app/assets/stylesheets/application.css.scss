@@ -33,13 +33,13 @@ body {
 //  background-position: 0px 0px;
 //  background-repeat: no-repeat;
   
-//  margin-top: $footer-height;
+//  margin-top: $footer-height; //pushes footer down
   font-family: "Lato", sans-serif !important;
   background-color: #F9F9FB !important;
   font-weight: 100;
   position: relative;
   min-height: 100%;
-  margin-bottom: -$footer-height;
+//  margin-bottom: -$footer-height;
 }
 
 center.root-center {
@@ -50,11 +50,11 @@ center.root-center {
 }
 
 div.container-fluid#root {
-  background-image: url('male_reference_5_by_bugidifino-d3herls-sm.jpg');
-  background-size: 100%;
-  background-position: 0px 0px;
-  background-repeat: no-repeat;
-  overflow: hidden;
+  //background-image: url('male_reference_5_by_bugidifino-d3herls-sm.jpg');
+//  background-size: 100%;
+//  background-position: 0px 0px;
+//  background-repeat: no-repeat;
+//  overflow: hidden;
   height: 100%;
 
 	animation: animatedBackground 40s linear infinite;
@@ -72,11 +72,9 @@ div.container-fluid#root {
   }
 }
 
-//body.app {
-//  min-height: 100%;
-//  position: relative;
-//  padding-bottom: -$footer-height;
-//}
+div.moving-bg {
+  background: url('male_reference_5_by_bugidifino-d3herls-sm.jpg');
+}
 
 body:after {
   content: "";
@@ -127,7 +125,7 @@ footer {
 }
 
 center.root-alerts {
-  margin-top: $footer-height; //breaks footer, extend under height
+//  margin-top: $footer-height; //breaks footer, extend under height. commented out = fix footer, but alert covered by navbar
 }
 
 .errors {

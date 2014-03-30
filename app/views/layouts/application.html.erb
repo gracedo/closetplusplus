@@ -127,6 +127,25 @@
 
   <script type="text/javascript" charset="utf-8">
     window.setTimeout(function() { $(".temp-alert").alert('close'); }, 4000);
+    
+    // var intval = null;
+    // var pos = 0;
+    // 
+    // $(document).ready(function() {
+    //   intval = window.setInterval(moveBg, 30);
+    // });
+    // 
+    // function moveBg() {
+    //   pos++;
+    //   $(".moving-bg").css({backgroundPosition: (pos * 1) + "px 0px"});
+    // }
+    
+    $('.moving-bg').mousemove(function(e){
+        var amountMovedX = (e.pageX * -1 / 40);
+        var amountMovedY = (e.pageY * -1 / 40);
+        $(this).css('background-position', amountMovedX + 'px ' + amountMovedY + 'px');
+    });
+    
   </script>
 </body>
 
