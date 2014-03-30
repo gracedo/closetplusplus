@@ -10,7 +10,7 @@ Closet.Views.ItemForm = Backbone.View.extend({
   events: {
     "click button.new-item": "create",
     "click button.edit-item": "edit",
-    "click button.cancel-edit-item": "removeForm"
+    // "click button.cancel-edit-item": "removeForm"
   },
   
   render: function() {
@@ -63,6 +63,9 @@ Closet.Views.ItemForm = Backbone.View.extend({
       patch: true,
       success: function() {
         console.log("item successfully updated");
+        $(".edit-item-form[data-id='"+that.model.id+"']").modal('hide');
+        $('body').removeClass('modal-open');
+        $('.modal-backdrop').remove();
       },
       error: function() {
         that.errorCallback(arguments[1].responseText);

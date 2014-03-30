@@ -105,11 +105,33 @@
       </div>
     </div>
 
-    <div class="edit-item-container">
+    <!-- <div class="edit-item-container">
       <div class="alert alert-danger hidden" data-id="<%= item.id %>"></div>
       <div class="edit-item-link-container" data-item-id="<%= item.id %>"><a href="#" class="edit-item-link">Edit</a></div>
       <div class="edit-item-form" data-id="<%= item.id %>"></div>
+    </div> -->
+    
+    <div class="edit-item-container">
+    <div class="edit-item-link-container" data-item-id="<%= item.id %>">
+      <a href="" data-toggle="modal" class="edit-item-link item-modal" data-target=".edit-item-<%= item.id %>">Edit</a>
     </div>
-  
+    
+    <div class="modal fade edit-item-<%= item.id %>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h1 class="modal-title"><%= item.escape("name") %></h1>
+          </div>
+          
+          <div class="modal-body">
+            <div class="alert alert-danger hidden" data-id="<%= item.id %>"></div>
+            <div class="edit-item-form" data-id="<%= item.id %>"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+          
   </div>
 </div>
