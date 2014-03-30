@@ -6,7 +6,7 @@ Closet.Views.ItemsIndex = Backbone.CompositeView.extend({
     this.user = options.user;
     // this.listenTo(this.collection, "all", this.render);
     this.listenTo(this.collection, "add", this.addItem);
-    this.listenTo(this.collection, "remove sync change", this.render);
+    this.listenTo(this.collection, "add sync change", this.render);
     
     // this.collection.sort();
 
@@ -24,6 +24,7 @@ Closet.Views.ItemsIndex = Backbone.CompositeView.extend({
 
     this.$el.html(renderedContent);
     this.renderSubviews();
+
     return this;
   },
   

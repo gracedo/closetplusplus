@@ -6,7 +6,7 @@ $footer-height: 40px;
 
 .preferences-form {
   border-radius: 8px;
-  width: 60%;
+  width: 50%;
   padding: 40px;
   padding-top: 8px;
   padding-bottom: 20px;
@@ -16,4 +16,10 @@ $footer-height: 40px;
   box-shadow: 3px 3px 3px rgba(0,0,0,0.2);
   margin-top: $footer-height;
 //  opacity: 0;
+}
+
+.preferences-form:hover {
+	-moz-box-shadow: 0 0 5px rgba(0,0,0,0.5);
+	-webkit-box-shadow: 0 0 5px rgba(0,0,0,0.5);
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.5);
 }

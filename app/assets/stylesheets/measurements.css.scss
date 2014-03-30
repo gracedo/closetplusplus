@@ -62,9 +62,15 @@ body {
 .slider-text {
   font-family: "Lato", sans-serif;
   text-align: center;
-  font-size: 36px;
-  font-weight: 700;
+  font-size: 40px;
+  font-weight: 350;
   margin-bottom: 10px;
+}
+
+.slider:hover {
+    -webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+    -moz-box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
 }
 
 body .indexes {
