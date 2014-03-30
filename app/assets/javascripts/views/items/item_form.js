@@ -20,6 +20,8 @@ Closet.Views.ItemForm = Backbone.View.extend({
     });
     
     this.$el.html(renderedContent);
+
+    $(".new-item-form").delay(1).animate({ opacity: 1 }, 700);
     return this;
   },
   

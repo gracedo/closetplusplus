@@ -18,8 +18,16 @@ $footer-height: 40px;
   margin: 10px auto;
   background-color: #F0F0F0;
   color: #000000;
+	-moz-box-shadow: 3px 3px 3px rgba(0,0,0,0.2);
+	-webkit-box-shadow: 3px 3px 3px rgba(0,0,0,0.2);
   box-shadow: 3px 3px 3px rgba(0,0,0,0.2);
   opacity: 0;
+}
+
+.item-block:hover {
+	-moz-box-shadow: 0 0 5px rgba(0,0,0,0.5);
+	-webkit-box-shadow: 0 0 5px rgba(0,0,0,0.5);
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.5);
 }
 
 .new-item-form {
@@ -33,6 +41,7 @@ $footer-height: 40px;
   background-color: #F0F0F0;
   color: #000000;
   box-shadow: 3px 3px 3px rgba(0,0,0,0.2);
+//  opacity: 0;
 }
 
 .edit-item-link {
