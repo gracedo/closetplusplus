@@ -101,7 +101,7 @@ div.container#root-content {
 //  margin-bottom: $footer-height+10px; commented out = footer sticks to bottom and doesn't overlap
 }
 
-footer {
+footer { //check the margin! margin > 0 would push footer down below page limits
   padding: 10px;
   background-color: rgba(249, 249, 251, 0.4);
   border-color: #ddd;
