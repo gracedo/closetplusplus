@@ -1,6 +1,6 @@
 #Closet++
 
-Created with: Ruby on Rails, Backbone.js, JavaScript, JQuery, HTML5, CSS3
+Created with: Ruby on Rails, Backbone.js, JavaScript, jQuery, HTML5, CSS3
 
 Closet++ is a clothing subscription web app exclusively for guys. Merely submit your measurements and clothing styles/preferences, and a stylist will pick out clothing to mail to you. Keep it if you like it, return it if you don't. Subscriptions can be monthly, bimonthly, or trimonthly, and can also be paused at any time. Specify your budget as well as how many clothing items (and type of clothing, e.g. jeans, blazers, shorts) you'd like per shipment!
 
