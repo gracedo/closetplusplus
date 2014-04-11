@@ -8,6 +8,6 @@ An extra feature: a clothing inventory that allows you to purchase items we curr
 
 *(Note: Closet++ is a mockup, not an actual subscription service)*
 
-Log in as a demo user to check it out! Admins can add and edit new items; consumers only have access to view and purchase items.
+Log in as a demo user to check it out! Admins can add and edit new items; consumers only have access to view and purchase items (in development).
 
 **Check the app out <a href="http://cpp.gracedo.com" target="new">here</a>!**
