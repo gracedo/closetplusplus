@@ -8,7 +8,8 @@ Closet.Views.MeasurementsShow = Backbone.View.extend({
   },
   
   events: {
-    "click button.save-measures": "save"
+    "click button.save-measures": "save",
+    "click a.ui-slider-handle": "autosave"
   },
   
   render: function() {
@@ -42,7 +43,7 @@ Closet.Views.MeasurementsShow = Backbone.View.extend({
       success: function() {
         console.log("measurements successfully created");
         // Backbone.history.navigate("#/measurements", { trigger: true });
-        $(".alert-success").prepend("Measurements successfully saved!");
+        $(".alert-success").prepend("Measurements saved!");
         $(".alert-success").removeClass("hidden");
       },
       error: function() {
@@ -56,6 +57,24 @@ Closet.Views.MeasurementsShow = Backbone.View.extend({
     });
   
     $('body, html').animate({scrollTop: 0}, 500);
+  },
+  
+  autosave: function() {
+    var $formData = $(event.currentTarget.form).serializeJSON().measurements;
+    
+    this.model.save($formData, {
+      patch: true,
+      success: function() {
+        console.log("Measurements successfully saved");
+        $(".autosave").removeClass("hidden");
+        window.setTimeout(function() { $(".autosave").addClass('hidden'); }, 1000);
+      },
+      error: function() {
+        var errors = arguments[1].responseText;
+        console.log("measurements failed to be saved");
+        console.log(errors);
+      }
+    });
   },
   
   initSliders: function() {
@@ -95,6 +114,7 @@ Closet.Views.MeasurementsShow = Backbone.View.extend({
         var uiVal = ui.value;
         that.$("form input[name='measurements["+type+"]']").val(uiVal);
         that.$("#"+type+"_amt").html(uiVal+suffix);
+        that.autosave();
       }
     });
     
@@ -125,6 +145,7 @@ Closet.Views.MeasurementsShow = Backbone.View.extend({
         var uiVal = ui.value
         that.$("form input[name='measurements[height]']").val(uiVal);
         that.$("#height_amt").html(toFeet(uiVal));
+        that.autosave();
       }
     });
     

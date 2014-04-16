@@ -68,9 +68,9 @@ body {
 }
 
 .slider:hover {
-    -webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
-    -moz-box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
-    box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+  -webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+  -moz-box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
 }
 
 body .indexes {
@@ -104,4 +104,8 @@ body form fieldset label {
   font-weight: 300;
   line-height: 24px;
   text-transform: uppercase;
+}
+
+.autosave {
+  position: absolute;
 }
