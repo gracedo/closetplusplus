@@ -60,7 +60,7 @@ Closet.Views.MeasurementsShow = Backbone.View.extend({
   },
   
   autosave: function() {
-    var $formData = $(event.currentTarget.form).serializeJSON().measurements;
+    var $formData = $('.measurements-form').serializeJSON().measurements;
     
     this.model.save($formData, {
       patch: true,
