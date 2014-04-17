@@ -13,7 +13,8 @@ Closet.Views.ItemShow = Backbone.View.extend({
   
   events: {
     "click a.edit-item-link": "addEditForm",
-    "click button.purchase-item": "addOrderForm"
+    "click button.purchase-item": "addOrderForm",
+    "click a.item-modal": "removeForm"
   },
   
   render: function() {
@@ -51,5 +52,10 @@ Closet.Views.ItemShow = Backbone.View.extend({
     });
     
     $(".new-order-form[data-id='"+this.model.id+"']").html(orderFormView.render().$el);
+  },
+  
+  removeForm: function(event) {
+    event.preventDefault();
+    $(".new-order-form").empty();
   }
 });
