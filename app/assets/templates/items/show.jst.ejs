@@ -85,12 +85,11 @@
             <% } else { %>
             
               <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-  
                 <% if(!order) { %>
-                  <button type="button" class="purchase-item btn btn-primary" id="<%= item.id %>">Purchase this item!</button>
-                  <div class="new-order-form" data-id="<%= item.id %>" align="center"></div>
+                  <button type="button" class="purchase-item btn btn-primary" id="<%= item.id %>">Purchase!</button>
                 <% } %>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <div class="new-order-form" data-id="<%= item.id %>" align="center"></div>
               </div>
             <% } %>
           </div>
