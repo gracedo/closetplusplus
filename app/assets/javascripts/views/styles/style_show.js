@@ -26,7 +26,6 @@ Closet.Views.StyleShow = Backbone.View.extend({
   save: function(event) {
     event.preventDefault();
     var $formData = $(event.currentTarget.form).serializeJSON().style;
-    // $formData.user_id = this.user.id;
     
     this.model.save($formData, {
       patch: true,

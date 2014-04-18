@@ -43,7 +43,7 @@ Closet.Views.OrderForm = Backbone.View.extend({
         $('body').removeClass('modal-open');
         $('.modal-backdrop').remove();
         console.log("Order successfully created!");
-        Backbone.history.navigate('', { trigger: true })
+        Backbone.history.navigate('', { trigger: true });
       },
       error: function() {
         console.log("Order was not processed");

@@ -36,7 +36,6 @@ Closet.Views.MeasurementsShow = Backbone.View.extend({
     event.preventDefault();
 
     var $formData = $(event.currentTarget.form).serializeJSON().measurements;
-    // $formData.user_id = this.user.id;
     
     this.model.save($formData, {
       patch: true,

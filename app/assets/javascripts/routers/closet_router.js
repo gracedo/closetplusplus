@@ -15,7 +15,6 @@ Closet.Routers.Router = Backbone.Router.extend({
     this.preferences = this.model.preferences();
     this.measurements = this.model.measurements();
     this.style = this.model.style();
-    // this.addresses = this.model.addresses();
   },
   
   userShow: function() {
@@ -51,7 +50,6 @@ Closet.Routers.Router = Backbone.Router.extend({
   },
   
   prefShow: function() {
-    // this.preferences = (this.preferences || new Closet.Models.Preferences())
     var prefShowView = new Closet.Views.PreferencesShow({
       user: this.model,
       model: this.preferences
@@ -75,14 +73,6 @@ Closet.Routers.Router = Backbone.Router.extend({
     
     this._swapView(styleShowView);
   },
-  
-  // addressesForm: function() {
-//     var addressesFormView = new Closet.Views.AddressesForm({
-//       model: this.model
-//     });
-//     
-//     this._swapView(addressesFormView)
-//   },
   
   _swapView: function(view) {
     $(window).off("resize");
