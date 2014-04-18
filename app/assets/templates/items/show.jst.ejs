@@ -86,7 +86,7 @@
 
             <% if(item.escape("in_stock") === "false") { %>
               <br>
-              <p><strong>:( Sorry, this item is out of stock.</strong></p>
+              <div class="alert alert-danger">:( Sorry, this item is out of stock.</div>
             <% } else { %>
             
               <div class="modal-footer">
