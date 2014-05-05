@@ -30,6 +30,12 @@ $footer-height: 40px;
 	box-shadow: 3px 3px 5px rgba(0,0,0,0.5);
 }
 
+.item-form input:hover, .item-form textarea:hover {
+	-moz-box-shadow: 0 0 3px rgba(0,0,0,0.3);
+	-webkit-box-shadow: 0 0 3px rgba(0,0,0,0.3);
+	box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+
 .new-item-form {
   border-radius: 8px;
   width: 50%;
