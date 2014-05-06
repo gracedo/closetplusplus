@@ -26,8 +26,7 @@ Closet.Views.ItemShow = Backbone.View.extend({
     
       this.$el.html(renderedContent);
     }
-
-    $(".item-block").delay(1).animate({ opacity: 1 }, 700);
+    
     return this;
   },
   

@@ -24,6 +24,7 @@ Closet.Views.ItemsIndex = Backbone.CompositeView.extend({
 
     this.$el.html(renderedContent);
     this.renderSubviews();
+    this.$el.find("#items").delay(1).animate({ opacity: 1 }, 700);
 
     return this;
   },
