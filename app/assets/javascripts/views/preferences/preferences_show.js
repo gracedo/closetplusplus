@@ -27,7 +27,7 @@ Closet.Views.PreferencesShow = Backbone.View.extend({
     });
     
     this.$el.html(renderedContent);
-    this.$el.find(".preferences-form").delay(1).animate({ opacity: 1 }, 700); // not working
+    this.$el.find(".preferences-form").delay(1).animate({ opacity: 1 }, 700);
     
     return this;
   },
