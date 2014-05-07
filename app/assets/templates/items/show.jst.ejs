@@ -1,126 +1,124 @@
 <div class="col-md-4">
-
-  <a href="" data-toggle="modal" class="item-modal" data-target=".item-<%= item.id %>">
-    <div class="item-block" data-id="<%= item.id %>">
-      <h3 id="modal-link">
-        <%= item.escape("name") %>
-      </h3>
+  <div class="item-block" data-id="<%= item.id %>">
+    <a href="" data-toggle="modal" class="item-modal" data-target=".item-<%= item.id %>">
+    <h3 id="modal-link"><%= item.escape("name") %>
+    </h3>
   
-      <% if(order) { %>
-        <center>
-          <div class="order-details-small" align="left">
-            <h4 style="margin-top:0;">Hooray! You already own this item in your closet! Go and find it!</h4>
-            <ul>
-              <li>Shipping date: <%= order.escape("ship_date") %></li>
-              <li>Size: <%= order.escape("size") %></li>
-              <li>Order placed: <%= order.escape("created_at") %></li>
-            </ul>
-          </div>
-        </center>
-      <% } else { %>
-        <% if(item.escape("in_stock") === "false") { %>
-          <br>
-          <p style="padding-left:20px;font-weight:400;">Sorry, I'm out of stock :(</p>
-        <% } %>
+    <% if(order) { %>
+      <center>
+        <div class="order-details-small" align="left">
+          <h4 style="margin-top:0;">Hooray! You already own this item in your closet! Go and find it!</h4>
+          <ul>
+            <li>Shipping date: <%= order.escape("ship_date") %></li>
+            <li>Size: <%= order.escape("size") %></li>
+            <li>Order placed: <%= order.escape("created_at") %></li>
+          </ul>
+        </div>
+      </center>
+    <% } else { %>
+      <% if(item.escape("in_stock") === "false") { %>
+        <br>
+        <p style="padding-left:20px;font-weight:400;">Sorry, I'm out of stock :(</p>
       <% } %>
+    <% } %>
+    </a>
 
-      <div class="modal fade item-<%= item.id %>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal fade item-<%= item.id %>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+        
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h1 class="modal-title"><%= item.escape("name") %></h1>
+          </div>
+        
+          <div class="modal-body">
+
+            <% if(order) { %>
+              <center>
+                <div class="alert-info order-details" align="left">
+                  <p><h3>Your Order Details:</h3></p>
+                  <ul>
+                    <li>Shipping date: <%= order.escape("ship_date") %></li>
+                    <li>Size: <%= order.escape("size") %></li>
+                    <li>Order placed: <%= order.escape("created_at") %></li>
+                  </ul>
+                </div>
+              </center>
+              <hr>
+            <% } %>
+          
+            <p><h3>Brand: <%= item.escape("brand") %></h3></p>
+
+            <% if(item.escape("intro")) { %>
+              <ul>
+                <%= item.escape("intro") %>
+              </ul>
+            <% } %>
+
+            <p><h3>Details</h3></p>
+              <%= item.escape("details") %>
+
+            <% if(item.escape("wear_it_with")) { %>
+              <p><h3>Wear it with...</h3></p>
+              <%= item.escape("wear_it_with") %>
+            <% } %>
+          
+            <br><br>
+            <p><h4>Popularity</h4></p>
+            <ul>
+              <% if(item.escape("rating")) { %>
+                <li>User rating: <%= item.escape("rating") %></li>
+              <% } else { %>
+                <li>This item has not yet been rated.</li>
+              <% } %>
+  
+              <% if(item.orders().length > 0) { %>
+                <li>Number of user purchases: <%= item.orders().length %></li>
+              <% } else { %>
+                <li>This item has not yet been purchased by users.</li>
+              <% } %>
+            </ul>
+
+            <% if(item.escape("in_stock") === "false") { %>
+              <br>
+              <div class="alert alert-danger">:( Sorry, this item is out of stock.</div>
+            <% } else { %>
+            
+              <div class="modal-footer">
+                <% if(!order) { %>
+                  <button type="button" class="purchase-item btn btn-primary" id="<%= item.id %>">Purchase!</button>
+                <% } %>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <div class="new-order-form" data-id="<%= item.id %>" align="center"></div>
+              </div>
+            <% } %>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="edit-item-container">
+      <div class="edit-item-link-container" data-item-id="<%= item.id %>">
+        <a href="" data-toggle="modal" class="edit-item-link item-modal" data-target=".edit-item-<%= item.id %>">Edit</a>
+      </div>
+    
+      <div class="modal fade edit-item-<%= item.id %>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
-        
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
               <h1 class="modal-title"><%= item.escape("name") %></h1>
             </div>
-        
+          
             <div class="modal-body">
-
-              <% if(order) { %>
-                <center>
-                  <div class="alert-info order-details" align="left">
-                    <p><h3>Your Order Details:</h3></p>
-                    <ul>
-                      <li>Shipping date: <%= order.escape("ship_date") %></li>
-                      <li>Size: <%= order.escape("size") %></li>
-                      <li>Order placed: <%= order.escape("created_at") %></li>
-                    </ul>
-                  </div>
-                </center>
-                <hr>
-              <% } %>
-          
-              <p><h3>Brand: <%= item.escape("brand") %></h3></p>
-
-              <% if(item.escape("intro")) { %>
-                <ul>
-                  <%= item.escape("intro") %>
-                </ul>
-              <% } %>
-
-              <p><h3>Details</h3></p>
-                <%= item.escape("details") %>
-
-              <% if(item.escape("wear_it_with")) { %>
-                <p><h3>Wear it with...</h3></p>
-                <%= item.escape("wear_it_with") %>
-              <% } %>
-          
-              <br><br>
-              <p><h4>Popularity</h4></p>
-              <ul>
-                <% if(item.escape("rating")) { %>
-                  <li>User rating: <%= item.escape("rating") %></li>
-                <% } else { %>
-                  <li>This item has not yet been rated.</li>
-                <% } %>
-  
-                <% if(item.orders().length > 0) { %>
-                  <li>Number of user purchases: <%= item.orders().length %></li>
-                <% } else { %>
-                  <li>This item has not yet been purchased by users.</li>
-                <% } %>
-              </ul>
-
-              <% if(item.escape("in_stock") === "false") { %>
-                <br>
-                <div class="alert alert-danger">:( Sorry, this item is out of stock.</div>
-              <% } else { %>
-            
-                <div class="modal-footer">
-                  <% if(!order) { %>
-                    <button type="button" class="purchase-item btn btn-primary" id="<%= item.id %>">Purchase!</button>
-                  <% } %>
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                  <div class="new-order-form" data-id="<%= item.id %>" align="center"></div>
-                </div>
-              <% } %>
+              <div class="alert alert-danger hidden" data-id="<%= item.id %>"></div>
+              <div class="edit-item-form" data-id="<%= item.id %>"></div>
             </div>
           </div>
         </div>
       </div>
-    
-      <div class="edit-item-container">
-        <div class="edit-item-link-container" data-item-id="<%= item.id %>">
-          <a href="" data-toggle="modal" class="edit-item-link item-modal" data-target=".edit-item-<%= item.id %>">Edit</a>
-        </div>
-    
-        <div class="modal fade edit-item-<%= item.id %>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h1 class="modal-title"><%= item.escape("name") %></h1>
-              </div>
-          
-              <div class="modal-body">
-                <div class="alert alert-danger hidden" data-id="<%= item.id %>"></div>
-                <div class="edit-item-form" data-id="<%= item.id %>"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-          
     </div>
-  </a>
+          
+  </div>
 </div>
