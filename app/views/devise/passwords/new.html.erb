@@ -1,12 +1,34 @@
-<h2>Forgot your password?</h2>
+<center class="devise-container">
+  <div class="preferences-form" align="left">
+    <h2 align="center">Forgot your password?</h2>
+    
+    <br>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { class: "form-horizontal", role: "form", method: :post }) do |f| %>
+      <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
+      <div class="form-group">
+        <%= f.label :email, class: "col-sm-4 control-label" %>
+        <div class="col-sm-5">
+          <%= f.email_field :email, autofocus: true, class: "form-control" %>
+        </div>
+      </div>
+      
+      <br>
 
-  <div><%= f.submit "Send me reset password instructions" %></div>
-<% end %>
+      <div class="form-group" align="center">
+        <%= f.submit "Send me reset password instructions", class: "btn btn-success" %>
+      </div>
 
-<%= render "devise/shared/links" %>
+      <br>
+
+      <div class="form-group">
+        <%= render "devise/shared/links" %>
+      </div>
+    <% end %>
+  </div>
+</center>
+
+<script type="text/javascript" charset="utf-8">
+  $(".preferences-form").delay(1).animate({ opacity: 1 }, 700);
+</script>
