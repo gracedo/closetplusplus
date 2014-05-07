@@ -33,6 +33,15 @@ $footer-height: 40px;
 	box-shadow: 3px 3px 5px rgba(0,0,0,0.5);
 }
 
+a.item-modal:not(.edit-item-link) {
+  color: #000000;
+}
+
+a.item-modal:not(.edit-item-link):hover {
+  text-decoration: none;
+  cursor: hand;
+}
+
 .item-form input:hover, .item-form textarea:hover {
 	-moz-box-shadow: 0 0 3px rgba(0,0,0,0.3);
 	-webkit-box-shadow: 0 0 3px rgba(0,0,0,0.3);
