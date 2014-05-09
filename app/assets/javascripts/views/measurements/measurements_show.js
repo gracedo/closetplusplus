@@ -28,7 +28,7 @@ Closet.Views.MeasurementsShow = Backbone.View.extend({
     this.$el.html(renderedContent);
     this.initSliders();
     
-    this.$el.find(".measurements-form").delay(1).animate({ opacity: 1 }, 700);
+    // this.$el.find(".measurements-form").delay(1).animate({ opacity: 1 }, 700);
     return this;
   },
   
