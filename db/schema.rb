@@ -11,30 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140512055903) do
+ActiveRecord::Schema.define(version: 20140512233526) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "items", force: true do |t|
-    t.string   "name",                          null: false
-    t.string   "brand",                         null: false
-    t.string   "item_type",                     null: false
+    t.string   "name",                              null: false
+    t.string   "brand",                             null: false
+    t.string   "item_type",                         null: false
     t.text     "intro"
-    t.text     "details",                       null: false
+    t.text     "details",                           null: false
     t.text     "wear_it_with"
-    t.string   "price",                         null: false
-    t.string   "in_stock",     default: "true", null: false
-    t.float    "rating"
+    t.string   "price",                             null: false
+    t.string   "in_stock",         default: "true", null: false
+    t.float    "total_rating_pts", default: 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "num_ratings",  default: 0
+    t.integer  "num_ratings",      default: 0
   end
 
   add_index "items", ["item_type"], name: "index_items_on_item_type", using: :btree
   add_index "items", ["name"], name: "index_items_on_name", unique: true, using: :btree
   add_index "items", ["price"], name: "index_items_on_price", using: :btree
-  add_index "items", ["rating"], name: "index_items_on_rating", using: :btree
+  add_index "items", ["total_rating_pts"], name: "index_items_on_total_rating_pts", using: :btree
 
   create_table "measurements", force: true do |t|
     t.integer  "user_id",    default: 0
