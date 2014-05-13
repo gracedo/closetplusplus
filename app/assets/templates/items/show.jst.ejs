@@ -68,7 +68,7 @@
             <p><h4>Popularity</h4></p>
             <ul>
               <% if(item.escape("rating")) { %>
-                <li>User rating: <%= item.escape("rating") %></li>
+                <li>User rating: <%= item.escape("total_rating_pts") %></li>
               <% } else { %>
                 <li>This item has not yet been rated.</li>
               <% } %>

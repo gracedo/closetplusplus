@@ -1,2 +1,2 @@
-json.(item, :id, :name, :brand, :item_type, :intro, :details, :wear_it_with, :price, :in_stock, :rating, :created_at, :updated_at)
+json.(item, :id, :name, :brand, :item_type, :intro, :details, :wear_it_with, :price, :in_stock, :total_rating_pts, :num_ratings, :created_at, :updated_at)
 json.orders item.orders, partial: 'api/orders/order', as: :order
