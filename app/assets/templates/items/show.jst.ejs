@@ -48,7 +48,7 @@
               <hr>
             <% } %>
           
-            <p><h3>Brand: <%= item.escape("brand") %></h3></p>
+            <p><h3><span class="glyphicon glyphicon-star-empty"></span> Brand: <%= item.escape("brand") %></h3></p>
 
             <% if(item.escape("intro")) { %>
               <ul>
@@ -56,16 +56,16 @@
               </ul>
             <% } %>
 
-            <p><h3>Details</h3></p>
+            <p><h3><span class="glyphicon glyphicon-list-alt"></span> Details</h3></p>
               <%= item.escape("details") %>
 
             <% if(item.escape("wear_it_with")) { %>
-              <p><h3>Wear it with...</h3></p>
+              <p><h3><span class="glyphicon glyphicon-plus"></span> Wear it with...</h3></p>
               <%= item.escape("wear_it_with") %>
             <% } %>
           
             <br><br>
-            <p><h4>Popularity</h4></p>
+            <p><h4><span class="glyphicon glyphicon-thumbs-up"></span> Popularity</h4></p>
             <ul>
               <% if(item.escape("rating")) { %>
                 <li>User rating: <%= item.escape("total_rating_pts") %></li>
