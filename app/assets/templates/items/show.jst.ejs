@@ -7,7 +7,7 @@
     <% if(order) { %>
       <center>
         <div class="order-details-small" align="left">
-          <h4 style="margin-top:0;">Hooray! You already own this item in your closet! Go and find it!</h4>
+          <h4 style="margin-top:0;"><span class="glyphicon glyphicon-gift"></span> Hooray! You already own this item in your closet! Go and find it!</h4>
           <ul>
             <li>Shipping date: <%= order.escape("ship_date") %></li>
             <li>Size: <%= order.escape("size") %></li>
